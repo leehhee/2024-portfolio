@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import 'color.scss';
+@import 'variable.scss';
+@import 'font.scss';
+@import 'global.scss';
+
+.visual__text {
+  font-family: $font__archivo;
+}

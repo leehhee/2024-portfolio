@@ -1,0 +1,63 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  color: inherit;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+a,
+img {
+  display: block;
+}
+button {
+  outline: none;
+  appearance: none;
+  border: none;
+}
+body {
+  font-size: 1.4rem;
+  min-width: 280px;
+  font-family: $font__pretendard;
+}
+input,
+textarea {
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font__pretendard;
+}
+
+.sound-only {
+  font-size: 0;
+  position: absolute;
+  z-index: -9999;
+  text-indent: 9999;
+  width: 0;
+  height: 0;
+}
+
+.pc-only {
+  display: inherit;
+  @media (max-width: $size__pc-md) {
+    display: none;
+  }
+}
+.tb-only {
+  display: none;
+  @media (max-width: $size__tb-md) {
+    display: inherit;
+  }
+}
