@@ -1,3 +1,10 @@
+import LinkButton from '@/components/ui/button/Button';
+
+const menu = [
+  { text: 'Work', href: '#' },
+  { text: 'About', href: '#' },
+  { text: 'Contact', href: '#' },
+];
 const Header = () => {
   return (
     <header className='header'>
@@ -7,20 +14,19 @@ const Header = () => {
             <a href='/'>YERIM.e</a>
           </div>
         </div>
-        {/* <nav className='header__nav'>
-          <ul>
-            <li>
-              <a href='#'>Work</a>
-            </li>
-            <li>
-              <a href='#'>About</a>
-            </li>
-            <li>
-              <a href='#'>Contact</a>
-            </li>
+        <nav className='nav'>
+          <ul className='nav__list'>
+            {menu.map((el) => {
+              return (
+                // <li className='nav__item' key={el.text}>
+                //   <a href={el.href}>{el.text}</a>
+                // </li>
+                <LinkButton key={el.text}>{el.text}</LinkButton>
+              );
+            })}
           </ul>
-        </nav> */}
-        <button className='header__nav'></button>
+        </nav>
+        {/* <button className='header__nav'></button> */}
       </div>
     </header>
   );

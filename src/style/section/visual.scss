@@ -1,6 +1,5 @@
 .visual {
-  display: flex;
-  align-items: center;
+  @include util__flex(stretch, center);
   &__text {
     font-family: $font__archivo;
     font-size: 4.5vw;
