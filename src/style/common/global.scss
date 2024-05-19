@@ -25,7 +25,11 @@ button {
 body {
   font-size: 1.4rem;
   min-width: 280px;
+  background: $color__bg;
   font-family: $font__pretendard;
+  line-height: $size__p-line-height;
+  color: $color__text-02;
+  letter-spacing: -0.02em;
 }
 input,
 textarea {
@@ -38,26 +42,8 @@ h4,
 h5,
 h6 {
   font-family: $font__pretendard;
+  line-height: $size__title-line-height;
 }
-
-.sound-only {
-  font-size: 0;
-  position: absolute;
-  z-index: -9999;
-  text-indent: 9999;
-  width: 0;
-  height: 0;
-}
-
-.pc-only {
-  display: inherit;
-  @media (max-width: $size__pc-md) {
-    display: none;
-  }
-}
-.tb-only {
-  display: none;
-  @media (max-width: $size__tb-md) {
-    display: inherit;
-  }
+button {
+  background: transparent;
 }

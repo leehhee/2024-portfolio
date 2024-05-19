@@ -1,0 +1,9 @@
+@mixin util__get-size-inner() {
+  width: 100%;
+  max-width: $size__max-inner;
+  margin: 0 auto;
+}
+
+@mixin util__get-text-glow($size: 2.5rem, $color: rgba(255, 255, 255, 0.4)) {
+  text-shadow: 0 0 $size $color;
+}

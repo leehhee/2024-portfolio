@@ -1,0 +1,15 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: $size__page-padding;
+
+  &__inner {
+    @include util__get-size-inner;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}

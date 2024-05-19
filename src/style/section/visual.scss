@@ -1,0 +1,30 @@
+.visual {
+  display: flex;
+  align-items: center;
+  &__text {
+    font-family: $font__archivo;
+    font-size: 4.5vw;
+    line-height: 1.25;
+    text-transform: uppercase;
+    @include util__get-text-glow(2.8rem, rgba(255, 255, 255, 0.6));
+  }
+  &__ticker {
+    width: 45vw;
+    margin-top: 4rem;
+    &-list {
+      gap: 2vw;
+    }
+  }
+}
+
+.skill-icon {
+  width: 3.2vw;
+  height: 3.2vw;
+  max-width: 4rem;
+  max-height: 4rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

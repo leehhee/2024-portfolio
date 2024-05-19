@@ -1,13 +1,13 @@
 const Header = () => {
   return (
-    <header className='Header'>
-      <div className='Header__inner'>
-        <div className='Header__logo-container'>
-          <div className='Header__logo'>
+    <header className='header'>
+      <div className='header__inner'>
+        <div className='header__logo-container'>
+          <div className='header__logo'>
             <a href='/'>YERIM.e</a>
           </div>
         </div>
-        <nav className='Header__nav'>
+        {/* <nav className='header__nav'>
           <ul>
             <li>
               <a href='#'>Work</a>
@@ -19,7 +19,8 @@ const Header = () => {
               <a href='#'>Contact</a>
             </li>
           </ul>
-        </nav>
+        </nav> */}
+        <button className='header__nav'></button>
       </div>
     </header>
   );
