@@ -1,25 +1,27 @@
 'use client';
 import { motion } from 'framer-motion';
-import { HTMLAttributes } from 'react';
-
-export const LinkButtonMotion = {
-  initial: {},
-  active: {},
-};
+import { HTMLAttributes, useState } from 'react';
 
 const LinkButton = (props: ILinkButtonProps) => {
+  const [isHover, setIsHover] = useState(false);
   return (
     <div className={`button ${props.className || ''}`}>
       <motion.a
-        // variants={LinkButtonMotion}
         initial='initial'
         className={`button__link`}
         href='#'
         data-border='true'
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
       >
         {props.children}
       </motion.a>
-      <motion.div className='button__line-container'>
+      <motion.div
+        className='button__line-container'
+        initial={{ opacity: 0 }}
+        animate={isHover ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <motion.div
           className='button__line'
           initial={{ rotate: 0 }}
