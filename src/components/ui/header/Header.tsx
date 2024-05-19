@@ -17,12 +17,7 @@ const Header = () => {
         <nav className='nav'>
           <ul className='nav__list'>
             {menu.map((el) => {
-              return (
-                // <li className='nav__item' key={el.text}>
-                //   <a href={el.href}>{el.text}</a>
-                // </li>
-                <LinkButton key={el.text}>{el.text}</LinkButton>
-              );
+              return <LinkButton key={el.text}>{el.text}</LinkButton>;
             })}
           </ul>
         </nav>

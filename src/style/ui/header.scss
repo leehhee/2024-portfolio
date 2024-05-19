@@ -30,11 +30,9 @@
   &__item {
     @include util__flex(stretch, center);
     height: 100%;
-    a {
-      border-radius: 0.8rem;
-      background-color: rgb(40, 40, 50);
-      padding: 0.6rem 1.4rem;
-      font-size: 1.6rem;
-    }
+  }
+  .button {
+    font-size: 1.6rem;
+    font-weight: 500;
   }
 }

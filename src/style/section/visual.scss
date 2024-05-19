@@ -2,7 +2,7 @@
   @include util__flex(stretch, center);
   &__text {
     font-family: $font__archivo;
-    font-size: 4.5vw;
+    font-size: 4.8vw;
     line-height: 1.25;
     text-transform: uppercase;
     @include util__get-text-glow(2.8rem, rgba(255, 255, 255, 0.6));
