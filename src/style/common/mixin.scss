@@ -16,7 +16,12 @@
   text-shadow: 0 0 $size $color;
 }
 
-@mixin util__button($borderColor: rgba(255, 255, 255, 1), $bgColor: rgb(20, 20, 25), $fontSize: 1.4rem, $padding: 0.6rem 1.4rem) {
+@mixin util__get-box-glow($size: 2.5rem, $color: rgba(255, 255, 255, 0.4)) {
+  box-shadow: 0 0 $size $color;
+}
+
+@mixin util__button($borderColor: rgba(255, 255, 255, 1), $bgColor: rgba(15, 15, 17, 1), $fontSize: 1.4rem, $padding: 0.6rem 1.4rem) {
+  display: inline-block;
   border-radius: 0.8rem;
   font-size: $fontSize;
   padding: 0.1rem;
@@ -32,6 +37,7 @@
     background-color: $bgColor;
     position: relative;
     z-index: 2;
+    border: 0.1rem solid rgba(255, 255, 255, 0.05);
 
     &:focus {
       outline: auto;
@@ -52,7 +58,6 @@
     position: absolute;
     filter: blur(1rem);
     inset: -120%;
-
     z-index: -1;
     transform-origin: center;
     &-container {

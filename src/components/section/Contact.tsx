@@ -1,4 +1,6 @@
+import { social } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
+import { Button } from '@/components/ui/button';
 
 const Contact = () => {
   return (
@@ -9,6 +11,16 @@ const Contact = () => {
         <br /> work
         <br /> together
       </p>
+      <div className='contact__button-container'>
+        <Button className='contact__button' href='#'>
+          <span className='icon'>{social.MAIL}</span>
+          highcolor_12@g.hongik.ac.kr
+        </Button>
+        <Button className='contact__button' href='#'>
+          <span className='icon'>{social.RESUME}</span>
+          Get resume
+        </Button>
+      </div>
     </Section>
   );
 };

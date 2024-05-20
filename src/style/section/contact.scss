@@ -4,13 +4,28 @@
   }
   &__text {
     font-family: $font__archivo;
-    font-size: 6vw;
-    line-height: 1.25;
+    font-size: 8vw;
+    line-height: 1.15;
     text-transform: uppercase;
     text-align: center;
-    @include util__get-text-glow(2.8rem, rgba(255, 255, 255, 0.6));
-    // .light {
-    //   font-family: $font__pretendard;
-    // }
+    color: $color__text-03;
+    @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.6));
+  }
+  &__button {
+    font-size: 2vw;
+    &-container {
+      @include util__flex(center, center, 2vw);
+      margin-top: 4rem;
+    }
+
+    .icon {
+      width: 2vw;
+      display: inline-flex;
+    }
+
+    .button__link {
+      @include util__flex(stretch, center, 1.2vw);
+      padding: 0.6rem 2.4rem;
+    }
   }
 }

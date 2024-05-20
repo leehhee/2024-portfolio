@@ -17,7 +17,11 @@ const Header = () => {
         <nav className='nav'>
           <ul className='nav__list'>
             {menu.map((el) => {
-              return <LinkButton key={el.text}>{el.text}</LinkButton>;
+              return (
+                <LinkButton key={el.text} href='#'>
+                  {el.text}
+                </LinkButton>
+              );
             })}
           </ul>
         </nav>
