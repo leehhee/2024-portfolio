@@ -65,3 +65,14 @@
     }
   }
 }
+
+@mixin util__get-box-glass($padding: 2.4rem, $radius: 1.6rem) {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(1.4rem);
+  padding: $padding;
+  border-radius: $radius;
+  position: relative;
+  border: 0.1rem solid rgba(255, 255, 255, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.6rem 1rem -0.4rem, rgba(0, 0, 0, 0.15) 0 0.2rem 0.4rem -0.4rem, rgba(0, 0, 0, 0.3) 0 1rem 1.8rem -0.1rem,
+    rgba(0, 0, 0, 0.6) 0 -0.1rem 1rem 0 inset;
+}

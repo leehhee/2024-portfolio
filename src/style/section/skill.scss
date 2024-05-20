@@ -1,0 +1,44 @@
+.skill {
+  &__inner {
+    padding: 10rem 0;
+  }
+  &__title {
+    flex-flow: row-reverse;
+  }
+
+  &__list {
+    @include util__flex(stretch, flex-start, 1.6rem);
+  }
+
+  &__icon {
+    // top: -50%;
+    // right: 0;
+    // position: absolute;
+    .badge__link {
+      padding: 0.4rem;
+    }
+    &-inner {
+      display: inline-block;
+      width: 4.8rem;
+      height: 4.8rem;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__item {
+    &-title {
+      font-size: 2.4rem;
+      &-container {
+        @include util__flex(stretch, center, 1.6rem);
+      }
+    }
+    &-desc {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+    }
+  }
+}

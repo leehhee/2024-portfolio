@@ -4,7 +4,7 @@
   }
   &__text {
     font-family: $font__archivo;
-    font-size: 8vw;
+    font-size: 6vw;
     line-height: 1.15;
     text-transform: uppercase;
     text-align: center;
@@ -12,14 +12,15 @@
     @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.6));
   }
   &__button {
-    font-size: 2vw;
+    $button-size: 1.5vw;
+    font-size: $button-size;
     &-container {
-      @include util__flex(center, center, 2vw);
+      @include util__flex(center, center, $button-size);
       margin-top: 4rem;
     }
 
     .icon {
-      width: 2vw;
+      width: $button-size;
       display: inline-flex;
     }
 

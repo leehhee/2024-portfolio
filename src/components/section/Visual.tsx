@@ -11,7 +11,7 @@ const Visual = () => {
   return (
     <Section className='visual'>
       <h2 className='sound-only'>비주얼 영역</h2>
-      <Badge className='visual__badge'>
+      <Badge className='visual__badge' animate>
         <div className='badge__dot'>
           <motion.span
             initial={{ scale: 1, opacity: 0.8 }}

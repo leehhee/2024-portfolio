@@ -2,13 +2,12 @@ import { Section } from '@/components/ui/section';
 
 const Project = () => {
   return (
-    <Section className='project'>
-      <h2 className='project__title'>Project</h2>
+    <Section className='project' title='Project'>
       <ul className='project__list'>
         <li className='project__item'>
           <a href='#'>
             <div className='project__item-img-container'></div>
-            <div className='project__item-text-container'>
+            <div className='project__item-text-container glassbox'>
               <h3 className='project__item-title'>Title</h3>
               <p className='project__item-desc'>desc</p>
             </div>
@@ -17,7 +16,7 @@ const Project = () => {
         <li className='project__item'>
           <a href='#'>
             <div className='project__item-img-container'></div>
-            <div className='project__item-text-container'>
+            <div className='project__item-text-container glassbox'>
               <h3 className='project__item-title'>Title</h3>
               <p className='project__item-desc'>desc</p>
             </div>
@@ -26,7 +25,7 @@ const Project = () => {
         <li className='project__item'>
           <a href='#'>
             <div className='project__item-img-container'></div>
-            <div className='project__item-text-container'>
+            <div className='project__item-text-container glassbox'>
               <h3 className='project__item-title'>Title</h3>
               <p className='project__item-desc'>desc</p>
             </div>

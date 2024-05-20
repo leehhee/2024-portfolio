@@ -2,25 +2,12 @@
   &__inner {
     padding: 10rem 0;
   }
-  &__title {
-    @include util__flex(space-between, center, 3.2rem);
-    font-family: $font__archivo;
-    font-size: 3.2vw;
-    color: $color__text-02;
-    &::after {
-      display: block;
-      content: '';
-      width: 100%;
-      height: 0.2rem;
-      background: $color__text-02;
-      opacity: 0.4;
-    }
-  }
 
   &__list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5.6rem;
+    margin-top: 4.8rem;
   }
 
   &__item {
@@ -41,16 +28,8 @@
       // }
     }
     &-text-container {
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(1.4rem);
-      padding: 2.4rem;
-      border-radius: 1.6rem;
-      position: relative;
       z-index: 1;
       top: -4rem;
-      border: 0.1rem solid rgba(255, 255, 255, 0.08);
-      box-shadow: rgba(0, 0, 0, 0.2) 0 0.6rem 1rem -0.4rem, rgba(0, 0, 0, 0.15) 0 0.2rem 0.4rem -0.4rem, rgba(0, 0, 0, 0.3) 0 1rem 1.8rem -0.1rem,
-        rgba(0, 0, 0, 0.6) 0 -0.1rem 1rem 0 inset;
     }
     &-title {
       font-size: 3.2rem;
