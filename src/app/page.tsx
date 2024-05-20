@@ -1,4 +1,5 @@
 import { Contact, Project, Skill, Visual } from '@/components/section';
+import { ScrollSmoother } from '@/components/ui/gsap';
 
 export default function Home() {
   return (
