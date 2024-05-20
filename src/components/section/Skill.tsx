@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 
 const Skill = () => {
   return (
-    <Section className='skill' title='Skill' unlimit={true}>
+    <Section className='skill' title='Skill'>
       <div className='skill__text-container'>
         <p className='skill__text'>
           견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고 <br />

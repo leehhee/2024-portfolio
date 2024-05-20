@@ -9,7 +9,7 @@
 
 .pc-only {
   display: inherit;
-  @media (max-width: $size__pc-md) {
+  @media (max-width: $size__tb-md) {
     display: none;
   }
 }
