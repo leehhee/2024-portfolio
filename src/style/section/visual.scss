@@ -14,6 +14,38 @@
       gap: 2vw;
     }
   }
+  &__badge {
+    $badgeColor: rgb(39, 221, 109);
+
+    &.badge {
+      @include util__button($badgeColor);
+    }
+    .badge__dot {
+      display: inline-block;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 100%;
+      background: $badgeColor;
+      position: relative;
+      &-bg {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background: rgba(39, 221, 109, 0.4);
+        opacity: 0;
+        top: 0;
+        left: 0;
+        transform-origin: center;
+      }
+    }
+    .badge__link {
+      @include util__get-text-glow(0.8rem, rgba(39, 221, 109, 0.8));
+      background: rgb(20, 20, 20);
+      gap: 1.2rem;
+    }
+  }
 }
 
 .skill-icon {

@@ -59,3 +59,12 @@
 .button {
   @include util__button;
 }
+
+.badge {
+  @include util__button;
+  display: inline-block;
+
+  &__link {
+    padding: 0.2rem 1.4rem;
+  }
+}

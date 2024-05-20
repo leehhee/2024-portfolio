@@ -16,12 +16,13 @@
   text-shadow: 0 0 $size $color;
 }
 
-@mixin util__button($borderColor: rgba(255, 255, 255, 1), $bgColor: rgb(30, 30, 40), $fontSize: 1.4rem, $padding: 0.6rem 1.4rem) {
+@mixin util__button($borderColor: rgba(255, 255, 255, 1), $bgColor: rgb(20, 20, 25), $fontSize: 1.4rem, $padding: 0.6rem 1.4rem) {
   border-radius: 0.8rem;
   font-size: $fontSize;
   padding: 0.1rem;
   position: relative;
   overflow: hidden;
+  font-weight: 500;
 
   &__link {
     @include util__flex(stretch, center);
@@ -37,7 +38,7 @@
     }
   }
 
-  &__line {
+  & .glow-border {
     border-radius: 10rem;
     opacity: 0.95;
     background: conic-gradient(
