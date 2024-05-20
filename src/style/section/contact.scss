@@ -1,0 +1,16 @@
+.contact {
+  @include util__flex(stretch, center);
+  &__inner {
+  }
+  &__text {
+    font-family: $font__archivo;
+    font-size: 6vw;
+    line-height: 1.25;
+    text-transform: uppercase;
+    text-align: center;
+    @include util__get-text-glow(2.8rem, rgba(255, 255, 255, 0.6));
+    // .light {
+    //   font-family: $font__pretendard;
+    // }
+  }
+}

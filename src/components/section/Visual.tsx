@@ -20,7 +20,7 @@ const Visual = () => {
             className='badge__dot-bg'
           ></motion.span>
         </div>
-        Open to work
+        Available for Work
       </Badge>
       <p className='visual__text'>
         <span className='light'>Hello, </span>
