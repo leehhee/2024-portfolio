@@ -32,6 +32,9 @@ $barPos: 1.1rem;
   }
   &__list {
     @include util__flex(stretch, center, 1.6rem);
+    .button {
+      font-size: 1.8rem;
+    }
   }
   &__item {
     @include util__flex(stretch, center);

@@ -1,4 +1,5 @@
 .skill {
+  position: relative;
   &__inner {
     padding: 10rem 0;
   }
@@ -8,6 +9,26 @@
 
   &__list {
     @include util__flex(stretch, flex-start, 1.6rem);
+  }
+
+  &__bg {
+    width: 100%;
+    &::after {
+      content: '';
+      display: block;
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/image/bg03.jpg');
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.3;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
 
   &__icon {
