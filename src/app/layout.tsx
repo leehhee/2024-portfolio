@@ -2,6 +2,7 @@ import '@/style/style.scss';
 
 import type { Metadata } from 'next';
 import { Header } from '@/components/ui/header';
+import { Footer } from '@/components/ui/footer';
 import { fontPretendard, fontarchivo } from '@/components/fonts';
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

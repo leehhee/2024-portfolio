@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+  padding: $size__page-padding;
+
+  &__inner {
+    @include util__get-size-inner;
+    @include util__flex(space-between, center);
+    padding: 4rem 0;
+    color: $color__text-03;
+  }
+  &__copy {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+}
