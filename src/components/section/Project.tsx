@@ -27,7 +27,7 @@ const ProjectItem = (props: IProjectItem) => {
   const [isHover, setIsHover] = useState(false);
 
   const itemRef = useRef(null);
-  const { scrollYProgress, scrollY } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: itemRef,
     offset: ['0% 100%', '50% 100%'],
   });

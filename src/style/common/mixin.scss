@@ -12,6 +12,13 @@
   margin: 0 auto;
 }
 
+@mixin util__get-page-padding {
+  padding: $size__page-padding;
+  @media (max-width: $size__tb-md) {
+    padding: 0 4rem;
+  }
+}
+
 @mixin util__get-text-glow($size: 2.5rem, $color: rgba(255, 255, 255, 0.4)) {
   text-shadow: 0 0 $size $color;
 }
@@ -87,4 +94,26 @@
     rgba(0, 0, 0, 0.15) 0 0.2rem 0.4rem -0.4rem,
     rgba(0, 0, 0, 0.3) 0 1rem 1.8rem -0.1rem,
     rgba(0, 0, 0, 0.4) 0 -0.1rem 0.4rem 0 inset;
+}
+
+@mixin util__get-bg-img($url) {
+  content: '';
+  display: block;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: url(#{$url});
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0.3;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

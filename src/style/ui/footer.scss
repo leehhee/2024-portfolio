@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  padding: $size__page-padding;
+  @include util__get-page-padding;
 
   &__inner {
     @include util__get-size-inner;

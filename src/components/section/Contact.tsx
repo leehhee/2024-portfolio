@@ -1,8 +1,31 @@
+'use client';
+import { useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { social } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
 import { Button } from '@/components/ui/button';
 
+const springOption = {
+  stiffness: 100,
+  damping: 30,
+  restDelta: 0.001,
+};
+
 const Contact = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['100% 100%', '50% 100%'],
+  });
+
+  const filter = useTransform(scrollYProgress, (v) => `blur(${v * 1.5}rem)`);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
+  const animateValue = {
+    filter: useSpring(filter, springOption),
+    scale: useSpring(scale, springOption),
+  };
+
   return (
     <Section className='contact'>
       <h2 className='sound-only'>contact</h2>
@@ -21,6 +44,11 @@ const Contact = () => {
           Get resume
         </Button>
       </div>
+      <motion.div
+        className='contact__bg'
+        ref={sectionRef}
+        style={{ filter, scale: animateValue.scale }}
+      ></motion.div>
     </Section>
   );
 };

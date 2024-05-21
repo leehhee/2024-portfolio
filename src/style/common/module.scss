@@ -21,7 +21,7 @@
 }
 
 .sc {
-  padding: $size__page-padding;
+  @include util__get-page-padding;
   min-height: 100vh;
   min-height: 100svh;
   &[data-autoheight='true'] {

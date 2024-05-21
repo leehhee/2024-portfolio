@@ -35,9 +35,10 @@
     }
     &-text-container {
       z-index: 1;
-      top: 85%;
-      position: absolute;
+      // top: 85%;
+      // position: absolute;
       width: 100%;
+      margin-top: -10%;
     }
     &-title {
       @include util__get-text-shadow();
@@ -53,6 +54,15 @@
         @include util__flex(stretch, center, 1.2rem);
         margin-top: 1.4rem;
       }
+    }
+  }
+}
+
+@media (max-width: $size__tb-md) {
+  .project {
+    &__list {
+      grid-template-columns: 1fr;
+      gap: 12rem;
     }
   }
 }
