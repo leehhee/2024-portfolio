@@ -58,11 +58,14 @@
   }
 }
 
-@media (max-width: $size__tb-md) {
+@media (max-width: $size__tb-lg) {
   .project {
     &__list {
       grid-template-columns: 1fr;
       gap: 12rem;
     }
   }
+}
+
+@media (max-width: $size__tb-md) {
 }

@@ -9,13 +9,13 @@ const tickerIcon = Object.entries(skill);
 
 const Visual = () => {
   return (
-    <Section className='visual'>
+    <Section className='visual' id='visual'>
       <h2 className='sound-only'>비주얼 영역</h2>
       <Badge className='visual__badge' animate>
         <div className='badge__dot'>
           <motion.span
-            initial={{ scale: 1, opacity: 0.8 }}
-            animate={{ scale: 2.5, opacity: 0 }}
+            initial={{ scale: 1 }}
+            animate={{ scale: 2.5 }}
             transition={{ duration: 2, repeat: Infinity }}
             className='badge__dot-bg'
           ></motion.span>

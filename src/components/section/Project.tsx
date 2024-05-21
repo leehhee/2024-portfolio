@@ -13,7 +13,7 @@ const springOption = {
 
 const Project = () => {
   return (
-    <Section className='project' title='Project'>
+    <Section className='project' title='Project' id='project'>
       <ul className='project__list'>
         {project.map((el) => (
           <ProjectItem {...el} key={el.key} />

@@ -9,25 +9,47 @@ import {
 import { useState } from 'react';
 
 const menu = [
-  { text: 'Work', href: '#' },
-  { text: 'About', href: '#' },
-  { text: 'Contact', href: '#' },
+  { text: 'Project', href: '#project' },
+  { text: 'About', href: '#skill' },
+  { text: 'Contact', href: '#contact' },
 ];
+
+const onClickTop = (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+const onClickMenu = (href: string) => (e: React.MouseEvent) => {
+  e.preventDefault();
+  document.querySelector(href)?.scrollIntoView({
+    behavior: 'smooth',
+  });
+};
 
 const Header = () => {
   const { scrollYProgress } = useScroll({
     offset: ['0', '50vh'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
+  const opacity = {
+    normal: useTransform(scrollYProgress, [0, 1], [1, 0]),
+    reverse: useTransform(scrollYProgress, [0, 1], [0, 1]),
+  };
+  const scale = {
+    normal: useTransform(scrollYProgress, [0, 1], [1, 0.8]),
+    reverse: useTransform(scrollYProgress, [0, 1], [0.7, 1]),
+  };
+
+  const top = {
+    reverse: useTransform(scrollYProgress, [0, 1], [100, 0]),
+  };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
       <motion.header
         className='header'
-        style={{ scale: scale, opacity: opacity }}
+        style={{ scale: scale.normal, opacity: opacity.normal }}
       >
         <div className='header__inner'>
           <div className='header__logo-container'>
@@ -39,7 +61,11 @@ const Header = () => {
             <ul className='nav__list'>
               {menu.map((el) => {
                 return (
-                  <LinkButton key={el.text} href='#'>
+                  <LinkButton
+                    key={el.text}
+                    href={el.href}
+                    onClick={onClickMenu(el.href)}
+                  >
                     {el.text}
                   </LinkButton>
                 );
@@ -96,7 +122,11 @@ const Header = () => {
                 {menu.map((el) => {
                   return (
                     <li key={el.text}>
-                      <a className='nav__list-item' href='#'>
+                      <a
+                        className='nav__list-item'
+                        href={el.href}
+                        onClick={onClickMenu(el.href)}
+                      >
                         {el.text}
                       </a>
                     </li>
@@ -107,7 +137,15 @@ const Header = () => {
           )}
         </AnimatePresence>
       </motion.header>
-      <motion.div className='top-btn'>
+      <motion.div
+        className='top-btn'
+        onClick={onClickTop}
+        style={{
+          scale: scale.reverse,
+          opacity: opacity.reverse,
+          y: top.reverse,
+        }}
+      >
         <LinkButton type='button'>TOP</LinkButton>
       </motion.div>
     </>

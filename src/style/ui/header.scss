@@ -112,7 +112,7 @@ $barPos: 1.1rem;
 
   &:hover {
     .button__link {
-      @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.6));
+      @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.8));
     }
   }
 }
@@ -151,6 +151,17 @@ $barPos: 1.1rem;
     }
     &__button {
       display: block;
+    }
+  }
+  .top-btn {
+    right: 4rem;
+    bottom: 3rem;
+
+    .button {
+      &__link {
+        width: 6rem;
+        height: 6rem;
+      }
     }
   }
 }

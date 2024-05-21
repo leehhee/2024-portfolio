@@ -19,7 +19,7 @@ const Contact = () => {
   });
 
   const filter = useTransform(scrollYProgress, (v) => `blur(${v * 1.5}rem)`);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.1]);
 
   const animateValue = {
@@ -29,7 +29,7 @@ const Contact = () => {
   };
 
   return (
-    <Section className='contact'>
+    <Section className='contact' id='contact'>
       <h2 className='sound-only'>contact</h2>
       <p className='contact__text'>
         <span className='light'>Let's</span>
