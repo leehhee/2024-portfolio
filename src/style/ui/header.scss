@@ -12,7 +12,7 @@ $barPos: 1.1rem;
   &__inner {
     @include util__get-size-inner;
     @include util__flex(space-between);
-    height: 10rem;
+    height: 14rem;
     padding: 0.8rem 0;
   }
 
@@ -96,6 +96,9 @@ $barPos: 1.1rem;
   .header {
     background: rgba(0, 0, 0, 0.7);
     box-shadow: 0 0 5rem rgba(0, 0, 0, 1);
+    &__inner {
+      height: auto;
+    }
   }
   .nav {
     display: block;

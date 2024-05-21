@@ -55,7 +55,13 @@
 .ticker {
   width: 100%;
   overflow: hidden;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 30%,
+    rgb(0, 0, 0) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
   &__list {
     @include util__flex(center);
     width: fit-content;
@@ -126,4 +132,9 @@
 
 .glassbox {
   @include util__get-box-glass();
+}
+
+.tag {
+  @extend .button__link;
+  padding: 0.2rem 1rem;
 }

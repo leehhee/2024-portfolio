@@ -17,6 +17,7 @@
       margin: 0 auto;
       position: relative;
       padding-bottom: 60%;
+      transform-origin: bottom;
 
       img {
         object-fit: contain;
@@ -39,11 +40,19 @@
       width: 100%;
     }
     &-title {
-      font-size: 3.2rem;
+      @include util__get-text-shadow();
+      font-size: 2.8rem;
     }
     &-desc {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-top: 0.8rem;
+    }
+
+    &-tag {
+      &-list {
+        @include util__flex(stretch, center, 1.2rem);
+        margin-top: 1.4rem;
+      }
     }
   }
 }

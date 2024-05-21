@@ -69,8 +69,10 @@
       }
     }
     &-desc {
+      @include util__get-text-shadow();
       font-size: 1.6rem;
       margin-top: 2rem;
     }
+    
   }
 }

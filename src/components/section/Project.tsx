@@ -1,9 +1,15 @@
 'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { IProjectItem, project } from '@/data';
 import { Section } from '@/components/ui/section';
+
+const springOption = {
+  stiffness: 100,
+  damping: 30,
+  restDelta: 0.001,
+};
 
 const Project = () => {
   return (
@@ -23,28 +29,18 @@ const ProjectItem = (props: IProjectItem) => {
   const itemRef = useRef(null);
   const { scrollYProgress, scrollY } = useScroll({
     target: itemRef,
-    offset: ['end end', 'start start'],
+    offset: ['0% 100%', '50% 100%'],
   });
 
-  const scale = useTransform(
-    scrollYProgress,
-    // Map x from these values:
-    [0, 1],
-    // Into these values:
-    [0.5, 1]
-  );
+  const mappedScale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const mappedOpacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const mappedRotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
 
-  useEffect(() => {
-    console.log(scale);
-  }, [scale]);
-
-  useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY]);
-
-  useEffect(() => {
-    console.log(scrollYProgress);
-  }, [scrollYProgress]);
+  const animateValue = {
+    scale: useSpring(mappedScale, springOption),
+    rotate: useSpring(mappedRotate, springOption),
+    opacity: useSpring(mappedOpacity, springOption),
+  };
 
   return (
     <li className='project__item' ref={itemRef}>
@@ -55,7 +51,11 @@ const ProjectItem = (props: IProjectItem) => {
       >
         <motion.div
           className='project__item-img-container'
-          style={{ scale: scale }}
+          style={{
+            scale: animateValue.scale,
+            opacity: animateValue.opacity,
+            rotateX: animateValue.rotate,
+          }}
         >
           <Image src={props.thumb} alt={`${props.title} 이미지`} fill />
           <motion.img
@@ -70,6 +70,15 @@ const ProjectItem = (props: IProjectItem) => {
         <div className='project__item-text-container glassbox'>
           <h3 className='project__item-title'>{props.title}</h3>
           <p className='project__item-desc'>{props.desc}</p>
+          {props.tags && (
+            <ul className='project__item-tag-list'>
+              {props.tags.map((el, idx) => (
+                <li key={`tag-${el}-${idx}`} className='tag'>
+                  # {el}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </a>
     </li>

@@ -20,7 +20,16 @@
   box-shadow: 0 0 $size $color;
 }
 
-@mixin util__button($borderColor: rgba(255, 255, 255, 1), $bgColor: rgba(15, 15, 17, 1), $fontSize: 1.4rem, $padding: 0.6rem 1.4rem) {
+@mixin util__get-text-shadow($size: 0.8rem, $color: rgba(0, 0, 0, 0.5)) {
+  text-shadow: 0 0 $size $color;
+}
+
+@mixin util__button(
+  $borderColor: rgba(255, 255, 255, 1),
+  $bgColor: rgba(15, 15, 17, 1),
+  $fontSize: 1.4rem,
+  $padding: 0.6rem 1.4rem
+) {
   display: inline-block;
   border-radius: 0.8rem;
   font-size: $fontSize;
@@ -74,6 +83,8 @@
   border-radius: $radius;
   position: relative;
   border: 0.1rem solid rgba(255, 255, 255, 0.08);
-  box-shadow: rgba(0, 0, 0, 0.2) 0 0.6rem 1rem -0.4rem, rgba(0, 0, 0, 0.15) 0 0.2rem 0.4rem -0.4rem, rgba(0, 0, 0, 0.3) 0 1rem 1.8rem -0.1rem,
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.6rem 1rem -0.4rem,
+    rgba(0, 0, 0, 0.15) 0 0.2rem 0.4rem -0.4rem,
+    rgba(0, 0, 0, 0.3) 0 1rem 1.8rem -0.1rem,
     rgba(0, 0, 0, 0.4) 0 -0.1rem 0.4rem 0 inset;
 }
