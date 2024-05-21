@@ -1,5 +1,6 @@
 'use client';
 import LinkButton from '@/components/ui/button/Button';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 const menu = [
@@ -7,8 +8,10 @@ const menu = [
   { text: 'About', href: '#' },
   { text: 'Contact', href: '#' },
 ];
+const navMotion = {};
+const navButtonMotion = {};
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className='header'>
       <div className='header__inner'>
@@ -28,25 +31,66 @@ const Header = () => {
             })}
           </ul>
         </nav>
-        <LinkButton type='button' className='nav__button'>
-          <span className='nav__bar'></span>
-          <span className='nav__bar'></span>
-          <span className='nav__bar'></span>
+        <LinkButton
+          type='button'
+          className='nav__button'
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <div className='nav__bar-inner'>
+            <motion.span
+              className='nav__bar'
+              initial={{ width: '100%' }}
+              animate={isMenuOpen ? { width: 0 } : { width: '100%' }}
+            ></motion.span>
+            <motion.span
+              className='nav__bar'
+              initial={{ rotate: 0 }}
+              animate={isMenuOpen ? { rotate: 45 } : { rotate: 0 }}
+            ></motion.span>
+            <motion.span
+              className='nav__bar'
+              initial={{ rotate: 0 }}
+              animate={
+                isMenuOpen
+                  ? { rotate: -45, top: 'calc(50% - 0.1rem)' }
+                  : { rotate: 0 }
+              }
+            ></motion.span>
+          </div>
         </LinkButton>
       </div>
-      {isMenuOpen && (
-        <nav className='nav tb-only'>
-          <ul className='nav__list'>
-            {menu.map((el) => {
-              return (
-                <a className='nav__list-item' key={el.text} href='#'>
-                  {el.text}
-                </a>
-              );
-            })}
-          </ul>
-        </nav>
-      )}
+      <AnimatePresence initial={false} mode='wait'>
+        {isMenuOpen && (
+          <motion.nav
+            className='nav tb-only'
+            key='mb-nav'
+            initial={{
+              height: 0,
+              opacity: 0,
+            }}
+            animate={{
+              height: 'auto',
+              opacity: 1,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+            }}
+          >
+            <ul className='nav__list'>
+              {menu.map((el) => {
+                return (
+                  <li key={el.text}>
+                    <a className='nav__list-item' href='#'>
+                      {el.text}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

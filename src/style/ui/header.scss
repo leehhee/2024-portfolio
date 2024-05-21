@@ -12,7 +12,7 @@ $barPos: 1.1rem;
   &__inner {
     @include util__get-size-inner;
     @include util__flex(space-between);
-    height: 8rem;
+    height: 10rem;
     padding: 0.8rem 0;
   }
 
@@ -34,6 +34,9 @@ $barPos: 1.1rem;
     @include util__flex(stretch, center, 1.6rem);
     .button {
       font-size: 1.8rem;
+      &__link {
+        padding: 0.2rem 1.4rem;
+      }
     }
   }
   &__item {
@@ -64,27 +67,35 @@ $barPos: 1.1rem;
     display: inline-block;
     position: absolute;
     pointer-events: none;
-    width: calc(100% - (#{$btnPadding} * 2));
+    // width: calc(100% - (#{$btnPadding} * 2));
+    width: 100%;
     height: 0.2rem;
     background: $color__text-03;
     border-radius: 1.6rem;
-    top: $barPos;
-    left: $btnPadding;
-
+    transform-origin: center;
+    top: 0;
+    left: 0;
     &:nth-child(2) {
       top: calc(50% - 0.1rem);
     }
 
     &:last-child {
       top: unset;
-      bottom: $barPos;
+      bottom: 0;
+    }
+
+    &-inner {
+      width: 100%;
+      height: 1.4rem;
+      position: relative;
     }
   }
 }
 
 @media (max-width: $size__tb-md) {
   .header {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 5rem rgba(0, 0, 0, 1);
   }
   .nav {
     display: block;
@@ -93,16 +104,23 @@ $barPos: 1.1rem;
       display: block;
       &-item {
         font-size: 1.8rem;
+        padding: 0.6rem 0;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $color__text-04;
+        }
       }
     }
     &.pc-only {
       display: none;
     }
-    // width: 100%;
-    // padding: $size__page-padding;
-    // position: absolute;
-    // top: 100%;
-    // left: 0;
+    &.tb-only {
+      display: block;
+      transform-origin: top;
+      overflow: hidden;
+      padding-bottom: 1.6rem;
+    }
     &__button {
       display: block;
     }
