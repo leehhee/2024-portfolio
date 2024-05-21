@@ -11,25 +11,32 @@
   }
 
   &__item {
+    position: relative;
     &-img-container {
-      width: 100%;
+      width: 90%;
       margin: 0 auto;
       position: relative;
-      padding-bottom: 50%;
-      background: rgba(20, 20, 20);
-      border-radius: 1.2rem;
-      // &::after {
-      //   content: '';
-      //   border: 1px solid #fff;
-      //   display: block;
-      //   position: absolute;
-      //   width: 100%;
-      //   padding-bottom: 100%;
-      // }
+      padding-bottom: 60%;
+
+      img {
+        object-fit: contain;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 1.6rem;
+        overflow: hidden;
+      }
+    }
+    &-img--blur {
+      position: absolute;
+      filter: blur(6.4rem) brightness(1);
+      top: 0;
+      z-index: -1;
     }
     &-text-container {
       z-index: 1;
-      top: -4rem;
+      top: 85%;
+      position: absolute;
+      width: 100%;
     }
     &-title {
       font-size: 3.2rem;

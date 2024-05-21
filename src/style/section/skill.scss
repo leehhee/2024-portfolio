@@ -9,6 +9,7 @@
 
   &__list {
     @include util__flex(stretch, flex-start, 1.6rem);
+    margin-top: 6rem;
   }
 
   &__bg {
@@ -23,7 +24,12 @@
       width: 100%;
       height: 100%;
       background: url('/image/bg03.jpg');
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
       opacity: 0.3;
       background-position: center;
       background-size: cover;
@@ -55,6 +61,7 @@
   }
 
   &__item {
+    flex: 1 0 0;
     &-title {
       font-size: 2.4rem;
       &-container {

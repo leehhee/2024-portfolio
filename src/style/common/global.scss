@@ -30,6 +30,7 @@ body {
   line-height: $size__p-line-height;
   color: $color__text-02;
   letter-spacing: -0.02em;
+  overflow-x: hidden;
 }
 input,
 textarea {
