@@ -1,5 +1,8 @@
 .visual {
   @include util__flex(stretch, center);
+  // &::after {
+  //   @include util__get-bg-img('/image/bg04.jpg');
+  // }
   &__text {
     font-family: $font__archivo;
     font-size: 4.8vw;

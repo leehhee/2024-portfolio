@@ -1,6 +1,6 @@
 'use client';
 import LinkButton from '@/components/ui/button/Button';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import { useState } from 'react';
 
 const menu = [
@@ -8,12 +8,15 @@ const menu = [
   { text: 'About', href: '#' },
   { text: 'Contact', href: '#' },
 ];
-const navMotion = {};
-const navButtonMotion = {};
+
 const Header = () => {
+  const { scrollYProgress } = useScroll({
+    offset: ['0', '50vh'],
+  });
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className='header'>
+    <motion.header className='header' style={{ scale: scrollYProgress }}>
       <div className='header__inner'>
         <div className='header__logo-container'>
           <div className='header__logo'>
@@ -91,7 +94,7 @@ const Header = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 };
 

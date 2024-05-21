@@ -20,10 +20,12 @@ const Contact = () => {
 
   const filter = useTransform(scrollYProgress, (v) => `blur(${v * 1.5}rem)`);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.1]);
 
   const animateValue = {
     filter: useSpring(filter, springOption),
     scale: useSpring(scale, springOption),
+    opacity: useSpring(opacity, springOption),
   };
 
   return (
@@ -47,7 +49,11 @@ const Contact = () => {
       <motion.div
         className='contact__bg'
         ref={sectionRef}
-        style={{ filter, scale: animateValue.scale }}
+        style={{
+          filter,
+          scale: animateValue.scale,
+          opacity: animateValue.opacity,
+        }}
       ></motion.div>
     </Section>
   );
