@@ -92,6 +92,31 @@ $barPos: 1.1rem;
   }
 }
 
+.top-btn {
+  position: fixed;
+  bottom: 4rem;
+  right: 6rem;
+  z-index: 100;
+  .button {
+    font-weight: 600;
+    &__link {
+      width: 8rem;
+      height: 8rem;
+      font-weight: 600;
+      justify-content: center;
+      font-size: 1.8rem;
+      @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0));
+      transition: text-shadow 0.3s;
+    }
+  }
+
+  &:hover {
+    .button__link {
+      @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.6));
+    }
+  }
+}
+
 @media (max-width: $size__tb-md) {
   .header {
     background: rgba(0, 0, 0, 0.7);
