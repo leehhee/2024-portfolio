@@ -5,38 +5,43 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { Badge } from '@/components/ui/button';
 import { skill } from '@/components/ui/icon';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useGSAP } from '@gsap/react';
+import { springOption } from '@/utils';
 
 const Skill = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
+  useGSAP(() => {
     const sections = gsap.utils.toArray('.skill__item');
-    const scArr = gsap.utils.toArray('.sc');
-    console.log(gsap.utils.toArray('.skill__item'));
-
     const testSkill = document.querySelectorAll('.skill__item').length;
-    console.log(listRef.current?.offsetWidth);
-
-    const listCompose = gsap.to(sections, {
+    gsap.to(sections, {
       xPercent: -100 * (testSkill - 1),
       ease: 'none', // <-- IMPORTANT!
       scrollTrigger: {
         trigger: sectionRef.current,
         pin: true,
-        // start: 'center bottom',
         scrub: 0.3,
-        markers: true,
         start: 'top top',
-        //end: 0,
-        end: () => '+=' + 600,
-        //end: () => '+=' + 0,
-        //end: 'bottom',
+        end: () => '+=' + listRef.current?.offsetWidth,
       },
     });
   }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['0%', '200vh'],
+  });
+
+  const filter = useTransform(scrollYProgress, (v) => `blur(${v * 1.5}rem)`);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+
+  const animateValue = {
+    filter: useSpring(filter, springOption),
+    scale: useSpring(scale, springOption),
+  };
 
   return (
     <Section className='skill' title='Skill' id='skill' ref={sectionRef}>
@@ -49,7 +54,7 @@ const Skill = () => {
           더 많은 사람들의 문제를 해결하는 것이 목표입니다.
         </p>
       </div>
-      <div className='skill__bg'>
+      <div>
         <ul className='skill__list' ref={listRef}>
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
@@ -59,6 +64,13 @@ const Skill = () => {
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
         </ul>
       </div>
+      <motion.div
+        className='skill__bg'
+        style={{
+          filter,
+          scale: animateValue.scale,
+        }}
+      ></motion.div>
     </Section>
   );
 };

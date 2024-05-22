@@ -3,7 +3,7 @@
   height: 100vh;
   height: 100svh;
   min-height: auto;
-  &::after {
+  &__bg {
     @include util__get-bg-img('/image/bg03.jpg');
   }
   &__inner {

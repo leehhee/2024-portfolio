@@ -4,12 +4,7 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { IProjectItem, project } from '@/data';
 import { Section } from '@/components/ui/section';
-
-const springOption = {
-  stiffness: 100,
-  damping: 30,
-  restDelta: 0.001,
-};
+import { springOption } from '@/utils';
 
 const Project = () => {
   return (

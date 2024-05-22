@@ -4,12 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { social } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
 import { Button } from '@/components/ui/button';
-
-const springOption = {
-  stiffness: 100,
-  damping: 30,
-  restDelta: 0.001,
-};
+import { springOption } from '@/utils';
 
 const Contact = () => {
   const sectionRef = useRef(null);
