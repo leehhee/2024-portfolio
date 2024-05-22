@@ -1,5 +1,8 @@
 'use client';
 import LinkButton from '@/components/ui/button/Button';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import {
   AnimatePresence,
   motion,
@@ -14,16 +17,11 @@ const menu = [
   { text: 'Contact', href: '#contact' },
 ];
 
-const onClickTop = (e: React.MouseEvent) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+gsap.registerPlugin(useGSAP, ScrollToPlugin);
 
-const onClickMenu = (href: string) => (e: React.MouseEvent) => {
+const onScrollBody = (href: string | number) => (e: React.MouseEvent) => {
   e.preventDefault();
-  document.querySelector(href)?.scrollIntoView({
-    behavior: 'smooth',
-  });
+  gsap.to(window, 0.3, { scrollTo: href });
 };
 
 const Header = () => {
@@ -64,7 +62,7 @@ const Header = () => {
                   <LinkButton
                     key={el.text}
                     href={el.href}
-                    onClick={onClickMenu(el.href)}
+                    onClick={onScrollBody(el.href)}
                   >
                     {el.text}
                   </LinkButton>
@@ -125,7 +123,7 @@ const Header = () => {
                       <a
                         className='nav__list-item'
                         href={el.href}
-                        onClick={onClickMenu(el.href)}
+                        onClick={onScrollBody(el.href)}
                       >
                         {el.text}
                       </a>
@@ -139,7 +137,7 @@ const Header = () => {
       </motion.header>
       <motion.div
         className='top-btn'
-        onClick={onClickTop}
+        onClick={onScrollBody(0)}
         style={{
           scale: scale.reverse,
           opacity: opacity.reverse,

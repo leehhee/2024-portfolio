@@ -1,6 +1,10 @@
 html {
   font-size: 62.5%;
 }
+html,
+body {
+  scroll-behavior: smooth !important;
+}
 * {
   margin: 0;
   padding: 0;

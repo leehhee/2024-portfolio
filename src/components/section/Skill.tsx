@@ -1,13 +1,66 @@
 'use client';
+import { ReactNode, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { Badge } from '@/components/ui/button';
 import { skill } from '@/components/ui/icon';
-import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 const Skill = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const sections = gsap.utils.toArray('.skill__item');
+    console.log(gsap.utils.toArray('.skill__item'));
+
+    const testSkill = document.querySelectorAll('.skill__item').length;
+    console.log(listRef.current?.offsetWidth);
+
+    const listCompose = gsap.to(sections, {
+      xPercent: -100 * (testSkill - 1),
+      ease: 'none', // <-- IMPORTANT!
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        pin: true,
+        scrub: 0.3,
+        markers: true,
+        // end: `+=${listRef.current?.offsetWidth}`,
+      },
+    });
+
+    // const compose = gsap.timeline({
+    //   // xPercent: -100 * (testSkill - 1),
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: sectionRef.current,
+    //     pin: true,
+    //     scrub: 1,
+    //     // snap: 1 / (testSkill - 1),
+    //     start: 'top top',
+    //     end: `+=${listRef.current?.offsetWidth}`,
+    //     // end: `+=${sectionRef.current?.offsetHeight}`,
+    //     pinSpacing: false,
+    //     markers: true,
+    //   },
+    // })
+
+    // const listCompose = gsap.to(listRef, {
+    //   xPercent: -100 * (testSkill - 1),
+    //   ease: 'none', // <-- IMPORTANT!
+    //   scrollTrigger: {
+    //     trigger: sectionRef.current,
+    //     pin: true,
+    //     scrub: 0.3,
+    //     end: `+=${listRef.current?.offsetWidth}`,
+    //   },
+    // });
+  }, []);
+
   return (
-    <Section className='skill' title='Skill' id='skill'>
+    <Section className='skill' title='Skill' id='skill' ref={sectionRef}>
       <div className='skill__text-container'>
         <p className='skill__text'>
           견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고
@@ -20,30 +73,16 @@ const Skill = () => {
       <div className='skill__bg'>
         <motion.ul
           className='skill__list'
+          ref={listRef}
           drag='x'
           dragConstraints={{ left: -100, right: 100 }}
         >
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-          <li className='skill__item glassbox'>
-            <div className='skill__item-title-container'>
-              <Badge className='skill__icon'>
-                <span className='skill__icon-inner'>{skill.HTML}</span>
-              </Badge>
-              <h3 className='skill__item-title'>기술 제목</h3>
-            </div>
-            <p className='skill__item-desc'>
-              페이지 구조와 태그의 의미를 고려한 시맨틱 마크업을 지향하며 웹
-              표준과 웹 접근성에 대해 이해하고 있습니다. <br />
-              디자인 시안을 빠르게 웹에 구현해 낼 수 있으며 다양한 디바이스를
-              대응하는 반응형 웹 퍼블리싱이 가능합니다.
-            </p>
-          </li>
-          <li className='skill__item glassbox'>
-            페이지 구조와 태그의 의미를 고려한 시맨틱 마크업을 지향하며 웹
-            표준과 웹 접근성에 대해 이해하고 있습니다. <br />
-            디자인 시안을 빠르게 웹에 구현해 낼 수 있으며 다양한 디바이스를
-            대응하는 반응형 웹 퍼블리싱이 가능합니다.
-          </li>
+          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
         </motion.ul>
       </div>
     </Section>

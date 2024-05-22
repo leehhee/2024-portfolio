@@ -99,6 +99,7 @@ $barPos: 1.1rem;
   z-index: 100;
   .button {
     font-weight: 600;
+    box-shadow: 0 0 2.4rem rgba(0, 0, 0, 1);
     &__link {
       width: 8rem;
       height: 8rem;

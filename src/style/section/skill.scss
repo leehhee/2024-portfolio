@@ -13,6 +13,7 @@
   &__list {
     @include util__flex(stretch, flex-start, 1.6rem);
     margin-top: 6rem;
+    position: absolute;
   }
 
   &__icon {
