@@ -24,10 +24,13 @@ const Skill = () => {
       ease: 'none', // <-- IMPORTANT!
       scrollTrigger: {
         trigger: sectionRef.current,
-        pin: true,
+        pin: sectionRef.current,
+        start: 'top top',
         scrub: 0.3,
         markers: true,
-        // end: `+=${listRef.current?.offsetWidth}`,
+        //end: 0,
+        //end: '3000px',
+        end: `400 top`,
       },
     });
 
