@@ -1,5 +1,8 @@
 .skill {
   position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: auto;
   &::after {
     @include util__get-bg-img('/image/bg03.jpg');
   }

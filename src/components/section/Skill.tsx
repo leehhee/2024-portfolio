@@ -14,6 +14,7 @@ const Skill = () => {
 
   useEffect(() => {
     const sections = gsap.utils.toArray('.skill__item');
+    const scArr = gsap.utils.toArray('.sc');
     console.log(gsap.utils.toArray('.skill__item'));
 
     const testSkill = document.querySelectorAll('.skill__item').length;
@@ -24,42 +25,17 @@ const Skill = () => {
       ease: 'none', // <-- IMPORTANT!
       scrollTrigger: {
         trigger: sectionRef.current,
-        pin: sectionRef.current,
-        start: 'top top',
+        pin: true,
+        // start: 'center bottom',
         scrub: 0.3,
         markers: true,
+        start: 'top top',
         //end: 0,
-        //end: '3000px',
-        end: `400 top`,
+        end: () => '+=' + 600,
+        //end: () => '+=' + 0,
+        //end: 'bottom',
       },
     });
-
-    // const compose = gsap.timeline({
-    //   // xPercent: -100 * (testSkill - 1),
-    //   ease: 'none',
-    //   scrollTrigger: {
-    //     trigger: sectionRef.current,
-    //     pin: true,
-    //     scrub: 1,
-    //     // snap: 1 / (testSkill - 1),
-    //     start: 'top top',
-    //     end: `+=${listRef.current?.offsetWidth}`,
-    //     // end: `+=${sectionRef.current?.offsetHeight}`,
-    //     pinSpacing: false,
-    //     markers: true,
-    //   },
-    // })
-
-    // const listCompose = gsap.to(listRef, {
-    //   xPercent: -100 * (testSkill - 1),
-    //   ease: 'none', // <-- IMPORTANT!
-    //   scrollTrigger: {
-    //     trigger: sectionRef.current,
-    //     pin: true,
-    //     scrub: 0.3,
-    //     end: `+=${listRef.current?.offsetWidth}`,
-    //   },
-    // });
   }, []);
 
   return (
@@ -74,19 +50,14 @@ const Skill = () => {
         </p>
       </div>
       <div className='skill__bg'>
-        <motion.ul
-          className='skill__list'
-          ref={listRef}
-          drag='x'
-          dragConstraints={{ left: -100, right: 100 }}
-        >
+        <ul className='skill__list' ref={listRef}>
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
           <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        </motion.ul>
+        </ul>
       </div>
     </Section>
   );
