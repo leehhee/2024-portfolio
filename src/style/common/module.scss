@@ -54,6 +54,13 @@
       transform-origin: left;
     }
   }
+
+  @media (max-width: $size__tb-md) {
+    &__title {
+      font-size: max(5vw, 2.4rem);
+      gap: 2.4rem;
+    }
+  }
 }
 
 .ticker {

@@ -17,6 +17,9 @@
   @media (max-width: $size__tb-md) {
     padding: 0 4rem;
   }
+  @media (max-width: $size__mb-md) {
+    padding: 0 2.4rem;
+  }
 }
 
 @mixin util__get-text-glow($size: 2.5rem, $color: rgba(255, 255, 255, 0.4)) {

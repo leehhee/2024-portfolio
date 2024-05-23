@@ -63,3 +63,43 @@
     height: 100%;
   }
 }
+
+@media (max-width: $size__tb-md) {
+  .visual {
+    &__badge {
+      &.badge {
+        font-size: 1.4rem;
+      }
+    }
+    &__text {
+      font-size: max(7vw, 3.2rem);
+      margin-top: 0.8rem;
+    }
+    &__ticker {
+      width: 70vw;
+      &-list {
+        gap: 3vw;
+      }
+    }
+    .skill {
+      &-icon {
+        width: 8vw;
+        height: 8vw;
+      }
+    }
+  }
+}
+
+@media (max-width: $size__mb-md) {
+  .visual {
+    &__ticker {
+      width: 100%;
+    }
+    .skill {
+      &-icon {
+        width: 8vw;
+        height: 8vw;
+      }
+    }
+  }
+}
