@@ -18,14 +18,16 @@ const Skill = () => {
     const sections = gsap.utils.toArray('.skill__item');
     const testSkill = document.querySelectorAll('.skill__item').length;
     gsap.to(sections, {
-      xPercent: -100 * (testSkill - 1),
+      xPercent: (-100 * (testSkill - 1)) / 2,
       ease: 'none', // <-- IMPORTANT!
       scrollTrigger: {
         trigger: sectionRef.current,
         pin: true,
         scrub: 0.3,
         start: 'top top',
-        end: () => '+=' + listRef.current?.offsetWidth,
+        end: () =>
+          '+=' +
+          (listRef.current?.offsetWidth ? listRef.current?.offsetWidth / 2 : 0),
       },
     });
   }, []);
@@ -47,23 +49,23 @@ const Skill = () => {
     <Section className='skill' title='Skill' id='skill' ref={sectionRef}>
       <div className='skill__text-container'>
         <p className='skill__text'>
-          견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고
+          견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고{' '}
+          <br className='br' />
           문제를 해결하여 사용자의 니즈를 충족시키는 것에서 보람을 느낍니다.{' '}
           <br />
-          기억에 남아 오래 사용하고 싶은 플랫폼을 만드는 것, 그리고 개발을 통해
-          더 많은 사람들의 문제를 해결하는 것이 목표입니다.
+          <br />
+          기억에 남아 오래 사용하고 싶은 플랫폼을 만드는 것, 그리고 개발을 통해{' '}
+          <br className='br' />더 많은 사람들의 문제를 해결하는 것이 목표입니다.
         </p>
       </div>
-      <div>
-        <ul className='skill__list' ref={listRef}>
-          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-          <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        </ul>
-      </div>
+      <ul className='skill__list' ref={listRef}>
+        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
+      </ul>
       <motion.div
         className='skill__bg'
         style={{

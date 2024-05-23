@@ -6,10 +6,13 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import {
   AnimatePresence,
   motion,
+  motionValue,
+  useMotionValue,
+  useMotionValueEvent,
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const menu = [
   { text: 'Project', href: '#project' },
@@ -27,6 +30,12 @@ const onScrollBody = (href: string | number) => (e: React.MouseEvent) => {
 const Header = () => {
   const { scrollYProgress } = useScroll({
     offset: ['0', '50vh'],
+  });
+  const [isDisable, setIsDisable] = useState(false);
+
+  useMotionValueEvent(scrollYProgress, 'change', (value) => {
+    const disable = value >= 0.5 ? true : false;
+    setIsDisable(disable);
   });
 
   const opacity = {
@@ -47,7 +56,11 @@ const Header = () => {
     <>
       <motion.header
         className='header'
-        style={{ scale: scale.normal, opacity: opacity.normal }}
+        style={{
+          scale: scale.normal,
+          opacity: opacity.normal,
+          pointerEvents: isDisable ? 'none' : 'auto',
+        }}
       >
         <div className='header__inner'>
           <div className='header__logo-container'>

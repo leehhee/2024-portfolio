@@ -6,10 +6,30 @@
     @include util__get-size-inner;
     @include util__flex(space-between, center);
     padding: 4rem 0;
+    padding-bottom: 16rem;
     color: $color__text-03;
   }
   &__copy {
     font-size: 1.6rem;
     font-weight: 500;
+  }
+
+  @media (max-width: $size__tb-md) {
+    &__inner {
+      padding-bottom: 12rem;
+    }
+  }
+
+  @media (max-width: $size__mb-lg) {
+    &__inner {
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+  }
+
+  @media (max-width: $size__mb-md) {
+    &__copy {
+      font-size: 1.4rem;
+    }
   }
 }

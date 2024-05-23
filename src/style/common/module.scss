@@ -138,6 +138,11 @@
       will-change: opacity;
       transition: opacity 0.3s;
     }
+
+    @media (max-width: $size__mb-md) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
   }
 }
 

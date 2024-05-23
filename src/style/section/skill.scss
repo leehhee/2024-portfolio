@@ -7,16 +7,19 @@
     @include util__get-bg-img('/image/bg03.jpg');
   }
   &__inner {
+    @include util__flex(stretch, stretch, 0, column);
     padding: 10rem 0;
+    height: 100%;
   }
   &__title {
     flex-flow: row-reverse;
   }
 
   &__list {
-    @include util__flex(stretch, flex-start, 1.6rem);
+    @include util__flex(stretch, center, 1.6rem);
     margin-top: 6rem;
-    position: absolute;
+    flex-grow: 1;
+    //position: absolute;
   }
 
   &__icon {
@@ -39,7 +42,8 @@
   }
 
   &__text {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    margin-top: 2.4rem;
   }
 
   &__item {
@@ -54,6 +58,27 @@
       @include util__get-text-shadow();
       font-size: 1.6rem;
       margin-top: 2rem;
+    }
+  }
+  @media (max-width: $size__tb-lg) {
+    &__text {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: $size__tb-md) {
+    &__text {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: $size__mb-lg) {
+    &__text {
+      font-size: 1.6rem;
+
+      .br {
+        display: none;
+      }
     }
   }
 }

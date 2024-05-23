@@ -25,6 +25,13 @@
         margin: 0 auto;
         border-radius: 1.6rem;
         overflow: hidden;
+        &:first-child {
+          mask-image: linear-gradient(
+            to bottom,
+            rgb(0, 0, 0) 50%,
+            rgba(0, 0, 0, 0) 100%
+          );
+        }
       }
     }
     &-img--blur {
@@ -35,8 +42,6 @@
     }
     &-text-container {
       z-index: 1;
-      // top: 85%;
-      // position: absolute;
       width: 100%;
       margin-top: -10%;
     }
@@ -68,4 +73,28 @@
 }
 
 @media (max-width: $size__tb-md) {
+}
+
+@media (max-width: $size__mb-lg) {
+  .project {
+    &__item {
+      &-title {
+        font-size: 2.4rem;
+      }
+      &-text-container {
+        padding: 1.8rem 1.6rem;
+        border-radius: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $size__mb-md) {
+  .project {
+    &__item {
+      &-title {
+        font-size: 2rem;
+      }
+    }
+  }
 }

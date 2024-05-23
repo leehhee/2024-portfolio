@@ -166,3 +166,9 @@ $barPos: 1.1rem;
     }
   }
 }
+
+@media (max-width: $size__mb-md) {
+  .top-btn {
+    right: 2.4rem;
+  }
+}
