@@ -1,5 +1,7 @@
 html {
   font-size: 62.5%;
+  width: 100%;
+  overflow-x: hidden;
 }
 html,
 body {
@@ -35,6 +37,7 @@ body {
   color: $color__text-02;
   letter-spacing: -0.02em;
   overflow-x: hidden;
+  word-break: keep-all;
 }
 input,
 textarea {
