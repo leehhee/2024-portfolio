@@ -6,13 +6,11 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import {
   AnimatePresence,
   motion,
-  motionValue,
-  useMotionValue,
   useMotionValueEvent,
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
 const menu = [
   { text: 'Project', href: '#project' },
