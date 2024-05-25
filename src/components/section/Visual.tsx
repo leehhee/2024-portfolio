@@ -68,7 +68,8 @@ const Visual = () => {
       </Badge>
       <p className='visual__text' ref={textContainerRef}>
         <span className='light'>Hello, </span>
-        <br />I{`'`}m a Front-end
+        <br />
+        I&apos;m a Front-end
         <br />
         Developer
         <br />

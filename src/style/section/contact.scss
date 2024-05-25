@@ -13,7 +13,7 @@
     @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.6));
   }
   &__button {
-    $button-size: 1.5vw;
+    $button-size: max(1.5vw, 1.8rem);
     font-size: $button-size;
     &-container {
       @include util__flex(center, center, $button-size);
@@ -33,5 +33,42 @@
 
   &__bg {
     @include util__get-bg-img('/image/bg09.jpg');
+  }
+}
+
+@media (max-width: $size__tb-md) {
+  .contact {
+    &__text {
+      font-size: max(9vw, 4.8rem);
+    }
+
+    &__button {
+      font-size: 1.8rem;
+      .button__link {
+        width: 50vw;
+        justify-content: center;
+      }
+      .icon {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+      &-container {
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $size__mb-lg) {
+  .contact {
+    &__button {
+      &-container {
+        align-items: stretch;
+      }
+      .button__link {
+        width: 100%;
+      }
+    }
   }
 }
