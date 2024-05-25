@@ -73,6 +73,3 @@ export interface ISectionProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default Section;
-function useForwardRef<T>(ref: React.ForwardedRef<HTMLDivElement>) {
-  throw new Error('Function not implemented.');
-}

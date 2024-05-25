@@ -28,7 +28,7 @@ const ProjectItem = (props: IProjectItem) => {
   });
 
   const mappedScale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const mappedOpacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const mappedOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
   const mappedRotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
 
   const animateValue = {
@@ -40,7 +40,8 @@ const ProjectItem = (props: IProjectItem) => {
   return (
     <li className='project__item' ref={itemRef}>
       <a
-        href={props.link}
+        href={props.link || props.notion}
+        target='_blank'
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
@@ -64,7 +65,7 @@ const ProjectItem = (props: IProjectItem) => {
         </motion.div>
         <div className='project__item-text-container glassbox'>
           <h3 className='project__item-title'>{props.title}</h3>
-          <p className='project__item-desc'>{props.desc}</p>
+          <p className='project__item-desc'>{props.category}</p>
           {props.tags && (
             <ul className='project__item-tag-list'>
               {props.tags.map((el, idx) => (

@@ -5,20 +5,28 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { Badge } from '@/components/ui/button';
 import { skill } from '@/components/ui/icon';
+import { skill as skillData } from '@/data';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import { springOption } from '@/utils';
+import SplitType from 'split-type';
 
 const Skill = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
+    if (!descRef.current) return;
     const sections = gsap.utils.toArray('.skill__item');
     const testSkill = document.querySelectorAll('.skill__item').length;
+    const text = new SplitType(descRef.current, {
+      types: 'chars,lines',
+    });
+
     gsap.to(sections, {
-      xPercent: (-100 * (testSkill - 1)) / 2,
+      xPercent: -100 * (testSkill - 1),
       ease: 'none', // <-- IMPORTANT!
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -28,6 +36,20 @@ const Skill = () => {
         end: () =>
           '+=' +
           (listRef.current?.offsetWidth ? listRef.current?.offsetWidth / 2 : 0),
+      },
+    });
+
+    gsap.from(text.lines, {
+      y: 40,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.3,
+      delay: 0.3,
+      yoyo: true,
+
+      scrollTrigger: {
+        trigger: descRef.current,
+        toggleActions: 'play none none reverse',
       },
     });
   }, []);
@@ -48,7 +70,7 @@ const Skill = () => {
   return (
     <Section className='skill' title='Skill' id='skill' ref={sectionRef}>
       <div className='skill__text-container'>
-        <p className='skill__text'>
+        <p className='skill__text' ref={descRef}>
           견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고{' '}
           <br className='br' />
           문제를 해결하여 사용자의 니즈를 충족시키는 것에서 보람을 느낍니다.{' '}
@@ -58,14 +80,18 @@ const Skill = () => {
           <br className='br' />더 많은 사람들의 문제를 해결하는 것이 목표입니다.
         </p>
       </div>
-      <ul className='skill__list' ref={listRef}>
-        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-        <SkillItem icon={skill.JAVASCRIPT} title='타이틀' desc='데스크' />
-      </ul>
+      <div className='skill__container'>
+        <ul className='skill__list' ref={listRef}>
+          {skillData.map((el, idx) => (
+            <SkillItem
+              key={el.title + idx}
+              icon={skill.JAVASCRIPT}
+              title={el.title}
+              desc={el.desc}
+            />
+          ))}
+        </ul>
+      </div>
       <motion.div
         className='skill__bg'
         style={{
