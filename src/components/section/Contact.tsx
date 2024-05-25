@@ -30,7 +30,6 @@ const Contact = () => {
       scrollTrigger: {
         trigger: textRef.current,
         toggleActions: 'play none none reverse',
-        markers: true,
         start: 'start center',
       },
     });
@@ -51,32 +50,33 @@ const Contact = () => {
         x: 40,
         opacity: 0,
         duration: 0.7,
-      })
-      .from(words, {
-        scale: 0.8,
-        ease: 'circ.inOut',
-        duration: 0.3,
       });
   }, []);
 
   const filter = useTransform(scrollYProgress, (v) => `blur(${v * 1.5}rem)`);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 0.1]);
+  const textScale = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
 
   const animateValue = {
     filter: useSpring(filter, springOption),
     scale: useSpring(scale, springOption),
     opacity: useSpring(opacity, springOption),
+    textScale: useSpring(textScale, springOption),
   };
 
   return (
     <Section className='contact' id='contact'>
       <h2 className='sound-only'>contact</h2>
-      <p className='contact__text' ref={textRef}>
+      <motion.p
+        className='contact__text'
+        ref={textRef}
+        style={{ scale: animateValue.textScale }}
+      >
         <span className='light'>Let{`'`}s</span>
         <br /> work
         <br /> together
-      </p>
+      </motion.p>
       <div className='contact__button-container'>
         <Button className='contact__button' href='#'>
           <span className='icon'>{social.MAIL}</span>

@@ -25,6 +25,8 @@ const Skill = () => {
       types: 'chars,lines',
     });
 
+    console.log(listRef.current?.offsetWidth);
+
     gsap.to(sections, {
       xPercent: -100 * (testSkill - 1),
       ease: 'none', // <-- IMPORTANT!

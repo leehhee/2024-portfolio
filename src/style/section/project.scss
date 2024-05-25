@@ -95,9 +95,16 @@
 
 @media (max-width: $size__mb-md) {
   .project {
+    padding: 0rem;
+    &__title {
+      padding: 0 2.4rem;
+    }
     &__item {
       &-title {
         font-size: 2rem;
+      }
+      &-img-container {
+        width: 90%;
       }
     }
   }
