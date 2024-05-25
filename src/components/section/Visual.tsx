@@ -19,28 +19,37 @@ const Visual = () => {
   const textContainerRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(() => {
-    const text = new SplitType('.visual__text', { types: 'chars' });
+    const text = new SplitType('.visual__text', { types: 'chars,lines,words' });
+    if (!text.words) return;
+    const hello = text.words[0];
 
     const tl = gsap.timeline();
 
-    // tl.to(textContainerRef, {
-    //   duration: 3,
-    //   text:
-    // });
-    gsap.fromTo(
-      text,
+    tl.fromTo(
+      text.chars,
       {
-        y: 100,
+        y: 20,
         opacity: 0,
+        scale: 0.85,
+        rotate: 10,
       },
       {
         y: 0,
         opacity: 1,
-        stagger: 0.05,
-        duration: 10,
+        stagger: 0.07,
+        duration: 0.3,
+        scale: 1,
+        rotate: 0,
         ease: 'power4.out',
       }
-    );
+    ).to(hello, {
+      letterSpacing: '0.1em',
+      duration: 1,
+      repeat: Infinity,
+      repeatDelay: 5,
+      yoyo: true,
+      ease: 'expo.inOut',
+    });
   }, []);
 
   return (
@@ -66,7 +75,7 @@ const Visual = () => {
         <br />
         with flexible. <br />
       </p>
-      <Ticker className='visual__ticker' duration={30}>
+      <Ticker className='visual__ticker' duration={20}>
         {tickerIcon.map((el, idx) => {
           return (
             <div className='skill-icon' key={el[0]}>
