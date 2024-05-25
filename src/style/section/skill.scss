@@ -21,7 +21,6 @@
   }
   &__list {
     @include util__flex(stretch, center, 1.6rem);
-
     flex-grow: 1;
     position: absolute;
     top: 0;

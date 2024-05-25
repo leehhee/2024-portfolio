@@ -3,6 +3,8 @@
   // &::after {
   //   @include util__get-bg-img('/image/bg04.jpg');
   // }
+  position: relative;
+
   &__text {
     font-family: $font__archivo;
     font-size: 4.8vw;
@@ -52,6 +54,27 @@
       @include util__get-text-glow(0.8rem, rgba(39, 221, 109, 0.8));
       background: rgb(20, 20, 20);
       gap: 1.2rem;
+    }
+  }
+  &__object {
+    position: absolute;
+    img {
+      object-fit: contain;
+    }
+
+    &[data-number='1'] {
+      width: 30vw;
+      height: 30vw;
+      right: 6rem;
+      bottom: 6rem;
+      transform: rotate3d(1, -1, 0, -25deg);
+    }
+    &[data-number='2'] {
+      width: 28rem;
+      height: 28rem;
+      right: 417px;
+      bottom: 326px;
+      transform: rotate3d(3, 3, 0, 45deg);
     }
   }
 }

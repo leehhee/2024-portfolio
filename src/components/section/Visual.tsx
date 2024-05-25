@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -11,6 +12,9 @@ import { Ticker } from '@/components/ui/ticker';
 import { Badge } from '@/components/ui/button';
 import { useRef } from 'react';
 import SplitType from 'split-type';
+
+import OBJECT01 from '/public/image/object01.png';
+import OBJECT02 from '/public/image/object02.png';
 
 const tickerIcon = Object.entries(skill);
 
@@ -24,6 +28,7 @@ const Visual = () => {
     const textChanger: HTMLDivElement[] = gsap.utils.toArray(
       '.visual__text-changer'
     );
+    const bgImg: HTMLDivElement[] = gsap.utils.toArray('.visual__object');
 
     if (!text.words) return;
     const hello = text.words[0];
@@ -36,8 +41,33 @@ const Visual = () => {
       repeatRefresh: true,
       yoyo: true,
     });
+    const tl3 = gsap.timeline({});
 
-    // if (textChanger.length < 2) return;
+    tl3
+      .from(bgImg[0], {
+        y: 60,
+        rotateY: -80,
+        rotateZ: -35,
+        opacity: 0.3,
+        duration: 1.2,
+      })
+      .from(bgImg[1], {
+        y: 30,
+        delay: 0.1,
+        rotateY: 40,
+        rotateZ: 15,
+        opacity: 0.3,
+        duration: 1.2,
+      })
+      .to(bgImg[0], {
+        yPercent: -20,
+        scrollTrigger: {
+          trigger: bgImg[0],
+          markers: true,
+          start: 'center center',
+        },
+      });
+
     tl2
       .to(textChanger[0], {
         text: 'Web',
@@ -128,6 +158,18 @@ const Visual = () => {
           );
         })}
       </Ticker>
+      <motion.div
+        className='visual__object'
+        data-number='1'
+        // initial={{ rotate: 0 }}
+        // animate={{ rotate: 360 }}
+        // transition={{ duration: 7, repeat: Infinity, ease: 'none' }}
+      >
+        <Image className='visual__object-img' alt='' src={OBJECT01.src} fill />
+      </motion.div>
+      <div className='visual__object' data-number='2'>
+        <Image className='visual__object-img' alt='' src={OBJECT02.src} fill />
+      </div>
     </Section>
   );
 };

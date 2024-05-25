@@ -1,5 +1,5 @@
 'use client';
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
@@ -25,11 +25,9 @@ const Skill = () => {
       types: 'chars,lines',
     });
 
-    console.log(listRef.current?.offsetWidth);
-
     gsap.to(sections, {
       xPercent: -100 * (testSkill - 1),
-      ease: 'none', // <-- IMPORTANT!
+      ease: 'none',
       scrollTrigger: {
         trigger: sectionRef.current,
         pin: true,

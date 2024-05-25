@@ -22,7 +22,6 @@ const Contact = () => {
     const text = new SplitType(textRef.current, { types: 'lines,chars' });
 
     if (!text.lines || text.lines.length < 3) return;
-    const words = gsap.utils.toArray(text.lines[1].querySelectorAll('.char'));
 
     const tl1 = gsap.timeline({
       ease: 'circ.inOut',
