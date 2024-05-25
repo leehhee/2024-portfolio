@@ -43,6 +43,7 @@
     color: $color__text-02;
     &-text {
       font-family: $font__archivo;
+      white-space: nowrap;
     }
     &-bar {
       display: block;
