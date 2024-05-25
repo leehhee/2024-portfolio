@@ -72,4 +72,6 @@ export interface ISectionProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
 }
 
+Section.displayName = 'Section';
+
 export default Section;
