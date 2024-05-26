@@ -1,5 +1,6 @@
 import '@/style/style.scss';
 
+import Favicon from '/public/favicon.ico';
 import type { Metadata, Viewport } from 'next';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
@@ -12,14 +13,7 @@ export const metadata: Metadata = {
   keywords: [
     '프론트엔드 개발자, 프론트엔드 포트폴리오, 웹 퍼블리셔 포트폴리오, UX 엔지니어, UI 개발자, 웹 퍼블리셔',
   ],
-  icons: {
-    icon: {
-      url: '/favicon.png',
-    },
-    shortcut: {
-      url: '/favicon.png',
-    },
-  },
+  icons: [{ rel: 'icon', url: Favicon.src }],
   verification: {
     google: 'YxlqZ71uNOrnU5b6IEnjMCb7CYtdr-LeWdgBl6WlY5o',
   },
