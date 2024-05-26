@@ -84,7 +84,17 @@
   }
 
   @media (max-width: $size__mb-lg) {
+    &__icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
     &__item {
+      &-title {
+        font-size: 2rem;
+        &-container {
+          gap: 1.2rem;
+        }
+      }
       &-desc {
         font-size: 1.6rem;
       }

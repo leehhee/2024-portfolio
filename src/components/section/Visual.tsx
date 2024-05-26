@@ -109,14 +109,23 @@ const Visual = () => {
   });
 
   const filter = useTransform(scrollYProgress, (v) => `blur(${v * 2}rem)`);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-  const reverseScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.1]);
   const animateValue = {
-    filter: useSpring(filter, springOption),
-    scale: useSpring(scale, springOption),
-    opacity: useSpring(opacity, springOption),
-    reverseScale: useSpring(reverseScale, springOption),
+    scale: useSpring(
+      useTransform(scrollYProgress, [0, 1], [1, 1.5]),
+      springOption
+    ),
+    opacity: useSpring(
+      useTransform(scrollYProgress, [0, 1], [0.3, 0.1]),
+      springOption
+    ),
+    reverseScale: useSpring(
+      useTransform(scrollYProgress, [0, 1], [1, 0.8]),
+      springOption
+    ),
+    rotate: useSpring(
+      useTransform(scrollYProgress, [0, 1], [0, -4]),
+      springOption
+    ),
   };
 
   return (
@@ -127,6 +136,7 @@ const Visual = () => {
         style={{
           filter,
           scale: animateValue.reverseScale,
+          rotate: animateValue.rotate,
         }}
       >
         <Badge className='visual__badge' animate>
