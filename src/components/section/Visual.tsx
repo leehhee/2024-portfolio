@@ -19,8 +19,6 @@ import { Badge } from '@/components/ui/button';
 import { useRef } from 'react';
 import SplitType from 'split-type';
 
-import OBJECT01 from '/public/image/object01.png';
-import OBJECT02 from '/public/image/object02.png';
 import { springOption } from '@/utils';
 
 const tickerIcon = Object.entries(skill);

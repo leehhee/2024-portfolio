@@ -64,6 +64,13 @@
   }
 }
 
+.logo {
+  width: 12.4rem;
+  @media (max-width: $size__tb-md) {
+    width: max(20vw, 10rem);
+  }
+}
+
 .ticker {
   width: 100%;
   overflow: hidden;

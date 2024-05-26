@@ -1,6 +1,3 @@
-import PROJECT01 from '/public/image/project01.png';
-import PROJECT02 from '/public/image/project02.jpg';
-
 import PROJECT11 from '/public/image/project11.png';
 import PROJECT10 from '/public/image/project10.png';
 import PROJECT09 from '/public/image/project09.png';

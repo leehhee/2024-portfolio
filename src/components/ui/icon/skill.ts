@@ -13,4 +13,5 @@ export const skill = {
   REACT: require('/public/icon/skill/react_40.svg').default(),
   SASS: require('/public/icon/skill/sass_40.svg').default(),
   SC: require('/public/icon/skill/sc_40.svg').default(),
+  SPRING: require('/public/icon/skill/spring_40.svg').default(),
 };

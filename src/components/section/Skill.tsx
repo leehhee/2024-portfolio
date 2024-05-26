@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { Badge } from '@/components/ui/button';
-import { skill } from '@/components/ui/icon';
 import { skill as skillData } from '@/data';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
@@ -85,7 +84,7 @@ const Skill = () => {
           {skillData.map((el, idx) => (
             <SkillItem
               key={el.title + idx}
-              icon={skill.JAVASCRIPT}
+              icon={el.icon}
               title={el.title}
               desc={el.desc}
             />
@@ -107,9 +106,7 @@ const SkillItem = (props: ISkillItemProps) => {
   return (
     <li className='skill__item glassbox'>
       <div className='skill__item-title-container'>
-        <Badge className='skill__icon'>
-          <span className='skill__icon-inner'>{props.icon}</span>
-        </Badge>
+        <div className='skill__icon'>{props.icon}</div>
         <h3 className='skill__item-title'>{props.title}</h3>
       </div>
       <p className='skill__item-desc'>{props.desc}</p>

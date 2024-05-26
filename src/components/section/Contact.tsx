@@ -8,6 +8,7 @@ import { social } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
 import { Button } from '@/components/ui/button';
 import { springOption } from '@/utils';
+import { link } from '@/data';
 
 const Contact = () => {
   const sectionRef = useRef(null);
@@ -76,16 +77,19 @@ const Contact = () => {
         <br /> work
         <br /> together
       </motion.p>
-      <div className='contact__button-container'>
-        <Button className='contact__button' href='#'>
+      <motion.div
+        className='contact__button-container'
+        style={{ scale: animateValue.textScale }}
+      >
+        <Button className='contact__button' href={link.mail}>
           <span className='icon'>{social.MAIL}</span>
           highcolor_12@g.hongik.ac.kr
         </Button>
-        <Button className='contact__button' href='#'>
+        <Button className='contact__button' href={link.resume} target='_blank'>
           <span className='icon'>{social.RESUME}</span>
           Get resume
         </Button>
-      </div>
+      </motion.div>
       <motion.div
         className='contact__bg'
         ref={sectionRef}

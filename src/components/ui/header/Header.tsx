@@ -10,7 +10,8 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import {  useState } from 'react';
+import { useState } from 'react';
+import LOGO from '/public/icon/logo.svg';
 
 const menu = [
   { text: 'Project', href: '#project' },
@@ -63,7 +64,10 @@ const Header = () => {
         <div className='header__inner'>
           <div className='header__logo-container'>
             <div className='header__logo'>
-              <a href='/'>YERIM.e</a>
+              <a href='/' title='홈으로'>
+                <LOGO className='logo' />
+                <span className='sound-only'>YERIM.e</span>
+              </a>
             </div>
           </div>
           <nav className='nav pc-only'>
