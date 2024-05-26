@@ -1,9 +1,11 @@
 .visual {
   @include util__flex(stretch, center);
-  // &::after {
-  //   @include util__get-bg-img('/image/bg04.jpg');
-  // }
+
   position: relative;
+
+  &__bg {
+    @include util__get-bg-img('/image/bg10.jpg');
+  }
 
   &__text {
     font-family: $font__archivo;
@@ -44,7 +46,6 @@
         height: 100%;
         border-radius: 100%;
         background: rgba(39, 221, 109, 0.3);
-        // opacity: 0;
         top: 0;
         left: 0;
         transform-origin: center;
@@ -54,27 +55,6 @@
       @include util__get-text-glow(0.8rem, rgba(39, 221, 109, 0.8));
       background: rgb(20, 20, 20);
       gap: 1.2rem;
-    }
-  }
-  &__object {
-    position: absolute;
-    img {
-      object-fit: contain;
-    }
-
-    &[data-number='1'] {
-      width: 30vw;
-      height: 30vw;
-      right: 6rem;
-      bottom: 6rem;
-      transform: rotate3d(1, -1, 0, -25deg);
-    }
-    &[data-number='2'] {
-      width: 28rem;
-      height: 28rem;
-      right: 417px;
-      bottom: 326px;
-      transform: rotate3d(3, 3, 0, 45deg);
     }
   }
 }

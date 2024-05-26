@@ -26,7 +26,7 @@ const Skill = () => {
     });
 
     gsap.to(sections, {
-      xPercent: -100 * (testSkill - 1),
+      xPercent: -100 * testSkill,
       ease: 'none',
       scrollTrigger: {
         trigger: sectionRef.current,

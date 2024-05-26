@@ -11,7 +11,7 @@ const Ticker: React.FC<ITickerProps> = (props) => {
         transition={{ duration: duration, ease: 'linear', repeat: Infinity }}
         initial={{ x: 0 }}
         animate={{ x: '-25%' }}
-        whileHover={{ x: '-25%', transition: { duration: duration * 4 } }}
+        // whileHover={{ x: '-25%', transition: { duration: duration * 4 } }}
       >
         {children}
         {children}
