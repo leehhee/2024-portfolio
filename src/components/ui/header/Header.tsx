@@ -56,12 +56,11 @@ const Header = () => {
       <motion.header
         className='header'
         style={{
-          scale: scale.normal,
           opacity: opacity.normal,
           pointerEvents: isDisable ? 'none' : 'auto',
         }}
       >
-        <div className='header__inner'>
+        <motion.div className='header__inner' style={{ scale: scale.normal }}>
           <div className='header__logo-container'>
             <div className='header__logo'>
               <a href='/' title='홈으로'>
@@ -112,7 +111,7 @@ const Header = () => {
               ></motion.span>
             </div>
           </LinkButton>
-        </div>
+        </motion.div>
         <AnimatePresence initial={false} mode='wait'>
           {isMenuOpen && (
             <motion.nav
