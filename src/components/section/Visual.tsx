@@ -3,12 +3,9 @@ import Lottie from 'lottie-react';
 import { Section } from '@/components/ui/section';
 import { visual } from '@/components/ui/icon';
 
-// import VISUAL5 from '/public/icon/visual/visual_05.json';
-
 const visualIcon = Object.entries(visual);
 const VISUAL_01 = require('/public/icon/visual/visual_01.json');
 const VISUAL_05 = require('/public/icon/visual/visual_05.json');
-console.log(visualIcon);
 
 const Visual = () => {
   return (

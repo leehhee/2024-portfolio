@@ -1,111 +1,75 @@
 .project {
-  &__inner {
-    padding: 10rem 0;
-  }
-
-  &__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5.6rem;
-    margin-top: 4.8rem;
-  }
-
+  $project: &;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   &__item {
-    position: relative;
-    &-img-container {
-      width: 85%;
-      margin: 0 auto;
-      position: relative;
-      padding-bottom: 60%;
-      transform-origin: bottom;
+    &-inner {
+      @include util__flex(stretch, stretch, 1vw);
 
-      img {
-        object-fit: contain;
+      @include tb-lg {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    &-text {
+      width: 25%;
+      text-align: right;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include tb-lg {
         width: 100%;
-        margin: 0 auto;
-        border-radius: 1.6rem;
-        overflow: hidden;
-        &:first-child {
-          mask-image: linear-gradient(
-            to bottom,
-            rgb(0, 0, 0) 50%,
-            rgba(0, 0, 0, 0) 100%
-          );
-        }
+        order: 1;
+        text-align: left;
       }
     }
-    &-img--blur {
-      position: absolute;
-      filter: blur(6.4rem) brightness(1);
-      top: 0;
-      z-index: -1;
-    }
-    &-text-container {
-      z-index: 1;
-      width: 100%;
-      margin-top: -10%;
-    }
+
     &-title {
-      @include util__get-text-shadow();
-      font-size: 2.8rem;
-    }
-    &-desc {
-      font-size: 1.6rem;
-      margin-top: 0.8rem;
+      font-size: 1.6vw;
+
+      @include tb-lg {
+        font-size: 1.6rem;
+      }
+
+      &-container {
+        line-height: 1;
+      }
     }
 
-    &-tag {
-      &-list {
-        @include util__flex(stretch, center, 1.2rem);
-        flex-wrap: wrap;
-        margin-top: 1.8rem;
+    &-sub {
+      font-size: 1.5vw;
+      font-weight: 600;
+    }
+
+    &-img {
+      width: 75%;
+      position: relative;
+      border: 0.1rem solid #fff;
+
+      @include tb-lg {
+        width: 100%;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 56.25%;
+      }
+    }
+
+    &:nth-child(2n) {
+      #{$project}__item-text {
+        order: 1;
+        text-align: left;
       }
     }
   }
-}
-
-@media (max-width: $size__tb-lg) {
-  .project {
-    &__list {
-      grid-template-columns: 1fr;
-      gap: 12rem;
-    }
-  }
-}
-
-@media (max-width: $size__tb-md) {
-}
-
-@media (max-width: $size__mb-lg) {
-  .project {
-    &__item {
-      &-title {
-        font-size: 2.4rem;
-      }
-      &-text-container {
-        padding: 1.8rem 1.6rem;
-        border-radius: 1.2rem;
-      }
-    }
-    &__list {
-      gap: 6rem;
-    }
-  }
-}
-
-@media (max-width: $size__mb-md) {
-  .project {
-    padding: 0rem;
-    &__title {
-      padding: 0 2.4rem;
-    }
-    &__item {
-      &-title {
-        font-size: 2rem;
-      }
-      &-img-container {
-        width: 90%;
-      }
-    }
+  &__tag {
+    @include util__font-size;
+    font-weight: 500;
+    line-height: 1.25;
   }
 }

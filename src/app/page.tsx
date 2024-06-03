@@ -6,6 +6,7 @@ export default function Home() {
       <Video />
       <div className='contents-wrap'>
         <Visual />
+        <Project />
       </div>
       {/* <Visual />
       <Skill />
