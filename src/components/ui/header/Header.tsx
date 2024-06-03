@@ -12,7 +12,7 @@ import {
 } from 'framer-motion';
 import { useState } from 'react';
 import LOGO from '/public/icon/logo.svg';
-import { common } from '@/components/ui/icon';
+import { LinkArrow, common } from '@/components/ui/icon';
 import { link } from '@/data';
 
 const menu = [
@@ -210,38 +210,56 @@ const Menu = (props: IHeaderMenuProps) => {
   return (
     <>
       <AnimatePresence initial={false} mode='wait'>
-        <div className='menu'>
-          <div className='menu__inner'>
-            <ul className='menu__list'>
-              <li className='menu__item'>
-                <a className='menu__item-link' href='#'>
-                  Info{' '}
-                  <span className='menu__item-arrow'>{common.ARROW_RIGHT}</span>
-                </a>
-              </li>
-            </ul>
-            <div className='menu__info'>
-              <div className='menu__info-left'>
-                <div className='menu__info-title'>Connect</div>
-                <ul className='menu__info-list'>
-                  <li className='menu__info-item'>
-                    <a href={link.mail}>highcolor_12@naver.com</a>
-                  </li>
-                </ul>
+        {props.isOpen && (
+          <div className='menu'>
+            <div className='menu__inner'>
+              <ul className='menu__list' role='menu'>
+                <li className='menu__item'>
+                  <a className='menu__item-link' href='#' role='menuitem'>
+                    <span className='menu__item-link-text'>Info</span>
+                    <span className='menu__item-arrow'>
+                      {common.ARROW_RIGHT}
+                    </span>
+                  </a>
+                </li>
+                <li className='menu__item'>
+                  <a className='menu__item-link' href='#' role='menuitem'>
+                    <span className='menu__item-link-text'>Work</span>
+                    <span className='menu__item-arrow'>
+                      {common.ARROW_RIGHT}
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <div className='menu__info'>
+                <div className='menu__info-left'>
+                  <div className='menu__info-title'>Connect</div>
+                  <ul className='menu__info-list'>
+                    <li className='menu__info-item'>
+                      <a href={link.mail}>highcolor_12@naver.com</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className='menu__info-right'>
+                  <ul className='menu__info-list'>
+                    <li className='menu__info-item'>
+                      <a href={link.github} target='_blank'>
+                        Github <LinkArrow />
+                      </a>
+                    </li>
+                    <li className='menu__info-item'>
+                      <a href={link.velog} target='_blank'>
+                        Velog <LinkArrow />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className='menu__info-right'>
-                <ul className='menu__info-list'>
-                  <li className='menu__info-item'>
-                    <a href={link.github} target='_blank'>
-                      Github{' '}
-                      <span className='link-icon'>{common.ARROW_LINK}</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <ul className='menu__category'></ul>
+              <p className='menu__copy'>Copyright ©2024 | Park Ye rim</p>
             </div>
           </div>
-        </div>
+        )}
       </AnimatePresence>
     </>
   );

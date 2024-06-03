@@ -21,6 +21,12 @@
   }
 }
 
+@mixin mb-md {
+  @media (max-width: $size__mb-md) {
+    @content;
+  }
+}
+
 @mixin util__flex($jc: flex-start, $ai: stretch, $gap: 0, $dir: row) {
   display: flex;
   justify-content: $jc;

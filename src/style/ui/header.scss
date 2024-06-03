@@ -3,12 +3,14 @@
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 999;
 
   &__inner {
     @include util__inner;
     padding-top: $size__page-padding;
     padding-bottom: $size__page-padding;
-    // @include util__flex(space-between, center);
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 1.6rem;
@@ -108,6 +110,110 @@
   &__clock {
     @include util__flex(stretch, center);
     padding: 0 1rem;
+  }
+}
+
+.menu {
+  $menu: &;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  max-height: 100lvh;
+  background: $color__black;
+  top: 0;
+  left: 0;
+  padding-top: 6.2rem;
+  &__inner {
+    width: 100%;
+    height: 100%;
+    padding: $size__page-padding;
+    display: flex;
+    flex-direction: column;
+  }
+  &__list {
+    padding-top: 8rem;
+  }
+  &__item {
+    font-size: clamp(3.4rem, 5vw, 4.2rem);
+    font-weight: 600;
+    &-link {
+      @include util__flex(stretch, center, 1.25rem);
+      &:hover {
+        #{$menu}__item-link-text::after {
+          transform: scaleX(0);
+        }
+        #{$menu}__item-arrow {
+          transform: translateX(0.2rem);
+        }
+      }
+      &-text {
+        position: relative;
+        display: inline-block;
+        &::after {
+          @include util__pseudo(100%, 0.1rem);
+          background: $color__white;
+          top: unset;
+          left: 0;
+          bottom: 16%;
+          transition: transform 0.3s;
+          transform-origin: right;
+        }
+      }
+    }
+    &-arrow {
+      width: clamp(4rem, 12vw, 5rem);
+      margin-top: -0.2rem;
+      transition: transform 0.3s;
+    }
+  }
+  &__info {
+    @include util__flex(space-between, flex-end, 3.2rem);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.4rem;
+    width: 50%;
+    line-height: 1.3;
+
+    @include mb-md {
+      width: 100%;
+    }
+
+    &-item {
+      a {
+        @include util__flex(stretch, center, 0.5rem);
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+
+          .icon__link-inner {
+            transform: translateX(0%) translateY(-50%);
+          }
+        }
+      }
+    }
+
+    &-title {
+      position: relative;
+      padding-bottom: 1.4rem;
+      margin-bottom: 1.4rem;
+      &::after {
+        @include util__pseudo(1.6rem, 0.3rem);
+        background: $color__white;
+        top: unset;
+        bottom: 0;
+      }
+    }
+  }
+  &__category {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  &__copy {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: right;
   }
 }
 
