@@ -1,3 +1,5 @@
+import { DownArrow } from '@/components/ui/icon';
+
 const Video = () => {
   return (
     <section className='sc video'>
@@ -8,8 +10,14 @@ const Video = () => {
         </div>
         <div className='video__title-container'>
           <p className='video__title'>Experience Worlds Unseen</p>
+          <div className='video__info pc-only'>
+            <p>Featured Reel ‘24</p>
+            <button className='video__timer'>00:00</button>
+          </div>
         </div>
-        <button className='video__more'>Scroll for more</button>
+        <button className='video__more'>
+          Scroll for more <DownArrow />
+        </button>
       </div>
     </section>
   );

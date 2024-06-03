@@ -11,3 +11,13 @@ export const LinkArrow = () => {
   );
 };
 
+export const DownArrow = () => {
+  return (
+    <div className='icon__down'>
+      <div className='icon__down-inner'>
+        <span className='icon__down-item'>{common.ARROW_DOWN}</span>
+        <span className='icon__down-item'>{common.ARROW_DOWN}</span>
+      </div>
+    </div>
+  );
+};
