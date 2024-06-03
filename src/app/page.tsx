@@ -4,6 +4,9 @@ export default function Home() {
   return (
     <main>
       <Video />
+      <div className='contents-wrap'>
+        <Visual />
+      </div>
       {/* <Visual />
       <Skill />
       <Project />
