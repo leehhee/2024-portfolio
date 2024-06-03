@@ -29,7 +29,7 @@
   }
 
   &[data-autoheight='true'] {
-    #{sc}__inner {
+    #{$sc}__inner {
       min-height: unset;
     }
   }
@@ -190,6 +190,6 @@
 .contents {
   &-wrap {
     position: relative;
-    margin-top: -100vh;
+    margin-top: 100vh;
   }
 }

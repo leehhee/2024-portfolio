@@ -109,6 +109,10 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
+@mixin util__font-size {
+  font-size: clamp(1.4rem, 1.1vw, 1.6rem);
+}
+
 /* 수정 전 코드*/
 
 @mixin util__get-text-glow($size: 2.5rem, $color: rgba(255, 255, 255, 0.4)) {

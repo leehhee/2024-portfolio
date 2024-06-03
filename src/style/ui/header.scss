@@ -22,14 +22,14 @@
   }
   &__nav {
     @include util__flex(space-between, center);
+    @include util__font-size;
     background: $color__white;
     color: $color__black;
-    font-size: 1.4rem;
     font-weight: 600;
     line-height: 1;
 
     @include tb-lg {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
 
     &-list {
@@ -73,6 +73,11 @@
       height: 100%;
       padding: 0.6rem 1rem;
       cursor: pointer;
+
+      @include tb-lg {
+        padding: 0.5rem;
+      }
+
       &-icon {
         @include util__flex(center, center, 0.2rem, column);
         width: 2.2rem;
