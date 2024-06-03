@@ -19,6 +19,7 @@
     }
   }
   &__nav {
+    @include util__flex(space-between, center);
     background: $color__white;
     color: $color__black;
     font-size: 1.4rem;
@@ -27,6 +28,40 @@
 
     @include tb-lg {
       font-size: 1.8rem;
+    }
+
+    &-list {
+      @include util__flex(space-between, stretch);
+      width: 40%;
+      height: 100%;
+    }
+    &-item {
+      @include util__flex(center, stretch);
+      height: 100%;
+
+      &-link {
+        @include util__flex(stretch, center);
+        padding: 0.2rem 1rem;
+        position: relative;
+        transition: color 0.3s;
+        z-index: 3;
+
+        &::after {
+          @include util__pseudo;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s;
+          background: $color__black;
+          z-index: -1;
+        }
+
+        &:hover {
+          color: $color__white;
+          &::after {
+            transform: scaleX(1);
+          }
+        }
+      }
     }
 
     &-opener {
@@ -63,38 +98,7 @@
       }
     }
   }
-  &__list {
-    @include util__flex(space-between, stretch);
-    height: 100%;
-  }
-  &__item {
-    @include util__flex(center, stretch);
-    height: 100%;
 
-    &-link {
-      @include util__flex(stretch, center);
-      padding: 0.2rem 1rem;
-      position: relative;
-      transition: color 0.3s;
-      z-index: 3;
-
-      &::after {
-        @include util__pseudo;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s;
-        background: $color__black;
-        z-index: -1;
-      }
-
-      &:hover {
-        color: $color__white;
-        &::after {
-          transform: scaleX(1);
-        }
-      }
-    }
-  }
   &__logo {
     @include util__flex(flex-start, stretch);
     a {

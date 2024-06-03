@@ -12,6 +12,8 @@ import {
 } from 'framer-motion';
 import { useState } from 'react';
 import LOGO from '/public/icon/logo.svg';
+import { common } from '@/components/ui/icon';
+import { link } from '@/data';
 
 const menu = [
   { text: 'Project', href: '#project' },
@@ -62,17 +64,15 @@ const Header = () => {
             </a>
           </div>
           <nav className='header__nav'>
-            <ul className='header__list pc-only' role='menu'>
-              <li className='header__item'>
-                <div className='header__clock'>Los Angeles, CA 4:45 PM</div>
-              </li>
-              <li className='header__item'>
-                <a role='menuitem' className='header__item-link' href='#'>
+            <div className='header__clock pc-only'>Los Angeles, CA 4:45 PM</div>
+            <ul className='header__nav-list pc-only' role='menu'>
+              <li className='header__nav-item'>
+                <a role='menuitem' className='header__nav-item-link' href='#'>
                   Work
                 </a>
               </li>
-              <li className='header__item'>
-                <a role='menuitem' className='header__item-link' href='#'>
+              <li className='header__nav-item'>
+                <a role='menuitem' className='header__nav-item-link' href='#'>
                   Info
                 </a>
               </li>
@@ -91,6 +91,7 @@ const Header = () => {
             </button>
           </nav>
         </div>
+        <Menu isOpen={isMenuOpen} />
       </header>
     </>
     // <>
@@ -204,5 +205,50 @@ const Header = () => {
     // </>
   );
 };
+
+const Menu = (props: IHeaderMenuProps) => {
+  return (
+    <>
+      <AnimatePresence initial={false} mode='wait'>
+        <div className='menu'>
+          <div className='menu__inner'>
+            <ul className='menu__list'>
+              <li className='menu__item'>
+                <a className='menu__item-link' href='#'>
+                  Info{' '}
+                  <span className='menu__item-arrow'>{common.ARROW_RIGHT}</span>
+                </a>
+              </li>
+            </ul>
+            <div className='menu__info'>
+              <div className='menu__info-left'>
+                <div className='menu__info-title'>Connect</div>
+                <ul className='menu__info-list'>
+                  <li className='menu__info-item'>
+                    <a href={link.mail}>highcolor_12@naver.com</a>
+                  </li>
+                </ul>
+              </div>
+              <div className='menu__info-right'>
+                <ul className='menu__info-list'>
+                  <li className='menu__info-item'>
+                    <a href={link.github} target='_blank'>
+                      Github{' '}
+                      <span className='link-icon'>{common.ARROW_LINK}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </AnimatePresence>
+    </>
+  );
+};
+
+interface IHeaderMenuProps {
+  isOpen: boolean;
+}
 
 export default Header;
