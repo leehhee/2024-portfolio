@@ -1,3 +1,112 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  &__inner {
+    @include util__inner;
+    padding-top: $size__page-padding;
+    padding-bottom: $size__page-padding;
+    // @include util__flex(space-between, center);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1.6rem;
+
+    @include tb-lg {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4rem;
+    }
+  }
+  &__nav {
+    background: $color__white;
+    color: $color__black;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1;
+
+    @include tb-lg {
+      font-size: 1.8rem;
+    }
+
+    &-opener {
+      @extend .header__nav;
+      @include util__flex(space-between, center);
+      width: 100%;
+      height: 100%;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      &-icon {
+        @include util__flex(center, center, 0.2rem, column);
+        width: 2.2rem;
+        height: 100%;
+        position: relative;
+
+        &::after,
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 0.2rem;
+          background: $color__black;
+          transition: transform 0.3s;
+        }
+
+        &[data-isopen='true'] {
+          &::after {
+            transform: rotate(45deg) translateY(-0.3rem);
+          }
+          &::before {
+            transform: rotate(-45deg) translateY(0.3rem);
+          }
+        }
+      }
+    }
+  }
+  &__list {
+    @include util__flex(space-between, stretch);
+    height: 100%;
+  }
+  &__item {
+    @include util__flex(center, stretch);
+    height: 100%;
+
+    &-link {
+      @include util__flex(stretch, center);
+      padding: 0.2rem 1rem;
+      position: relative;
+      transition: color 0.3s;
+      z-index: 3;
+
+      &::after {
+        @include util__pseudo;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+        background: $color__black;
+        z-index: -1;
+      }
+
+      &:hover {
+        color: $color__white;
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+  &__logo {
+    @include util__flex(flex-start, stretch);
+    a {
+      @include util__flex(stretch, center);
+    }
+  }
+  &__clock {
+    @include util__flex(stretch, center);
+    padding: 0 1rem;
+  }
+}
+
 // $btnPadding: 0.9rem;
 // $barPos: 1.1rem;
 

@@ -4,7 +4,11 @@ import Favicon from '/public/favicon.ico';
 import type { Metadata, Viewport } from 'next';
 import { Header } from '@/components/ui/header';
 import { Footer } from '@/components/ui/footer';
-import { fontPretendard, fontarchivo } from '@/components/fonts';
+import {
+  fontPretendard,
+  fontarchivo,
+  fontNeueHaasGrotesk,
+} from '@/components/fonts';
 
 export const metadata: Metadata = {
   title: 'YERIM.e',
@@ -41,12 +45,12 @@ export default function RootLayout({
   return (
     <html
       lang='ko'
-      className={`${fontarchivo.variable} ${fontPretendard.variable}`}
+      className={`${fontarchivo.variable} ${fontPretendard.variable} ${fontNeueHaasGrotesk.variable}`}
     >
       <body>
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

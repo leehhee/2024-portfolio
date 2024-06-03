@@ -10,15 +10,13 @@
 }
 
 .pc-only {
-  display: inherit;
-  @media (max-width: $size__tb-md) {
-    display: none;
+  @include tb-lg {
+    display: none !important;
   }
 }
 .tb-only {
-  display: none;
-  @media (max-width: $size__tb-md) {
-    display: inherit;
+  @media (min-width: 991px) {
+    display: none !important;
   }
 }
 

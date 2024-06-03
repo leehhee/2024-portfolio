@@ -57,26 +57,38 @@ const Header = () => {
         <div className='header__inner'>
           <div className='header__logo'>
             <a href='/' title='홈으로'>
+              <h1 className='sound-only'>YERIM.e</h1>
               <LOGO className='logo' />
-              <span className='sound-only'>YERIM.e</span>
             </a>
           </div>
           <nav className='header__nav'>
-            <ul className='header__list'>
+            <ul className='header__list pc-only' role='menu'>
               <li className='header__item'>
                 <div className='header__clock'>Los Angeles, CA 4:45 PM</div>
               </li>
               <li className='header__item'>
-                <a className='header__item-link' href='#'>
+                <a role='menuitem' className='header__item-link' href='#'>
                   Work
                 </a>
               </li>
               <li className='header__item'>
-                <a className='header__item-link' href='#'>
+                <a role='menuitem' className='header__item-link' href='#'>
                   Info
                 </a>
               </li>
             </ul>
+            <button
+              className='header__nav-opener tb-only'
+              aria-haspopup='true'
+              aria-controls='menu'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <div className='header__nav-opener-title'>Menu</div>
+              <div
+                className='header__nav-opener-icon'
+                data-isopen={isMenuOpen}
+              ></div>
+            </button>
           </nav>
         </div>
       </header>
