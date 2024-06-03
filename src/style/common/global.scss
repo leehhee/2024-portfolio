@@ -31,6 +31,9 @@ button {
 body {
   font-size: 1.4rem;
   min-width: 280px;
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
   background: $color__black;
   font-family: $font__grotesk;
   line-height: $size__p-line-height;

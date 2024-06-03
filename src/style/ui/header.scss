@@ -115,6 +115,7 @@
 
 .menu {
   $menu: &;
+  @include util__get-header-height;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -123,7 +124,7 @@
   background: $color__black;
   top: 0;
   left: 0;
-  padding-top: 6.2rem;
+
   &__inner {
     width: 100%;
     height: 100%;
@@ -216,178 +217,3 @@
     text-align: right;
   }
 }
-
-// $btnPadding: 0.9rem;
-// $barPos: 1.1rem;
-
-// .header {
-//   position: fixed;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   z-index: 100;
-//   @include util__get-page-padding;
-
-//   &__inner {
-//     @include util__get-size-inner;
-//     @include util__flex(space-between);
-//     height: 14rem;
-//     padding: 0.8rem 0;
-//   }
-
-//   &__logo {
-//     height: 100%;
-//     a {
-//       @include util__flex(center, center);
-//       height: 100%;
-//     }
-//   }
-// }
-
-// .nav {
-//   @include util__flex(stretch, center);
-//   &.tb-only {
-//     display: none;
-//   }
-//   &__list {
-//     @include util__flex(stretch, center, 1.6rem);
-//     .button {
-//       font-size: 1.8rem;
-//       &__link {
-//         padding: 0.2rem 1.4rem;
-//       }
-//     }
-//   }
-//   &__item {
-//     @include util__flex(stretch, center);
-//     height: 100%;
-//   }
-//   &__button {
-//     font-size: 1.6rem;
-//     font-weight: 500;
-//     align-self: center;
-//     width: 4rem;
-//     height: 4rem;
-//     display: none;
-
-//     .button__link {
-//       width: 100%;
-//       height: 100%;
-//       padding: $btnPadding;
-//       position: relative;
-//       outline: none;
-
-//       &:focus {
-//         outline: initial;
-//       }
-//     }
-//   }
-//   &__bar {
-//     display: inline-block;
-//     position: absolute;
-//     pointer-events: none;
-//     // width: calc(100% - (#{$btnPadding} * 2));
-//     width: 100%;
-//     height: 0.2rem;
-//     background: $color__text-03;
-//     border-radius: 1.6rem;
-//     transform-origin: center;
-//     top: 0;
-//     left: 0;
-//     &:nth-child(2) {
-//       top: calc(50% - 0.1rem);
-//     }
-
-//     &:last-child {
-//       top: unset;
-//       bottom: 0;
-//     }
-
-//     &-inner {
-//       width: 100%;
-//       height: 1.4rem;
-//       position: relative;
-//     }
-//   }
-// }
-
-// .top-btn {
-//   position: fixed;
-//   bottom: 4rem;
-//   right: 6rem;
-//   z-index: 100;
-//   .button {
-//     font-weight: 600;
-//     box-shadow: 0 0 2.4rem rgba(0, 0, 0, 1);
-//     &__link {
-//       width: 8rem;
-//       height: 8rem;
-//       font-weight: 600;
-//       justify-content: center;
-//       font-size: 1.8rem;
-//       @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0));
-//       transition: text-shadow 0.3s;
-//     }
-//   }
-
-//   &:hover {
-//     .button__link {
-//       @include util__get-text-glow(1.6rem, rgba(255, 255, 255, 0.8));
-//     }
-//   }
-// }
-
-// @media (max-width: $size__tb-md) {
-//   .header {
-//     background: rgba(0, 0, 0, 0.7);
-//     box-shadow: 0 0 5rem rgba(0, 0, 0, 1);
-//     &__inner {
-//       height: 8rem;
-//     }
-//   }
-//   .nav {
-//     display: block;
-
-//     &__list {
-//       display: block;
-//       &-item {
-//         font-size: 1.8rem;
-//         padding: 0.6rem 0;
-//         transition: color 0.3s;
-
-//         &:hover {
-//           color: $color__text-04;
-//         }
-//       }
-//     }
-//     &.pc-only {
-//       display: none;
-//     }
-//     &.tb-only {
-//       display: block;
-//       transform-origin: top;
-//       overflow: hidden;
-//       padding-bottom: 1.6rem;
-//     }
-//     &__button {
-//       display: block;
-//     }
-//   }
-//   .top-btn {
-//     right: 4rem;
-//     bottom: 3rem;
-
-//     .button {
-//       &__link {
-//         width: 6rem;
-//         height: 6rem;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: $size__mb-md) {
-//   .top-btn {
-//     right: 2.4rem;
-//   }
-// }

@@ -75,6 +75,24 @@
   }
 }
 
+@function fn__get-header-height($screen: 1024) {
+  $headerHeight: null;
+  $headerHeight: 5.5;
+
+  @if ($screen < 990) {
+    $headerHeight: 6.2;
+  }
+
+  @return #{$headerHeight}rem;
+}
+@mixin util__get-header-height($bottom: false) {
+  padding-top: fn__get-header-height();
+
+  @if $bottom == 'bottom' {
+    padding-bottom: fn__get-header-height();
+  }
+}
+
 @mixin util__pseudo($width: 100%, $height: 100%) {
   content: '';
   display: block;

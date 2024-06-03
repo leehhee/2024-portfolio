@@ -21,45 +21,16 @@
 }
 
 .sc {
-  @include util__get-page-padding;
-  min-height: 100vh;
-  min-height: 100svh;
-  &[data-autoheight='true'] {
-    min-height: unset;
-  }
-
+  $sc: &;
   &__inner {
-    @include util__get-size-inner();
-
-    &[data-unlimit='true'] {
-      max-width: unset;
-    }
+    @include util__inner;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
-  &__title {
-    @include util__flex(space-between, center, 3.2rem);
-
-    font-size: 3.2vw;
-    color: $color__text-02;
-    &-text {
-      font-family: $font__archivo;
-      white-space: nowrap;
-    }
-    &-bar {
-      display: block;
-      content: '';
-      width: 100%;
-      height: 0.2rem;
-      background: $color__text-02;
-      opacity: 0.4;
-      transform-origin: left;
-    }
-  }
-
-  @media (max-width: $size__tb-md) {
-    &__title {
-      font-size: max(5vw, 2.4rem);
-      gap: 2.4rem;
+  &[data-autoheight='true'] {
+    #{sc}__inner {
+      min-height: unset;
     }
   }
 }
