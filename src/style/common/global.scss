@@ -32,7 +32,7 @@ body {
   font-size: 1.4rem;
   min-width: 280px;
   background: $color__bg;
-  font-family: $font__pretendard;
+  font-family: $font__grotesk;
   line-height: $size__p-line-height;
   color: $color__text-02;
   letter-spacing: -0.02em;
@@ -49,10 +49,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font__pretendard;
+  font-family: $font__grotesk;
   line-height: $size__title-line-height;
 }
 button {
   background: transparent;
-  font-family: $font__pretendard;
+  font-family: $font__grotesk;
 }
