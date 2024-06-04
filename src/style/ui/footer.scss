@@ -1,35 +1,60 @@
 .footer {
-  width: 100%;
-  @include util__get-page-padding;
-
   &__inner {
-    @include util__get-size-inner;
-    @include util__flex(space-between, center);
-    padding: 4rem 0;
-    padding-bottom: 16rem;
-    color: $color__text-03;
+    @include util__inner;
+    padding-top: 11.458vw;
+    padding-bottom: 1.56vw;
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
   }
   &__copy {
-    font-size: 1.6rem;
+    font-size: min(6.25vw, 12rem);
     font-weight: 500;
-  }
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0.8;
 
-  @media (max-width: $size__tb-md) {
-    &__inner {
-      padding-bottom: 12rem;
+    @include tb-lg {
+      font-size: min(5rem, 11.2vw);
+    }
+
+    &-icon {
+      font-family: var(--font-script), #{$font__pretendard};
     }
   }
+  &__info {
+    @include util__flex(space-between, center);
+    margin-top: 8.3vw;
 
-  @media (max-width: $size__mb-lg) {
-    &__inner {
+    @include tb-md {
+      text-align: center;
+      align-items: stretch;
       flex-direction: column;
-      gap: 1.6rem;
+      margin-top: 10vw;
+      gap: 2rem;
+    }
+
+    a {
+      @include util__flex(center, center, 0.4rem);
+    }
+
+    &-item {
+      @include util__font-size;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
+  &__year {
+    font-weight: 400;
+    opacity: 0.8;
 
-  @media (max-width: $size__mb-md) {
-    &__copy {
-      font-size: 1.4rem;
+    @include tb-md {
+      order: 4;
     }
   }
 }

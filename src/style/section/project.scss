@@ -109,6 +109,9 @@
     &-img {
       width: 75%;
       position: relative;
+      img {
+        object-fit: cover;
+      }
       @include tb-lg {
         width: 100%;
       }

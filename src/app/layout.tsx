@@ -7,7 +7,9 @@ import {
   fontPretendard,
   fontarchivo,
   fontNeueHaasGrotesk,
+  fontScript,
 } from '@/components/fonts';
+import Footer from '@/components/ui/footer/Footer';
 
 export const metadata: Metadata = {
   title: 'YERIM.e',
@@ -44,12 +46,12 @@ export default function RootLayout({
   return (
     <html
       lang='ko'
-      className={`${fontarchivo.variable} ${fontPretendard.variable} ${fontNeueHaasGrotesk.variable}`}
+      className={`${fontScript.variable} ${fontPretendard.variable} ${fontNeueHaasGrotesk.variable}`}
     >
       <body>
         <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

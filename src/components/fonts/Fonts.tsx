@@ -1,5 +1,13 @@
-import { Archivo_Black } from 'next/font/google';
+import { Archivo_Black, Oleo_Script_Swash_Caps } from 'next/font/google';
 import localFont from 'next/font/local';
+
+export const fontScript = Oleo_Script_Swash_Caps({
+  display: 'swap',
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-script',
+  preload: true,
+});
 
 export const fontNeueHaasGrotesk = localFont({
   variable: '--font-grotesk',
