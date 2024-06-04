@@ -1,4 +1,4 @@
-import { Contact, Project, Skill, Visual, Video } from '@/components/section';
+import { Project, Visual, Video } from '@/components/section';
 
 export default function Home() {
   return (

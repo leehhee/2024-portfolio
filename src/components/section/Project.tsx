@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Section } from '@/components/ui/section';
 import { project, IProjectItem } from '@/data';
 
@@ -31,7 +32,9 @@ const ProjectItem = (props: IProjectItem) => {
             ))}
           </ul>
         </div>
-        <div className='project__item-img'></div>
+        <div className='project__item-img'>
+          <Image src={props.thumb} fill alt='' />
+        </div>
       </a>
     </li>
   );

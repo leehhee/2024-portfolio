@@ -2,6 +2,15 @@
   $project: &;
   padding-top: 6rem;
   padding-bottom: 6rem;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10vw;
+
+    @include tb-lg {
+      gap: 4vw;
+    }
+  }
   &__item {
     &-inner {
       @include util__flex(stretch, stretch, 1vw);

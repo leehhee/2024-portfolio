@@ -1,11 +1,9 @@
 'use client';
-import LinkButton from '@/components/ui/button/Button';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import {
   AnimatePresence,
-  motion,
   useMotionValueEvent,
   useScroll,
   useTransform,

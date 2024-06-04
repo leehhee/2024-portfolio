@@ -3,7 +3,6 @@ import '@/style/style.scss';
 import Favicon from '/public/favicon.ico';
 import type { Metadata, Viewport } from 'next';
 import { Header } from '@/components/ui/header';
-import { Footer } from '@/components/ui/footer';
 import {
   fontPretendard,
   fontarchivo,
