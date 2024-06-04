@@ -1,6 +1,8 @@
+'use client';
 import Image from 'next/image';
 import { Section } from '@/components/ui/section';
 import { project, IProjectItem } from '@/data';
+import { useState } from 'react';
 
 const Project = () => {
   return (
@@ -16,26 +18,53 @@ const Project = () => {
 };
 
 const ProjectItem = (props: IProjectItem) => {
+  const [isHover, setIsHover] = useState(false);
+
+  const linkOption = {
+    onMouseOver: () => setIsHover(true),
+    onMouseOut: () => setIsHover(false),
+  };
+
   return (
-    <li className='project__item'>
-      <a className='project__item-inner' href='#' target='__blank'>
-        <div className='project__item-text'>
-          <div className='project__item-title-container'>
+    <li className='project__item' data-hover={isHover}>
+      <div className='project__item-text'>
+        <div className='project__item-title-container'>
+          <a href={props.link} target='__blank' {...linkOption} tabIndex={-1}>
             <h3 className='project__item-title'>{props.title}</h3>
-            {/* <p className='project__item-sub'>{props.category}</p> */}
+            <p className='project__item-sub'>{props.subtitle}</p>
+          </a>
+          <div className='project__item-link'>
+            <a
+              className='project__item-link-item tb-only'
+              target='_blank'
+              href={props.link}
+              {...linkOption}
+            >
+              View Project →
+            </a>
+            <a
+              className='project__item-link-item project__item-link-info'
+              target='_blank'
+              href='#'
+            >
+              View Detail →
+            </a>
           </div>
-          <ul className='project__tag pc-only'>
-            {props.tags?.map((el, idx) => (
-              <li className='project__tag-item' key={`tag__${idx}-${el}`}>
-                <span className='project__tag-text'>#{el}</span>
-              </li>
-            ))}
-          </ul>
         </div>
-        <div className='project__item-img'>
+        <ul className='project__tag pc-only'>
+          {props.tags?.map((el, idx) => (
+            <li className='project__tag-item' key={`tag__${idx}-${el}`}>
+              <span className='project__tag-text'>#{el}</span>
+              <span className='project__tag-text'>#{el}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className='project__item-img'>
+        <a href={props.link} target='__blank' {...linkOption}>
           <Image src={props.thumb} fill alt='' />
-        </div>
-      </a>
+        </a>
+      </div>
     </li>
   );
 };

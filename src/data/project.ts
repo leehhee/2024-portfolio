@@ -9,6 +9,7 @@ import PROJECT05 from '/public/image/project05.png';
 export const project: TProject = [
   {
     key: 11,
+    subtitle: '반응형 PC 웹사이트',
     title: 'CRAFT',
     thumb: PROJECT11.src,
     category: '사이트 클론코딩',
@@ -22,6 +23,7 @@ export const project: TProject = [
   {
     key: 10,
     title: 'DRINKLE',
+    subtitle: '사이드 프로젝트',
     thumb: PROJECT10.src,
     category: '주류 칵테일 플랫폼 개발 사이드 프로젝트',
     notion:
@@ -39,21 +41,10 @@ export const project: TProject = [
     tool: 'Next.js, Redux, Styled-components, Framer-motion, react-query, storybook',
     isProgress: true,
   },
-  // {
-  //   key: 9,
-  //   title: '아주대의료원 산하 웹사이트 운영 및 유지보수',
-  //   thumb: `${process.env.NEXT_PUBLIC_CDN_LINK}/portfolio/image/work/work17.jpg`,
-  //   category: '병원, 의료원 산하 웹사이트 및 내부 시스템 운영',
-  //   link: 'https://hosp.ajoumc.or.kr/',
-  //   tags: ['운영', '유지보수', '서브시스템 개발', '퍼블리싱'],
-  //   desc: `아주대병원 홈페이지 담당자로 의료원 산하 병원, 의료원, 각종 센터와 CMS, 인사고과, VOC 관리자 등 내부 직원들이 사용하는 서브사이트들을 운영 및 유지보수 하였습니다.\n의료원 홍보팀과 협업하여 내부 콘텐츠 퍼블리싱을 지원하였으며, 아주대학교병원 병원현황, 의과학연구소 ‘연구자원 공유 서비스', 'Cloning 제작 서비스', 장비 사용 예약신청 페이지 등의 신규 페이지 개발 및 비회원 예약조회 시 본인인증, CMS 엑셀 다운로드 등의 기능 개발을 수행하였습니다.`,
-  //   duration: '2023.03 ~ 진행중',
-  //   section: '사이트 운영 및 유지보수',
-  //   tool: 'Spring, JSP, ASP.NET, HTML, CSS, JavaScript, SQL',
-  // },
   {
     key: 9,
-    title: '대아정보시스템  홈페이지 리뉴얼',
+    title: '대아정보시스템',
+    subtitle: '반응형 PC 웹사이트',
     thumb: PROJECT09.src,
     category: '기업 사이트 제작',
     link: 'http://daeainfosys.co.kr/',
@@ -65,7 +56,8 @@ export const project: TProject = [
   },
   {
     key: 8,
-    title: 'RebitX Mobile Web',
+    title: 'RebitX Mobile',
+    subtitle: '모바일 웹앱 구축',
     thumb: PROJECT08.src,
     category: '상업용 부동산 조각투자 플랫폼 웹앱 버전 구축',
     link: 'https://rebit-x.vercel.app/mobile',
@@ -80,6 +72,7 @@ export const project: TProject = [
   {
     key: 7,
     title: 'RebitX',
+    subtitle: '상업용 부동산 조각투자 플랫폼',
     thumb: PROJECT07.src,
     category: '상업용 부동산 조각투자 플랫폼 구축',
     link: 'https://rebitx.com/',
@@ -95,6 +88,7 @@ export const project: TProject = [
     key: 6,
     title: 'FUNCHY',
     thumb: PROJECT06.src,
+    subtitle: '온라인 P2P 플랫폼',
     category: '온라인 P2P 플랫폼 서비스 구축',
     // link: 'https://funchy.vercel.app/',
     notion:
@@ -109,6 +103,7 @@ export const project: TProject = [
     key: 5,
     title: '건명테크',
     thumb: PROJECT05.src,
+    subtitle: 'PC 웹사이트',
     category: '기업 사이트 제작',
     link: 'http://xn--z69au0yv6quza.kr/',
     tags: ['기획 100%', '디자인 100%', 'HTML', 'CSS', 'JQuery', '그누보드'],
@@ -193,6 +188,7 @@ export type TProject = IProjectItem[];
 export interface IProjectItem {
   key: number;
   title: string;
+  subtitle: string;
   link?: string;
   desc: string;
   thumb: string;

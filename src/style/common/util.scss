@@ -110,7 +110,7 @@
 }
 
 @mixin util__font-size {
-  font-size: clamp(1.4rem, 1.1vw, 1.6rem);
+  font-size: clamp(1.4rem, 0.8vw, 1.6rem);
 }
 
 /* 수정 전 코드*/
