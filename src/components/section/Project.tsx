@@ -6,14 +6,24 @@ import { useState } from 'react';
 
 const Project = () => {
   return (
-    <Section className='project'>
-      <h2 className='sound-only'>프로젝트</h2>
-      <ul className='project__list'>
-        {project.map((el) => (
-          <ProjectItem {...el} key={el.key} />
-        ))}
-      </ul>
-    </Section>
+    <>
+      <Section className='project'>
+        <h2 className='sound-only'>대표 프로젝트</h2>
+        <ul className='project__list'>
+          {project.map((el) => (
+            <ProjectItem {...el} key={el.key} />
+          ))}
+        </ul>
+      </Section>
+      <Section className='sub-project'>
+        <h2 className='sound-only'>그 외 프로젝트</h2>
+        <ul className='sub-project__list'>
+          {project.map((el, idx) => (
+            <SubProjectItem {...el} key={el.key} idx={idx} />
+          ))}
+        </ul>
+      </Section>
+    </>
   );
 };
 
@@ -68,5 +78,30 @@ const ProjectItem = (props: IProjectItem) => {
     </li>
   );
 };
+
+const SubProjectItem = (props: ISubProjectItemProps) => {
+  return (
+    <li className='sub-project__item'>
+      <a href={props.link} target='__blank'>
+        <div className='sub-project__item-num'>{`(0${props.idx + 1})`}</div>
+        <h3 className='sub-project__item-title'>{props.title}</h3>
+
+        <div className='sub-project__item-text-container'>
+          <p className='sub-project__item-desc'>{props.desc}</p>
+          {props.tags?.map((el, idx) => (
+            <li className='sub-project__tag-item' key={`tag__${idx}-${el}`}>
+              <span className='sub-project__tag-text'>#{el}</span>
+              {/* <span className='sub-project__tag-text'>#{el}</span> */}
+            </li>
+          ))}
+        </div>
+      </a>
+    </li>
+  );
+};
+
+interface ISubProjectItemProps extends IProjectItem {
+  idx: number;
+}
 
 export default Project;
