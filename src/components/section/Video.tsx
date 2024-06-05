@@ -6,7 +6,13 @@ const Video = () => {
     <Section className='video'>
       <h2 className='sound-only'>상단 비디오 영역</h2>
       <div className='video__container'>
-        <video src='/video/main_video.mp4' loop autoPlay={true} muted></video>
+        <video
+          src='/video/main_video.mp4'
+          loop
+          autoPlay={true}
+          muted
+          playsInline
+        ></video>
       </div>
       <div className='video__title-container'>
         <p className='video__title'>Experience Worlds Unseen</p>

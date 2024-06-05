@@ -120,6 +120,7 @@ const VisualVideo = (props: VisualIconProps) => {
   return (
     <div className='visual__video' data-video={props.id}>
       <video
+        playsInline
         src={`/video/visual_0${props.id}.mp4`}
         loop
         autoPlay={true}
