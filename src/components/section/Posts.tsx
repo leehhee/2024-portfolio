@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Section } from '@/components/ui/section';
 
 const Posts = (props: IPostsProps) => {
-  console.log(props.posts);
   return (
     <Section className='post'>
       <h2 className='post__title'>Recent Posts</h2>
@@ -17,7 +16,6 @@ const Posts = (props: IPostsProps) => {
 };
 
 const PostItem = (props: TPostsItemProps) => {
-  console.log(props);
   return (
     <li className='post__item'>
       <a

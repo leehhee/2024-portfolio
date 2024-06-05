@@ -9,6 +9,7 @@ import {
   fontScript,
 } from '@/components/fonts';
 import Footer from '@/components/ui/footer/Footer';
+import GSAPRegister from '@/components/register/GSAPRegister';
 
 export const metadata: Metadata = {
   title: 'YERIM.e',
@@ -46,11 +47,14 @@ export default function RootLayout({
     <html
       lang='ko'
       className={`${fontScript.variable} ${fontPretendard.variable} ${fontNeueHaasGrotesk.variable}`}
+      suppressHydrationWarning
     >
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <GSAPRegister>
+          <Header />
+          {children}
+          <Footer />
+        </GSAPRegister>
       </body>
     </html>
   );
