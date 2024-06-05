@@ -6,10 +6,13 @@ const getPostList = async (
   limit: number
 ): Promise<IPostsProps> => {
   const param = { name: name, limit: limit };
-  const res = await fetch(`http://localhost:3000/api/post/list`, {
-    method: 'post',
-    body: JSON.stringify(param),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACK_API_URL}/api/post/list`,
+    {
+      method: 'post',
+      body: JSON.stringify(param),
+    }
+  );
 
   if (!res.ok) {
     throw new Error('data fetch failed');

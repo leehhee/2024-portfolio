@@ -1,31 +1,64 @@
 .introduce {
+  @include util__flex(stretch, center);
   padding: 6rem 0;
+  min-height: 70vh;
+  @include tb-lg {
+    min-height: unset;
+  }
   &__inner {
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
     max-width: 83.33vw;
     margin: 0 auto;
-    min-height: 50vh;
+    min-height: unset;
 
     @include tb-lg {
       display: block;
-      min-height: unset;
+    }
+    @include mb-md {
+      max-width: unset;
     }
   }
   &__title {
-    @include util__flex(stretch, center);
+    // @include util__flex(stretch, center);
     line-height: 1;
     font-size: clamp(4rem, 4.16vw, 8rem);
     font-weight: 400;
   }
+  &__contents {
+    @include util__flex(stretch, stretch, 0, column);
+  }
   &__desc {
-    @include util__flex(stretch, center);
     font-size: clamp(2rem, 1.77vw, 3.4rem);
     opacity: 0.4;
     line-height: 1.25;
 
     @include tb-lg {
       margin-top: 2.4rem;
+    }
+  }
+  &__icon {
+    &-list {
+      @include util__flex(stretch, center, clamp(0.4rem, 0.625vw, 0.83vw));
+      line-height: 1;
+      margin-top: max(2.4rem, 3.2vw);
+
+      @include tb-md {
+        gap: 1.2rem;
+        margin-top: 3.2rem;
+      }
+    }
+    &-item {
+      width: clamp(2.4rem, 2.08vw, 6rem);
+      filter: grayscale(1);
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: grayscale(0);
+      }
+      // @include tb-md {
+      //   width: 2.8rem;
+      // }
     }
   }
 }

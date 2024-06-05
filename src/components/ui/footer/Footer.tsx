@@ -1,11 +1,16 @@
 import { link } from '@/data';
 import Ticker from '@/components/ui/ticker/Ticker';
+import SYMBOL from '/public/icon/common/footer_symbol.svg';
+
 const tickerData = ['Web Publisher', 'Front-end Developer', 'UI Developer'];
 
 const Footer = () => {
   return (
     <footer className='footer'>
       <div className='footer__inner'>
+        <div className='footer__symbol'>
+          <SYMBOL />
+        </div>
         <p className='footer__copy'>
           <span className='footer__copy-icon'>©</span>
           Park Ye rim
