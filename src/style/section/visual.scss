@@ -22,6 +22,9 @@
     }
     &-row {
       @include util__flex(stretch, center);
+      display: flex !important;
+      justify-content: stretch;
+      align-items: center;
       gap: 0 1.66vw;
       @include tb-lg {
         gap: 0 3.87vw;
@@ -29,7 +32,7 @@
     }
   }
   &__icon {
-    display: inline-flex;
+    display: inline-flex !important;
     &[data-icon='1'] {
       svg {
         transform: none !important;

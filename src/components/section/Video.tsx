@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DownArrow } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
-import { progress } from 'framer-motion';
 
 const Video = () => {
   // PARAM dom
@@ -20,7 +19,6 @@ const Video = () => {
         trigger: videoRef.current,
         start: () => 'top top',
         end: () => '1px top',
-        markers: true,
         onUpdate: (self) => {
           if (self.progress >= 1) {
             gsap.to(moreRef.current, {
@@ -44,7 +42,6 @@ const Video = () => {
           scrub: true,
           start: () => 'top top',
           end: () => `center top`,
-          markers: true,
           invalidateOnRefresh: true,
         },
       });
