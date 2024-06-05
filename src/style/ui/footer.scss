@@ -2,7 +2,7 @@
   &__inner {
     @include util__inner;
     padding-top: 11.458vw;
-    padding-bottom: 1.56vw;
+    padding-bottom: 0.2vw;
     border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
   }
   &__copy {
@@ -55,6 +55,21 @@
 
     @include tb-md {
       order: 4;
+    }
+  }
+
+  .ticker {
+    margin-top: 1vw;
+    &__item {
+      font-size: max(1.5625vw, 2.4rem);
+      white-space: nowrap;
+      font-weight: 600;
+      opacity: 0.2;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }

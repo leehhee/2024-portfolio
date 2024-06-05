@@ -5,11 +5,16 @@
     text-transform: uppercase;
     text-align: center;
     font-weight: 400;
+    margin-bottom: 1vw;
     &::before {
       @include util__pseudo(0.1rem, 12vw);
       position: static;
       background: $color__white;
       opacity: 0.2;
+    }
+    @include tb-md {
+      font-size: clamp(2.4rem, 6.4vw, 3.2rem);
+      margin-bottom: 1.4vw;
     }
   }
   &__list {

@@ -5,7 +5,6 @@ import type { Metadata, Viewport } from 'next';
 import { Header } from '@/components/ui/header';
 import {
   fontPretendard,
-  fontarchivo,
   fontNeueHaasGrotesk,
   fontScript,
 } from '@/components/fonts';

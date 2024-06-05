@@ -1,4 +1,7 @@
 import { link } from '@/data';
+import Ticker from '@/components/ui/ticker/Ticker';
+const tickerData = ['Web Publisher', 'Front-end Developer', 'UI Developer'];
+
 const Footer = () => {
   return (
     <footer className='footer'>
@@ -31,6 +34,13 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      <Ticker>
+        {tickerData.map((el, idx) => (
+          <li className='ticker__item' key={`ticker__${idx}`}>
+            {el}
+          </li>
+        ))}
+      </Ticker>
     </footer>
   );
 };

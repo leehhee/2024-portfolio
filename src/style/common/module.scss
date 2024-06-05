@@ -43,19 +43,23 @@
 }
 
 .ticker {
-  width: 100%;
+  @include util__flex(stretch, stretch);
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgb(0, 0, 0) 30%,
-    rgb(0, 0, 0) 70%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  &__list {
-    @include util__flex(center);
-    width: fit-content;
-    gap: 0 3.2rem;
+  // mask-image: linear-gradient(
+  //   to right,
+  //   rgba(0, 0, 0, 0) 0%,
+  //   rgb(0, 0, 0) 30%,
+  //   rgb(0, 0, 0) 70%,
+  //   rgba(0, 0, 0, 0) 100%
+  // );
+  &__inner {
+    @include util__flex(stretch, center, 1.25vw);
+    gap: 0 0.5vw;
+    animation: animation__ticker 5s linear infinite both;
+
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 }
 
