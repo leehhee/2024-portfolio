@@ -20,6 +20,9 @@
         letter-spacing: -0.025em;
       }
     }
+    &-inner {
+      display: inline-block;
+    }
     &-row {
       @include util__flex(stretch, center);
       display: flex !important;

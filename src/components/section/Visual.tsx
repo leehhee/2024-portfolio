@@ -7,7 +7,11 @@ import SplitType from 'split-type';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { visual } from '@/components/ui/icon';
-import { VisualIconProps, VisualVideo } from '@/components/ui/visual';
+import {
+  VisualIconProps,
+  VisualVideo,
+  VisualText,
+} from '@/components/ui/visual';
 
 const visualIcon = Object.entries(visual);
 const VISUAL_01 = require('/public/icon/visual/visual_01.json');
@@ -23,13 +27,17 @@ const Visual = () => {
       const visualText = document.querySelectorAll(
         '.visual--main .visual__text'
       );
+      const visualTextInner = document.querySelectorAll(
+        '.visual--main .visual__text-inner'
+      );
+
       // const splitWord = new SplitType('.visual--main .visual__text-container', {
       //   types: 'words',
       // });
 
       console.log(visualText);
       const tl = gsap.timeline({
-        yoyo: true,
+        //yoyo: true,
         scrollTrigger: {
           trigger: visualRef.current,
           start: () => 'top top',
@@ -39,9 +47,14 @@ const Visual = () => {
         },
       });
 
-      // tl.from(splitWord, {
-      //   yPercent: 100,
-      // });
+      gsap.from(visualTextInner, {
+        yPercent: 100,
+        opacity: 0,
+        duration: 0.5,
+      });
+      gsap.from(visualText, {
+        overflow: 'hidden',
+      });
     },
     { scope: visualRef }
   );
@@ -50,11 +63,11 @@ const Visual = () => {
       <h2 className='sound-only'>비주얼 영역</h2>
       <div className='visual__text-container pc-only'>
         <div className='visual__text-row'>
-          <div className='visual__text'>We</div>
+          <VisualText>We</VisualText>
           <div className='visual__icon' data-icon='1'>
             <Lottie animationData={VISUAL_01} loop={false} />
           </div>
-          <div className='visual__text'>craft</div>
+          <VisualText>craft</VisualText>
           <VisualVideo id={1} />
           <VisualIcon id={2} />
           <VisualIcon id={3} />
@@ -63,11 +76,11 @@ const Visual = () => {
           {/* <VisualIcon id={4} /> */}
           <div className='visual__line' data-line='1'></div>
           <VisualVideo id={2} />
-          <div className='visual__text'>visual</div>
-          <div className='visual__text'>stories</div>
+          <VisualText>visual</VisualText>
+          <VisualText>stories</VisualText>
         </div>
         <div className='visual__text-row'>
-          <div className='visual__text'>through</div>
+          <VisualText>through</VisualText>
           <div className='visual__icon' data-icon='5'>
             <Lottie
               className='visual__icon'
@@ -84,7 +97,7 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualVideo id={4} />
           <VisualIcon id={7} />
-          <div className='visual__text'>authentic</div>
+          <VisualText>authentic</VisualText>
           {/* <VisualIcon id={8} /> */}
           <div className='visual__line' data-line='2'></div>
         </div>
@@ -94,16 +107,16 @@ const Visual = () => {
           <VisualIcon id={10} />
           <VisualIcon id={2} />
           <VisualVideo id={5} />
-          <div className='visual__text'>design.</div>
+          <VisualText>design.</VisualText>
         </div>
       </div>
       <div className='visual__text-container tb-only'>
         <div className='visual__text-row'>
-          <div className='visual__text'>We</div>
+          <VisualText>We</VisualText>
           <div className='visual__icon' data-icon='1'>
             <Lottie animationData={VISUAL_01} loop={false} />
           </div>
-          <div className='visual__text'>craft</div>
+          <VisualText>craft</VisualText>
           <VisualIcon id={2} />
           <VisualIcon id={3} />
         </div>
@@ -111,15 +124,15 @@ const Visual = () => {
           <VisualVideo id={1} />
         </div>
         <div className='visual__text-row'>
-          <div className='visual__text'>visual</div>
-          <div className='visual__text'>stories</div>
+          <VisualText>visual</VisualText>
+          <VisualText>stories</VisualText>
         </div>
         <div className='visual__text-row'>
           <div className='visual__line' data-line='1'></div>
           <VisualVideo id={2} />
         </div>
         <div className='visual__text-row'>
-          <div className='visual__text'>through</div>
+          <VisualText>through</VisualText>
           <div className='visual__icon' data-icon='5'>
             <Lottie animationData={VISUAL_05} loop={false} />
           </div>
@@ -131,7 +144,7 @@ const Visual = () => {
           <VisualVideo id={3} />
         </div>
         <div className='visual__text-row'>
-          <div className='visual__text'>authentic</div>
+          <VisualText>authentic</VisualText>
           <div className='visual__line' data-line='2'></div>
         </div>
         <div className='visual__text-row'>
@@ -143,7 +156,7 @@ const Visual = () => {
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={5} />
-          <div className='visual__text'>design.</div>
+          <VisualText>design.</VisualText>
         </div>
       </div>
     </Section>
