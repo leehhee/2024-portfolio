@@ -88,12 +88,14 @@ const SubProjectItem = (props: ISubProjectItemProps) => {
 
         <div className='sub-project__item-text-container'>
           <p className='sub-project__item-desc'>{props.desc}</p>
-          {props.tags?.map((el, idx) => (
-            <li className='sub-project__tag-item' key={`tag__${idx}-${el}`}>
-              <span className='sub-project__tag-text'>#{el}</span>
-              {/* <span className='sub-project__tag-text'>#{el}</span> */}
-            </li>
-          ))}
+          <ul className='sub-project__tag'>
+            {props.tags?.map((el, idx) => (
+              <li className='sub-project__tag-item' key={`tag__${idx}-${el}`}>
+                <span className='sub-project__tag-text'>#{el}</span>
+                {/* <span className='sub-project__tag-text'>#{el}</span> */}
+              </li>
+            ))}
+          </ul>
         </div>
       </a>
     </li>
