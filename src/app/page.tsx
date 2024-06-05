@@ -1,4 +1,4 @@
-import { Project, Visual, Video, Posts } from '@/components/section';
+import { Project, Visual, Video, Posts, Introduce } from '@/components/section';
 import { IPostsProps } from '@/components/section/Posts';
 
 const getPostList = async (
@@ -27,13 +27,10 @@ export default async function Home() {
       <Video />
       <div className='contents-wrap'>
         <Visual />
+        <Introduce />
         <Project />
         <Posts posts={postData.posts} />
       </div>
-      {/* <Visual />
-      <Skill />
-      <Project />
-      <Contact /> */}
     </main>
   );
 }

@@ -92,115 +92,6 @@ const Header = () => {
         <Menu isOpen={isMenuOpen} />
       </header>
     </>
-    // <>
-    //   <motion.header
-    //     className='header'
-    //     style={{
-    //       opacity: opacity.normal,
-    //       pointerEvents: isDisable ? 'none' : 'auto',
-    //     }}
-    //   >
-    //     <motion.div className='header__inner' style={{ scale: scale.normal }}>
-    //       <div className='header__logo-container'>
-    //         <div className='header__logo'>
-    //           <a href='/' title='홈으로'>
-    //             <LOGO className='logo' />
-    //             <span className='sound-only'>YERIM.e</span>
-    //           </a>
-    //         </div>
-    //       </div>
-    //       <nav className='nav pc-only'>
-    //         <ul className='nav__list'>
-    //           {menu.map((el) => {
-    //             return (
-    //               <LinkButton
-    //                 key={el.text}
-    //                 href={el.href}
-    //                 onClick={onScrollBody(el.href)}
-    //               >
-    //                 {el.text}
-    //               </LinkButton>
-    //             );
-    //           })}
-    //         </ul>
-    //       </nav>
-    //       <LinkButton
-    //         type='button'
-    //         className='nav__button'
-    //         onClick={() => setIsMenuOpen(!isMenuOpen)}
-    //       >
-    //         <div className='nav__bar-inner'>
-    //           <motion.span
-    //             className='nav__bar'
-    //             initial={{ width: '100%' }}
-    //             animate={isMenuOpen ? { width: 0 } : { width: '100%' }}
-    //           ></motion.span>
-    //           <motion.span
-    //             className='nav__bar'
-    //             initial={{ rotate: 0 }}
-    //             animate={isMenuOpen ? { rotate: 45 } : { rotate: 0 }}
-    //           ></motion.span>
-    //           <motion.span
-    //             className='nav__bar'
-    //             initial={{ rotate: 0 }}
-    //             animate={
-    //               isMenuOpen
-    //                 ? { rotate: -45, top: 'calc(50% - 0.1rem)' }
-    //                 : { rotate: 0 }
-    //             }
-    //           ></motion.span>
-    //         </div>
-    //       </LinkButton>
-    //     </motion.div>
-    //     <AnimatePresence initial={false} mode='wait'>
-    //       {isMenuOpen && (
-    //         <motion.nav
-    //           className='nav tb-only'
-    //           key='mb-nav'
-    //           initial={{
-    //             height: 0,
-    //             opacity: 0,
-    //           }}
-    //           animate={{
-    //             height: 'auto',
-    //             opacity: 1,
-    //           }}
-    //           exit={{
-    //             height: 0,
-    //             opacity: 0,
-    //           }}
-    //         >
-    //           <ul className='nav__list'>
-    //             {menu.map((el) => {
-    //               return (
-    //                 <li key={el.text}>
-    //                   <a
-    //                     className='nav__list-item'
-    //                     href={el.href}
-    //                     onClick={onScrollBody(el.href)}
-    //                   >
-    //                     {el.text}
-    //                   </a>
-    //                 </li>
-    //               );
-    //             })}
-    //           </ul>
-    //         </motion.nav>
-    //       )}
-    //     </AnimatePresence>
-    //   </motion.header>
-    //   <motion.div
-    //     className='top-btn'
-    //     onClick={onScrollBody(0)}
-    //     style={{
-    //       scale: scale.reverse,
-    //       opacity: opacity.reverse,
-    //       y: top.reverse,
-    //     }}
-    //   >
-    //     <LinkButton type='button'>TOP</LinkButton>
-    //   </motion.div>
-    // </>
   );
 };
 
@@ -240,6 +131,11 @@ const Menu = (props: IHeaderMenuProps) => {
                 </div>
                 <div className='menu__info-right'>
                   <ul className='menu__info-list'>
+                    <li className='menu__info-item'>
+                      <a href={link.resume} target='_blank'>
+                        Resume <LinkArrow />
+                      </a>
+                    </li>
                     <li className='menu__info-item'>
                       <a href={link.github} target='_blank'>
                         Github <LinkArrow />

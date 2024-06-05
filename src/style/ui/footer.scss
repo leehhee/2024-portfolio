@@ -4,6 +4,11 @@
     padding-top: 11.458vw;
     padding-bottom: 0.2vw;
     border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+
+    @include tb-md {
+      padding-top: 31.3vw;
+      padding-bottom: 20vw;
+    }
   }
   &__copy {
     font-size: min(6.25vw, 12rem);

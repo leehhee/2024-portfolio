@@ -1,4 +1,8 @@
 .post {
+  @include tb-md {
+    padding-bottom: 6rem;
+  }
+
   &__title {
     @include util__flex(stretch, center, 1vw, column);
     font-size: clamp(3.2rem, 3.2vw, 4rem);
