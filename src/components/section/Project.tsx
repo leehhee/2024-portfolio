@@ -15,7 +15,7 @@ const Project = () => {
           ))}
         </ul>
       </Section>
-      <Section className='sub-project'>
+      <Section className='sub-project' autoheight={true}>
         <h2 className='sound-only'>그 외 프로젝트</h2>
         <ul className='sub-project__list'>
           {project.map((el, idx) => (

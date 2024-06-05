@@ -1,6 +1,10 @@
-import { Project, Visual, Video } from '@/components/section';
+import { Project, Visual, Video, Posts } from '@/components/section';
+import { IPostsProps } from '@/components/section/Posts';
 
-async function getPostList(name: string, limit: number) {
+const getPostList = async (
+  name: string,
+  limit: number
+): Promise<IPostsProps> => {
   const param = { name: name, limit: limit };
   const res = await fetch(`http://localhost:3000/api/post/list`, {
     method: 'post',
@@ -8,14 +12,15 @@ async function getPostList(name: string, limit: number) {
   });
 
   if (!res.ok) {
-    throw new Error('데이터 가져오기 실패');
+    throw new Error('data fetch failed');
   }
 
-  return await res;
-}
+  return await res.json();
+};
 
 export default async function Home() {
   const postData = await getPostList('kimbangul', 3);
+  console.log(postData);
 
   return (
     <main>
@@ -23,6 +28,7 @@ export default async function Home() {
       <div className='contents-wrap'>
         <Visual />
         <Project />
+        <Posts posts={postData.posts} />
       </div>
       {/* <Visual />
       <Skill />
