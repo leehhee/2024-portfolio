@@ -1,4 +1,11 @@
-import { Project, Visual, Video, Posts, Introduce } from '@/components/section';
+import {
+  Project,
+  Visual,
+  Video,
+  Posts,
+  Introduce,
+  OutroVisual,
+} from '@/components/section';
 import { IPostsProps } from '@/components/section/Posts';
 
 const getPostList = async (
@@ -33,6 +40,7 @@ export default async function Home() {
         <Introduce />
         <Project />
         <Posts posts={postData.posts} />
+        <OutroVisual />
       </div>
     </main>
   );

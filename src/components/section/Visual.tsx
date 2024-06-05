@@ -2,6 +2,7 @@
 import Lottie from 'lottie-react';
 import { Section } from '@/components/ui/section';
 import { visual } from '@/components/ui/icon';
+import { VisualIconProps, VisualVideo } from '@/components/ui/visual';
 
 const visualIcon = Object.entries(visual);
 const VISUAL_01 = require('/public/icon/visual/visual_01.json');
@@ -115,23 +116,5 @@ const VisualIcon = (props: VisualIconProps) => {
     </div>
   );
 };
-
-const VisualVideo = (props: VisualIconProps) => {
-  return (
-    <div className='visual__video' data-video={props.id}>
-      <video
-        playsInline
-        src={`/video/visual_0${props.id}.mp4`}
-        loop
-        autoPlay={true}
-        muted
-      ></video>
-    </div>
-  );
-};
-
-interface VisualIconProps {
-  id: number;
-}
 
 export default Visual;
