@@ -4,11 +4,12 @@ import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import {
   AnimatePresence,
+  motion,
   useMotionValueEvent,
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LOGO from '/public/icon/logo.svg';
 import { LinkArrow, common } from '@/components/ui/icon';
 import { link } from '@/data';
@@ -19,38 +20,14 @@ const menu = [
   { text: 'Contact', href: '#contact' },
 ];
 
-gsap.registerPlugin(useGSAP, ScrollToPlugin);
-
 const onScrollBody = (href: string | number) => (e: React.MouseEvent) => {
   e.preventDefault();
   gsap.to(window, 0.3, { scrollTo: href });
 };
 
 const Header = () => {
-  const { scrollYProgress } = useScroll({
-    offset: ['0', '50vh'],
-  });
-  const [isDisable, setIsDisable] = useState(false);
-
-  useMotionValueEvent(scrollYProgress, 'change', (value) => {
-    const disable = value >= 0.5 ? true : false;
-    setIsDisable(disable);
-  });
-
-  const opacity = {
-    normal: useTransform(scrollYProgress, [0, 1], [1, 0]),
-    reverse: useTransform(scrollYProgress, [0, 1], [0, 1]),
-  };
-  const scale = {
-    normal: useTransform(scrollYProgress, [0, 1], [1, 0.8]),
-    reverse: useTransform(scrollYProgress, [0, 1], [0.7, 1]),
-  };
-
-  const top = {
-    reverse: useTransform(scrollYProgress, [0, 1], [100, 0]),
-  };
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
       <header className='header'>
@@ -96,11 +73,81 @@ const Header = () => {
 };
 
 const Menu = (props: IHeaderMenuProps) => {
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuAnimation = {
+    initial: { height: '0', backDropfilter: 'blur(0)' },
+    animate: { height: '100%', backDropfilter: 'blur(4rem)' },
+  };
+
+  // useGSAP(
+  //   () => {
+  //     const tl = gsap.timeline({
+  //       yoyo: true,
+  //       paused: true,
+  //     });
+  //     const link = gsap.utils.toArray('.menu__item-link');
+
+  //     tl.fromTo(
+  //       link,
+  //       { yPercent: 100 },
+  //       { yPercent: 0, stagger: 0.05 },
+  //       'fade-in'
+  //     );
+  //     tl.fromTo(
+  //       '.menu__info-title-inner',
+  //       { yPercent: 200 },
+  //       { yPercent: 0 },
+  //       'fade-in'
+  //     );
+  //     tl.fromTo(
+  //       '.menu__info-item a',
+  //       { yPercent: 100 },
+  //       { yPercent: 0, stagger: 0.05 },
+  //       'fade-in'
+  //     );
+  //   },
+  //   { scope: menuRef }
+  // );
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      yoyo: true,
+      // paused: true,
+    });
+    const link = gsap.utils.toArray('.menu__item-link');
+
+    tl.fromTo(
+      link,
+      { yPercent: 100 },
+      { yPercent: 0, stagger: 0.05 },
+      'fade-in'
+    );
+    tl.fromTo(
+      '.menu__info-title-inner',
+      { yPercent: 200 },
+      { yPercent: 0 },
+      'fade-in'
+    );
+    tl.fromTo(
+      '.menu__info-item a',
+      { yPercent: 100 },
+      { yPercent: 0, stagger: 0.05 },
+      'fade-in'
+    );
+  }, []);
+
   return (
     <>
       <AnimatePresence initial={false} mode='wait'>
         {props.isOpen && (
-          <div className='menu'>
+          <motion.div
+            className='menu'
+            variants={menuAnimation}
+            initial='initial'
+            animate='animate'
+            exit='initial'
+            ref={menuRef}
+          >
             <div className='menu__inner'>
               <ul className='menu__list' role='menu'>
                 <li className='menu__item'>
@@ -122,7 +169,9 @@ const Menu = (props: IHeaderMenuProps) => {
               </ul>
               <div className='menu__info'>
                 <div className='menu__info-left'>
-                  <div className='menu__info-title'>Connect</div>
+                  <div className='menu__info-title'>
+                    <span className='menu__info-title-inner'>Connect</span>
+                  </div>
                   <ul className='menu__info-list'>
                     <li className='menu__info-item'>
                       <a href={link.mail}>highcolor9871@gmail.com</a>
@@ -152,7 +201,7 @@ const Menu = (props: IHeaderMenuProps) => {
               <ul className='menu__category'></ul>
               <p className='menu__copy'>Copyright ©2024 | Park Ye rim</p>
             </div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

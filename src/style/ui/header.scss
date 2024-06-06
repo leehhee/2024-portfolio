@@ -129,6 +129,8 @@
   background: $color__black;
   top: 0;
   left: 0;
+  overflow: hidden;
+  transform-origin: top;
 
   &__inner {
     width: 100%;
@@ -143,6 +145,7 @@
   &__item {
     font-size: clamp(3.4rem, 5vw, 4.2rem);
     font-weight: 600;
+    overflow: hidden;
     &-link {
       @include util__flex(stretch, center, 1.25rem);
       &:hover {
@@ -186,6 +189,7 @@
     }
 
     &-item {
+      overflow: hidden;
       a {
         @include util__flex(stretch, center, 0.5rem);
         text-decoration: underline;
@@ -204,11 +208,17 @@
       position: relative;
       padding-bottom: 1.4rem;
       margin-bottom: 1.4rem;
+      overflow: hidden;
+
       &::after {
         @include util__pseudo(1.6rem, 0.3rem);
         background: $color__white;
         top: unset;
         bottom: 0;
+      }
+
+      &-inner {
+        display: inline-block;
       }
     }
   }

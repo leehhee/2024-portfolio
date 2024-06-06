@@ -3,7 +3,6 @@ import Lottie from 'lottie-react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
-import SplitType from 'split-type';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { visual } from '@/components/ui/icon';
@@ -20,40 +19,36 @@ const VISUAL_05 = require('/public/icon/visual/visual_05.json');
 const Visual = () => {
   // PARAM dom
   const visualRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef(null);
+  const icon2Ref = useRef(null);
 
   // FUNCTION motion
   useGSAP(
     () => {
-      const visualText = gsap.utils.toArray('.visual--main .visual__text');
-      const visualTextInner = gsap.utils.toArray(
-        '.visual--main .visual__text-inner'
-      );
-      const visualVideo = gsap.utils.toArray(
-        '.visual--main .visual__video-inner'
-      );
+      const visualText = gsap.utils.toArray('.visual__text');
+      const visualTextInner = gsap.utils.toArray('.visual__text-inner');
+      const visualVideo = gsap.utils.toArray('.visual__video-inner');
       const visualIcon = gsap.utils.toArray(
-        '.visual--main .visual__icon svg, .visual--main .visual__icon > div'
+        '.visual__icon svg, .visual__icon > div'
       );
-      const visualLine = gsap.utils.toArray('.visual--main .visual__line');
+      const visualLine = gsap.utils.toArray('.visual__line');
 
       const tl = gsap.timeline({
         yoyo: true,
-        scrollTrigger: {
-          trigger: visualRef.current,
-          start: () => 'top center',
-          end: () => `center bottom`,
-          invalidateOnRefresh: true,
-          markers: true,
-          once: false,
-        },
+        paused: true,
+        repeatRefresh: true,
       });
+
+      tl.set(visualTextInner, { y: 0, yPercent: 100 });
+      tl.set(visualIcon, { x: 0, xPercent: -100 });
 
       tl.to(
         visualTextInner,
         {
-          yPercent: -100,
+          yPercent: () => 0,
           opacity: 1,
           duration: 0.5,
+          stagger: 0.05,
         },
         'fade-in'
       );
@@ -77,20 +72,16 @@ const Visual = () => {
       tl.to(
         visualIcon,
         {
-          x: '0%',
+          xPercent: () => 0,
           opacity: 1,
           duration: 1,
           ease: 'sine.out',
         },
         'fade-in'
       );
-      tl.to(
-        visualText,
-        {
-          overflow: 'visible',
-        },
-        'fade-in+=0.3'
-      );
+      tl.to(visualText, {
+        overflow: 'visible',
+      });
 
       gsap.fromTo(
         "[data-icon='3'] svg, [data-icon='10'] svg",
@@ -108,20 +99,33 @@ const Visual = () => {
       const visualIcon6: SVGElement[] = gsap.utils.toArray(
         "[data-icon='6'] svg"
       );
-      visualIcon6.forEach((el, idx) => {
-        gsap.fromTo(
-          el,
-          {
-            rotate: 0,
-          },
-          {
-            rotate: 360,
-            duration: 1,
-            repeatDelay: 3,
-            delay: idx,
-            repeat: Infinity,
+      gsap.fromTo(
+        visualIcon6,
+        {
+          rotate: 0,
+        },
+        {
+          rotate: 360,
+          duration: 1,
+          repeatDelay: 1,
+          stagger: 0.7,
+          repeat: Infinity,
+        }
+      );
+
+      ScrollTrigger.create({
+        trigger: visualRef.current,
+        start: () => 'top center',
+        end: () => `bottom top`,
+        invalidateOnRefresh: true,
+        onToggle: (self) => {
+          console.log('toggled, isActive:', self.isActive);
+          if (self.isActive) {
+            tl.play();
+          } else {
+            tl.reverse();
           }
-        );
+        },
       });
     },
     { scope: visualRef }
@@ -133,7 +137,12 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualText>We</VisualText>
           <div className='visual__icon' data-icon='1'>
-            <Lottie animationData={VISUAL_01} loop={false} />
+            <Lottie
+              lottieRef={iconRef}
+              animationData={VISUAL_01}
+              loop={false}
+              autoplay={false}
+            />
           </div>
           <VisualText>craft</VisualText>
           <VisualVideo id={1} />
@@ -150,7 +159,12 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualText>through</VisualText>
           <div className='visual__icon' data-icon='5'>
-            <Lottie animationData={VISUAL_05} loop={false} />
+            <Lottie
+              lottieRef={icon2Ref}
+              animationData={VISUAL_05}
+              loop={false}
+              autoplay={false}
+            />
           </div>
           <VisualIcon id={6} />
           <VisualIcon id={6} />

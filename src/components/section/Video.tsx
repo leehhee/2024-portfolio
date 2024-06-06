@@ -17,8 +17,9 @@ const Video = () => {
     () => {
       ScrollTrigger.create({
         trigger: videoRef.current,
-        start: () => 'top top',
-        end: () => '1px top',
+        start: () => '0 0',
+        end: () => '1px 0',
+        invalidateOnRefresh: true,
         onUpdate: (self) => {
           if (self.progress >= 1) {
             gsap.to(moreRef.current, {
@@ -36,12 +37,11 @@ const Video = () => {
         },
       });
       const tl = gsap.timeline({
-        // yoyo: true,
         scrollTrigger: {
-          trigger: videoRef.current,
+          trigger: document.querySelector('body'),
           scrub: true,
-          start: () => 'top top',
-          end: () => `center top`,
+          start: () => '0 0',
+          end: () => `+=${window.innerHeight / 2}`,
           invalidateOnRefresh: true,
         },
       });
@@ -49,7 +49,7 @@ const Video = () => {
       tl.to(
         titleRef.current,
         {
-          yPercent: -70,
+          yPercent: () => -70,
         },
         'fade-out'
       );
