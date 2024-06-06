@@ -47,7 +47,7 @@ const Video = () => {
       tl.to(
         titleRef.current,
         {
-          yPercent: () => -70,
+          yPercent: () => -80,
         },
         'fade-out'
       );

@@ -35,14 +35,27 @@ const ProjectItem = (props: IProjectItem) => {
   const [isHover, setIsHover] = useState(false);
   const { scrollYProgress } = useScroll({
     // offset: ['0', '1'],
+    offset: ['-30% end', 'end end'],
     target: itemRef,
   });
 
-  const imgMotion = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0.3, 0.1]),
-    springOption
-  );
-  const filter = useTransform(scrollYProgress, (v) => `blur(${v * 2}rem)`);
+  const imgMotion = {
+    rotate: useSpring(
+      useTransform(scrollYProgress, [0, 1], [5, 0]),
+      springOption
+    ),
+    scale: useSpring(
+      useTransform(scrollYProgress, [0, 1], [1.05, 1]),
+      springOption
+    ),
+
+    filter: useTransform(scrollYProgress, (v) => `grayscale(${1 - v}))`),
+  };
+
+  const listMotion = {
+    filter: useTransform(scrollYProgress, (v) => `blur(${(1 - v) * 1}rem)`),
+    y: useSpring(useTransform(scrollYProgress, [0, 1], [50, 0]), springOption),
+  };
 
   const linkOption = {
     onMouseOver: () => setIsHover(true),
@@ -50,7 +63,15 @@ const ProjectItem = (props: IProjectItem) => {
   };
 
   return (
-    <li className='project__item' data-hover={isHover} ref={itemRef}>
+    <motion.li
+      className='project__item'
+      data-hover={isHover}
+      ref={itemRef}
+      style={{
+        // filter: listMotion.filter,
+        y: listMotion.y,
+      }}
+    >
       <div className='project__item-text'>
         <div className='project__item-title-container'>
           <a href={props.link} target='__blank' {...linkOption} tabIndex={-1}>
@@ -89,12 +110,17 @@ const ProjectItem = (props: IProjectItem) => {
           href={props.link}
           target='__blank'
           {...linkOption}
-          style={{ filter: filter }}
+          style={{
+            filter: imgMotion.filter,
+            scale: imgMotion.scale,
+            //y: imgMotion.y,
+            // rotate: imgMotion.rotate,
+          }}
         >
           <Image src={props.thumb} fill alt='' />
         </motion.a>
       </div>
-    </li>
+    </motion.li>
   );
 };
 
