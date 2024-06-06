@@ -1,8 +1,11 @@
 'use client';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+
 import { Section } from '@/components/ui/section';
 import { project, IProjectItem } from '@/data';
-import { useState } from 'react';
+import { springOption } from '@/utils';
 
 const Project = () => {
   return (
@@ -28,7 +31,18 @@ const Project = () => {
 };
 
 const ProjectItem = (props: IProjectItem) => {
+  const itemRef = useRef<HTMLLIElement>(null);
   const [isHover, setIsHover] = useState(false);
+  const { scrollYProgress } = useScroll({
+    // offset: ['0', '1'],
+    target: itemRef,
+  });
+
+  const imgMotion = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0.3, 0.1]),
+    springOption
+  );
+  const filter = useTransform(scrollYProgress, (v) => `blur(${v * 2}rem)`);
 
   const linkOption = {
     onMouseOver: () => setIsHover(true),
@@ -36,7 +50,7 @@ const ProjectItem = (props: IProjectItem) => {
   };
 
   return (
-    <li className='project__item' data-hover={isHover}>
+    <li className='project__item' data-hover={isHover} ref={itemRef}>
       <div className='project__item-text'>
         <div className='project__item-title-container'>
           <a href={props.link} target='__blank' {...linkOption} tabIndex={-1}>
@@ -71,9 +85,14 @@ const ProjectItem = (props: IProjectItem) => {
         </ul>
       </div>
       <div className='project__item-img'>
-        <a href={props.link} target='__blank' {...linkOption}>
+        <motion.a
+          href={props.link}
+          target='__blank'
+          {...linkOption}
+          style={{ filter: filter }}
+        >
           <Image src={props.thumb} fill alt='' />
-        </a>
+        </motion.a>
       </div>
     </li>
   );
