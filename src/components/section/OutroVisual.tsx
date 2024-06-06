@@ -1,70 +1,131 @@
+'use client';
+import { useRef } from 'react';
+import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
+
 import { Section } from '@/components/ui/section';
-import { VisualIconProps, VisualVideo } from '@/components/ui/visual';
+import { VisualText, VisualVideo } from '@/components/ui/visual';
 
 const OutroVisual = () => {
+  const visualRef = useRef(null);
+  // FUNCTION motion
+  useGSAP(
+    () => {
+      const visualText = gsap.utils.toArray('.visual__text');
+      const visualTextInner = gsap.utils.toArray('.visual__text-inner');
+      const visualVideo = gsap.utils.toArray('.visual__video-inner');
+
+      const tl = gsap.timeline({
+        yoyo: true,
+        paused: true,
+        repeatRefresh: true,
+      });
+
+      tl.set(visualTextInner, { y: 0, yPercent: 100 });
+
+      tl.to(
+        visualTextInner,
+        {
+          yPercent: () => 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.05,
+        },
+        'fade-in'
+      );
+      tl.to(
+        visualVideo,
+        {
+          width: '100%',
+          duration: 1,
+          ease: 'sine.out',
+        },
+        'fade-in'
+      );
+      tl.to(visualText, {
+        overflow: 'visible',
+      });
+
+      ScrollTrigger.create({
+        trigger: visualRef.current,
+        start: () => 'top center',
+        end: () => `bottom top`,
+        invalidateOnRefresh: true,
+        markers: true,
+        onToggle: (self) => {
+          if (self.isActive) {
+            tl.play();
+          } else {
+            tl.reverse(0);
+          }
+        },
+      });
+    },
+    { scope: visualRef }
+  );
+
   return (
-    <Section className='visual visual--outro' autoheight={true}>
+    <Section className='visual visual--outro' autoheight={true} dom={visualRef}>
       <h2 className='sound-only'>비주얼 영역</h2>
       <div className='visual__text-container pc-only'>
         <div className='visual__text-row'>
-          <span className='visual__text'>A diverse</span>
+          <VisualText>A diverse</VisualText>
           <VisualVideo id={6} />
-          <span className='visual__text'>studio</span>
+          <VisualText>studio</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={7} />
-          <span className='visual__text'>fueled by boundless</span>
+          <VisualText>fueled by boundless</VisualText>
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>curiosity &</span>
+          <VisualText>curiosity &</VisualText>
           <VisualVideo id={8} />
-          <span className='visual__text'>passion</span>
+          <VisualText>passion</VisualText>
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>for</span>
+          <VisualText>for</VisualText>
           <VisualVideo id={9} />
-          <span className='visual__text'>narratives that</span>
+          <VisualText>narratives that</VisualText>
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>transcend reality.</span>
+          <VisualText>transcend reality.</VisualText>
           <VisualVideo id={10} />
         </div>
       </div>
       <div className='visual__text-container tb-only'>
         <div className='visual__text-row'>
-          <span className='visual__text'>A</span>
-          <span className='visual__text'>diverse</span>
-          <span className='visual__text'>studio</span>
+          <VisualText>A</VisualText>
+          <VisualText>diverse</VisualText>
+          <VisualText>studio</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={6} />
-          <span className='visual__text'>fueled</span>
-          <span className='visual__text'>by</span>
+          <VisualText>fueled</VisualText>
+          <VisualText>by</VisualText>
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>boundless</span>
+          <VisualText>boundless</VisualText>
           <VisualVideo id={7} />
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={8} />
-          <span className='visual__text'>curiosity</span>
-          <span className='visual__text'>&</span>
+          <VisualText>curiosity</VisualText>
+          <VisualText>&</VisualText>
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>passion</span>
+          <VisualText>passion</VisualText>
           <VisualVideo id={9} />
-          <span className='visual__text'>for</span>
+          <VisualText>for</VisualText>
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>narratives</span>
-          <span className='visual__text'>that</span>
+          <VisualText>narratives</VisualText>
+          <VisualText>that</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={10} />
         </div>
         <div className='visual__text-row'>
-          <span className='visual__text'>transcend</span>
-          <span className='visual__text'>reality.</span>
+          <VisualText>transcend</VisualText>
+          <VisualText>reality.</VisualText>
         </div>
       </div>
     </Section>

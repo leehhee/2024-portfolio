@@ -1,9 +1,7 @@
 'use client';
-import Lottie, { LottieRef, LottieRefCurrentProps } from 'lottie-react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
+import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
 import { useRef } from 'react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '@/components/ui/section';
 import { visual } from '@/components/ui/icon';
 import {

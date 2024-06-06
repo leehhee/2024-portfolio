@@ -9,7 +9,7 @@ import {
   fontScript,
 } from '@/components/fonts';
 import Footer from '@/components/ui/footer/Footer';
-import GSAPRegister from '@/components/register/GSAPRegister';
+import GSAPRegister from '@/components/register/gsap/GSAPRegister';
 
 export const metadata: Metadata = {
   title: 'YERIM.e',

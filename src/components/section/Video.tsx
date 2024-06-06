@@ -1,8 +1,6 @@
 'use client';
-import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
 import { DownArrow } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
 

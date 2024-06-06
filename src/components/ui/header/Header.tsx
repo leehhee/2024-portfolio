@@ -1,6 +1,5 @@
 'use client';
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
+import { gsap, useGSAP } from '@/components/register/gsap';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import LOGO from '/public/icon/logo.svg';
