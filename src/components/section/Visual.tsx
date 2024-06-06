@@ -24,36 +24,104 @@ const Visual = () => {
   // FUNCTION motion
   useGSAP(
     () => {
-      const visualText = document.querySelectorAll(
-        '.visual--main .visual__text'
-      );
-      const visualTextInner = document.querySelectorAll(
+      const visualText = gsap.utils.toArray('.visual--main .visual__text');
+      const visualTextInner = gsap.utils.toArray(
         '.visual--main .visual__text-inner'
       );
+      const visualVideo = gsap.utils.toArray(
+        '.visual--main .visual__video-inner'
+      );
+      const visualIcon = gsap.utils.toArray(
+        '.visual--main .visual__icon svg, .visual--main .visual__icon > div'
+      );
+      const visualLine = gsap.utils.toArray('.visual--main .visual__line');
 
-      // const splitWord = new SplitType('.visual--main .visual__text-container', {
-      //   types: 'words',
-      // });
-
-      console.log(visualText);
       const tl = gsap.timeline({
-        //yoyo: true,
+        yoyo: true,
         scrollTrigger: {
           trigger: visualRef.current,
-          start: () => 'top top',
-          end: () => `bottom top`,
+          start: () => 'top center',
+          end: () => `center bottom`,
           invalidateOnRefresh: true,
           markers: true,
+          once: false,
         },
       });
 
-      gsap.from(visualTextInner, {
-        yPercent: 100,
-        opacity: 0,
-        duration: 0.5,
-      });
-      gsap.from(visualText, {
-        overflow: 'hidden',
+      tl.to(
+        visualTextInner,
+        {
+          yPercent: -100,
+          opacity: 1,
+          duration: 0.5,
+        },
+        'fade-in'
+      );
+      tl.to(
+        visualVideo,
+        {
+          width: '100%',
+          duration: 1,
+          ease: 'sine.out',
+        },
+        'fade-in'
+      );
+      tl.to(
+        visualLine,
+        {
+          scaleX: 1,
+          duration: 1,
+        },
+        'fade-in'
+      );
+      tl.to(
+        visualIcon,
+        {
+          x: '0%',
+          opacity: 1,
+          duration: 1,
+          ease: 'sine.out',
+        },
+        'fade-in'
+      );
+      tl.to(
+        visualText,
+        {
+          overflow: 'visible',
+        },
+        'fade-in+=0.3'
+      );
+
+      gsap.fromTo(
+        "[data-icon='3'] svg, [data-icon='10'] svg",
+        {
+          rotate: 0,
+        },
+        {
+          rotate: 360,
+          duration: 1,
+          repeatDelay: 3,
+          repeat: Infinity,
+        }
+      );
+
+      const visualIcon6: SVGElement[] = gsap.utils.toArray(
+        "[data-icon='6'] svg"
+      );
+      visualIcon6.forEach((el, idx) => {
+        gsap.fromTo(
+          el,
+          {
+            rotate: 0,
+          },
+          {
+            rotate: 360,
+            duration: 1,
+            repeatDelay: 3,
+            delay: idx,
+            repeat: Infinity,
+          }
+        );
       });
     },
     { scope: visualRef }
@@ -82,12 +150,7 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualText>through</VisualText>
           <div className='visual__icon' data-icon='5'>
-            <Lottie
-              className='visual__icon'
-              data-icon='5'
-              animationData={VISUAL_05}
-              loop={false}
-            />
+            <Lottie animationData={VISUAL_05} loop={false} />
           </div>
           <VisualIcon id={6} />
           <VisualIcon id={6} />
