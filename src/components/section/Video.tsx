@@ -41,7 +41,7 @@ const Video = () => {
           trigger: document.querySelector('body'),
           scrub: true,
           start: () => '0 0',
-          end: () => `+=${window.innerHeight / 2}`,
+          end: () => `+=${(window.innerHeight / 3) * 2}`,
           invalidateOnRefresh: true,
         },
       });

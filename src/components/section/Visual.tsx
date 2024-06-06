@@ -1,5 +1,5 @@
 'use client';
-import Lottie from 'lottie-react';
+import Lottie, { LottieRef, LottieRefCurrentProps } from 'lottie-react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
@@ -19,8 +19,8 @@ const VISUAL_05 = require('/public/icon/visual/visual_05.json');
 const Visual = () => {
   // PARAM dom
   const visualRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef(null);
-  const icon2Ref = useRef(null);
+  const iconRef = useRef<LottieRefCurrentProps>(null);
+  const icon2Ref = useRef<LottieRefCurrentProps>(null);
 
   // FUNCTION motion
   useGSAP(
@@ -122,14 +122,19 @@ const Visual = () => {
           console.log('toggled, isActive:', self.isActive);
           if (self.isActive) {
             tl.play();
+            iconRef.current?.play();
+            icon2Ref.current?.play();
           } else {
-            tl.reverse();
+            tl.reverse(0);
+            iconRef.current?.goToAndStop(0);
+            icon2Ref.current?.goToAndStop(0);
           }
         },
       });
     },
     { scope: visualRef }
   );
+
   return (
     <Section className='visual visual--main' autoheight={true} dom={visualRef}>
       <h2 className='sound-only'>비주얼 영역</h2>
