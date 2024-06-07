@@ -49,6 +49,8 @@ const Symbol = () => {
             width: '200%',
             yPercent: () => -100,
             y: () => -16,
+            ease: 'circ.inOut',
+            duration: 0.3,
           });
         } else {
           gsap.to(symbolRef.current, {
@@ -58,6 +60,8 @@ const Symbol = () => {
           gsap.to(svg, {
             width: '100%',
             y: () => 0,
+            ease: 'circ.inOut',
+            duration: 0.3,
           });
         }
       },

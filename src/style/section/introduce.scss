@@ -27,6 +27,31 @@
     @include mb-md {
       font-size: clamp(4rem, 11.2vw, 8rem);
     }
+
+    &-changer {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: visible;
+      &-item {
+        &:nth-child(1) {
+          display: inline-block;
+        }
+
+        &:nth-child(2) {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          overflow: hidden;
+        }
+        &:nth-child(3) {
+          position: absolute;
+          top: 200%;
+          left: 0;
+        }
+      }
+    }
   }
   &__contents {
     @include util__flex(stretch, stretch, 0, column);
@@ -55,6 +80,11 @@
       width: clamp(2.4rem, 2.08vw, 6rem);
       filter: grayscale(1);
       transition: filter 0.3s;
+      overflow: hidden;
+
+      svg {
+        transform: translateY(150%);
+      }
 
       &:hover {
         filter: grayscale(0);

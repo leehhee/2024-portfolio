@@ -30,12 +30,11 @@ const Introduce = () => {
         start: () => 'top center',
         end: () => 'bottom top',
         invalidateOnRefresh: true,
-        markers: true,
         onUpdate: (self) => {
           if (self.isActive) {
             tl.play();
           } else {
-            tl.reverse(0);
+            tl.progress(0);
           }
         },
       });
@@ -46,8 +45,35 @@ const Introduce = () => {
         paused: true,
       });
 
-      tl.to(textRef, {
-        text: 'Flexible',
+      tl.to('.introduce__title-changer-item', {
+        // text: 'Flexible',
+        yPercent: () => -100,
+        duration: 1.2,
+        ease: 'power4.inOut',
+      });
+      tl.to('.introduce__title-changer-item', {
+        yPercent: () => -200,
+        duration: 1.2,
+        ease: 'power4.inOut',
+      });
+      tl.to('.introduce__title-changer-item', {
+        yPercent: () => 0,
+        duration: 1.5,
+        ease: 'power4.inOut',
+      });
+      tl.fromTo(
+        '.introduce__desc',
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 0.4,
+          duration: 0.5,
+        }
+      );
+      tl.to('.introduce__icon-item svg', {
+        yPercent: () => -150,
+        stagger: 0.1,
       });
     },
     { scope: introduceRef }
@@ -57,7 +83,13 @@ const Introduce = () => {
     <Section className='introduce' dom={introduceRef}>
       <h2 className='introduce__title'>
         <span className='introduce__title-changer' ref={textRef}>
-          Creative
+          <span className='introduce__title-changer-item'>Flexible</span>
+          <span className='introduce__title-changer-item' aria-hidden='true'>
+            Adaptable
+          </span>
+          <span className='introduce__title-changer-item' aria-hidden='true'>
+            Versatile
+          </span>
         </span>
         <br />
         Developer
@@ -66,9 +98,9 @@ const Introduce = () => {
         <p className='introduce__desc'>
           {/* Studio Kanda is a digital-first design studio—mixing brand and digital
           to help bring your business to life in new and unexpected ways. */}
-          By implementing impressive UI and interactions based on solid markup,
-          <br />I enhance the value of the service and provide a better user
-          experience.
+          By implementing impressive UI and interactions based on solid markup,{' '}
+          <br className='pc-only' />I enhance the value of the service and
+          provide a better user experience.
         </p>
         <h3 className='sound-only'>사용 기술스택</h3>
         <ul className='introduce__icon-list'>

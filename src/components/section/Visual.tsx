@@ -122,7 +122,7 @@ const Visual = () => {
             iconRef.current?.play();
             icon2Ref.current?.play();
           } else {
-            tl.reverse(0);
+            tl.progress(0);
             iconRef.current?.goToAndStop(0);
             icon2Ref.current?.goToAndStop(0);
           }

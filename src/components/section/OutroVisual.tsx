@@ -54,7 +54,7 @@ const OutroVisual = () => {
           if (self.isActive) {
             tl.play();
           } else {
-            tl.reverse(0);
+            tl.progress(0);
           }
         },
       });
