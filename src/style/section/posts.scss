@@ -30,6 +30,13 @@
       position: relative;
       overflow: hidden;
       width: 100%;
+
+      &-inner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
       img {
         position: absolute;
         object-fit: cover;

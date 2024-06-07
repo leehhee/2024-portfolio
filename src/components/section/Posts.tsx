@@ -1,11 +1,30 @@
 'use client';
 import Image from 'next/image';
+import { useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
+
 import { Section } from '@/components/ui/section';
-import { getTimeForDay } from '@/utils';
+import { getTimeForDay, springOption } from '@/utils';
 
 const Posts = (props: IPostsProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // useGSAP(()=>{
+  //   const item = gsap.utils.toArray('.post__item');
+
+  //   const tl = gsap.timeline({
+  //     yoyo: true,
+  //     paused: true,
+  //     repeatRefresh: true,
+  //   });
+
+  //   tl.to(item)
+
+  // }, {scope:sectionRef })
+
   return (
-    <Section className='post'>
+    <Section className='post' dom={sectionRef}>
       <h2 className='post__title'>Recent Posts</h2>
       <ul className='post__list'>
         {props.posts.map((el, idx) => (
@@ -17,15 +36,45 @@ const Posts = (props: IPostsProps) => {
 };
 
 const PostItem = (props: TPostsItemProps) => {
+  const itemRef = useRef<HTMLLIElement>(null);
+  const { scrollYProgress } = useScroll({
+    offset: ['-30% end', 'end end'],
+    target: itemRef,
+  });
+
+  const imgMotion = {
+    scale: useSpring(
+      useTransform(scrollYProgress, [0, 1], [1.2, 1]),
+      springOption
+    ),
+    rotate: useSpring(
+      useTransform(scrollYProgress, [0, 1], [3, 0]),
+      springOption
+    ),
+    filter: useTransform(
+      scrollYProgress,
+      (v) => `blur(${(1 - v) * 1}rem) brightness(${0 + v})`
+    ),
+  };
+
   return (
-    <li className='post__item'>
+    <li className='post__item' ref={itemRef}>
       <a
         className='post__item-link'
         href={`${'https://velog.io/@kimbangul/' + props.url_slug}` || '#'}
         target='_blank'
       >
         <div className='post__item-thumb'>
-          <Image src={props.thumbnail} fill alt='' />
+          <motion.div
+            className='post__item-thumb-inner'
+            style={{
+              scale: imgMotion.scale,
+              rotate: imgMotion.rotate,
+              filter: imgMotion.filter,
+            }}
+          >
+            <Image src={props.thumbnail} fill alt='' />
+          </motion.div>
         </div>
         <div className='post__item-date'>
           {getTimeForDay(props.released_at)}

@@ -39,7 +39,6 @@ const Symbol = () => {
       start: () => `top bottom`,
       end: () => `bottom top`,
       invalidateOnRefresh: true,
-      markers: true,
       onToggle: (self) => {
         if (self.isActive) {
           gsap.to(symbolRef.current, {
@@ -47,9 +46,9 @@ const Symbol = () => {
             yPercent: () => -100,
           });
           gsap.to(svg, {
-            scale: 3,
-
-            yPercent: () => -200,
+            width: '200%',
+            xPercent: () => -50,
+            yPercent: () => -100,
             y: () => -16,
           });
         } else {
@@ -58,8 +57,8 @@ const Symbol = () => {
             yPercent: () => 0,
           });
           gsap.to(svg, {
-            scale: 1,
-            yPercent: () => -100,
+            width: '100%',
+            xPercent: () => 0,
             y: () => 0,
           });
         }

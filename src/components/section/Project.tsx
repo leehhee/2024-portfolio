@@ -40,10 +40,6 @@ const ProjectItem = (props: IProjectItem) => {
   });
 
   const imgMotion = {
-    rotate: useSpring(
-      useTransform(scrollYProgress, [0, 1], [5, 0]),
-      springOption
-    ),
     scale: useSpring(
       useTransform(scrollYProgress, [0, 1], [1.05, 1]),
       springOption
@@ -54,7 +50,7 @@ const ProjectItem = (props: IProjectItem) => {
 
   const listMotion = {
     filter: useTransform(scrollYProgress, (v) => `blur(${(1 - v) * 1}rem)`),
-    y: useSpring(useTransform(scrollYProgress, [0, 1], [50, 0]), springOption),
+    y: useSpring(useTransform(scrollYProgress, [0, 1], [70, 0]), springOption),
   };
 
   const linkOption = {
@@ -68,7 +64,6 @@ const ProjectItem = (props: IProjectItem) => {
       data-hover={isHover}
       ref={itemRef}
       style={{
-        // filter: listMotion.filter,
         y: listMotion.y,
       }}
     >
@@ -113,8 +108,6 @@ const ProjectItem = (props: IProjectItem) => {
           style={{
             filter: imgMotion.filter,
             scale: imgMotion.scale,
-            //y: imgMotion.y,
-            // rotate: imgMotion.rotate,
           }}
         >
           <Image src={props.thumb} fill alt='' />
