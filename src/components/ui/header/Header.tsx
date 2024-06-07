@@ -119,7 +119,6 @@ const Menu = (props: IHeaderMenuProps) => {
       if (props.isOpen) {
         tl.play();
       } else {
-        console.log('reverse');
         tl.reverse(0);
       }
     },

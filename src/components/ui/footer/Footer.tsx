@@ -1,63 +1,16 @@
 'use client';
-import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
+
 import { useRef } from 'react';
 import { link } from '@/data';
 import Ticker from '@/components/ui/ticker/Ticker';
-import SYMBOL from '/public/icon/common/footer_symbol.svg';
 
 const tickerData = ['Web Publisher', 'Front-end Developer', 'UI Developer'];
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement>(null);
-  const symbolRef = useRef<HTMLDivElement>(null);
-
-  // // FUNCTION motion
-  // useGSAP(
-  //   () => {
-  //     const tl = gsap.timeline({
-  //       yoyo: true,
-  //       paused: true,
-  //       repeatRefresh: true,
-  //     });
-  //     const footerHeight = () => footerRef.current?.offsetHeight || 0;
-  //     console.log(footerHeight());
-
-  //     tl.set(symbolRef.current, {
-  //       position: 'absolute',
-  //       bottom: () => 'calc(100% + 3.2rem)',
-  //     });
-
-  //     tl.to(symbolRef.current, {
-  //       position: 'absolute',
-  //       bottom: () => 'calc(100% + 1.6rem)',
-  //       //scale: () => 2,
-  //       width: () => '10vw',
-  //       // y: 20,
-  //     });
-
-  //     ScrollTrigger.create({
-  //       trigger: footerRef.current,
-  //       start: () => 'top bottom',
-  //       end: () => `bottom top`,
-  //       invalidateOnRefresh: true,
-  //       onToggle: (self) => {
-  //         console.log(self.isActive);
-  //         // if (self.isActive) {
-  //         //   tl.play();
-  //         // } else {
-  //         //   tl.reverse(0);
-  //         // }
-  //       },
-  //     });
-  //   },
-  //   { scope: footerRef }
-  // );
 
   return (
     <>
-      {/* <div className='footer__symbol' ref={symbolRef}>
-        <SYMBOL />
-      </div> */}
       <footer className='footer' ref={footerRef}>
         <div className='footer__inner'>
           <p className='footer__copy'>

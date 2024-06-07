@@ -8,41 +8,51 @@ const Symbol = () => {
 
   // // FUNCTION motion
   useGSAP(() => {
-    const footer = document.querySelector('body');
     const tl = gsap.timeline({
       yoyo: true,
       paused: true,
       repeatRefresh: true,
     });
-    const footerHeight = () => footer?.offsetHeight || 0;
-    console.log(footerHeight());
-
-    // tl.set(symbolRef.current, {
-    //   position: 'fixed',
-    //   bottom: () => '2.4rem',
-    // });
 
     tl.to(symbolRef.current, {
       position: 'sticky',
       bottom: () => '1.6rem',
-      //scale: () => 2,
-      // width: () => '10vw',
-      // y: 20,
+      duration: 0,
     });
 
     ScrollTrigger.create({
-      // trigger: '.contents-wrap',
       trigger: 'body',
       start: () => `${window.innerHeight} top`,
       end: () => `bottom top`,
       invalidateOnRefresh: true,
-      markers: true,
       onToggle: (self) => {
-        console.log(self.isActive);
         if (self.isActive) {
           tl.play();
         } else {
           tl.reverse(0);
+        }
+      },
+    });
+
+    ScrollTrigger.create({
+      trigger: 'footer',
+      start: () => `top bottom`,
+      end: () => `bottom top`,
+      invalidateOnRefresh: true,
+      markers: true,
+      onToggle: (self) => {
+        if (self.isActive) {
+          gsap.to(symbolRef.current, {
+            scale: () => 3,
+            xPercent: () => 100,
+            yPercent: () => -100,
+          });
+        } else {
+          gsap.to(symbolRef.current, {
+            scale: () => 1,
+            xPercent: () => 0,
+            yPercent: () => 0,
+          });
         }
       },
     });
