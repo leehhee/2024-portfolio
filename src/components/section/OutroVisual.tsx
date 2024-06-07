@@ -50,7 +50,6 @@ const OutroVisual = () => {
         start: () => 'top center',
         end: () => `bottom top`,
         invalidateOnRefresh: true,
-        markers: true,
         onToggle: (self) => {
           if (self.isActive) {
             tl.play();

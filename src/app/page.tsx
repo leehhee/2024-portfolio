@@ -7,6 +7,7 @@ import {
   OutroVisual,
 } from '@/components/section';
 import { IPostsProps } from '@/components/section/Posts';
+import { Symbol } from '@/components/ui/symbol';
 
 const getPostList = async (
   name: string,
@@ -40,6 +41,7 @@ export default async function Home() {
         <Project />
         <Posts posts={postData.posts} />
         <OutroVisual />
+        <Symbol />
       </div>
     </main>
   );

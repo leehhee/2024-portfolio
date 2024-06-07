@@ -117,7 +117,6 @@ const Visual = () => {
         end: () => `bottom top`,
         invalidateOnRefresh: true,
         onToggle: (self) => {
-          console.log('toggled, isActive:', self.isActive);
           if (self.isActive) {
             tl.play();
             iconRef.current?.play();

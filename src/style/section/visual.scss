@@ -225,6 +225,10 @@
     width: 27vw;
     @include tb-lg {
       width: 100%;
+
+      video {
+        width: 100vw;
+      }
     }
   }
 
@@ -257,6 +261,7 @@
   }
 
   &--outro {
+    padding-bottom: 12rem;
     #{$visual} {
       &__text-row {
         gap: 0 0.97vw;

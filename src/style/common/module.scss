@@ -66,9 +66,13 @@
 .contents {
   &-wrap {
     position: relative;
-    margin-top: 100vh;
+    // margin-top: 100vh;
     background: $color__black;
   }
+}
+
+main {
+  padding-top: 100vh;
 }
 
 .icon {
@@ -122,4 +126,17 @@
       }
     }
   }
+}
+
+.symbol {
+  width: 3.75vw;
+  min-width: 4.8rem;
+  position: fixed;
+  // position: sticky;
+  z-index: 50;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  mix-blend-mode: difference;
+  z-index: 50;
+  pointer-events: none;
 }
