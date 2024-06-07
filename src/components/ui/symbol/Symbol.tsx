@@ -42,12 +42,11 @@ const Symbol = () => {
       onToggle: (self) => {
         if (self.isActive) {
           gsap.to(symbolRef.current, {
-            xPercent: () => 100,
-            yPercent: () => -100,
+            xPercent: () => 0,
+            yPercent: () => 0,
           });
           gsap.to(svg, {
             width: '200%',
-            xPercent: () => -50,
             yPercent: () => -100,
             y: () => -16,
           });
@@ -58,7 +57,6 @@ const Symbol = () => {
           });
           gsap.to(svg, {
             width: '100%',
-            xPercent: () => 0,
             y: () => 0,
           });
         }

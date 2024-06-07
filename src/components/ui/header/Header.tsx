@@ -94,6 +94,7 @@ const Menu = (props: IHeaderMenuProps) => {
 
   useGSAP(
     () => {
+      if (!props.isOpen) return;
       const tl = gsap.timeline({
         yoyo: true,
         paused: true,

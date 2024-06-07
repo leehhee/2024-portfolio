@@ -2,29 +2,13 @@
 import Image from 'next/image';
 import { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
 
 import { Section } from '@/components/ui/section';
 import { getTimeForDay, springOption } from '@/utils';
 
 const Posts = (props: IPostsProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  // useGSAP(()=>{
-  //   const item = gsap.utils.toArray('.post__item');
-
-  //   const tl = gsap.timeline({
-  //     yoyo: true,
-  //     paused: true,
-  //     repeatRefresh: true,
-  //   });
-
-  //   tl.to(item)
-
-  // }, {scope:sectionRef })
-
   return (
-    <Section className='post' dom={sectionRef}>
+    <Section className='post'>
       <h2 className='post__title'>Recent Posts</h2>
       <ul className='post__list'>
         {props.posts.map((el, idx) => (
