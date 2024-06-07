@@ -6,6 +6,7 @@ import LOGO from '/public/icon/logo.svg';
 import { LinkArrow, common } from '@/components/ui/icon';
 import { link } from '@/data';
 import { useResize } from '@/hooks/useResize';
+import { getKoreaTime } from '@/utils';
 
 const menu = [
   { text: 'Project', href: '#project' },
@@ -16,6 +17,9 @@ const menu = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const size = useResize();
+  const [time, setTime] = useState(getKoreaTime());
+  const timer = useRef<NodeJS.Timeout>();
+
   useEffect(() => {
     if (!size.width) return;
     if (isMenuOpen && size.width > 990) {
@@ -35,8 +39,9 @@ const Header = () => {
           </div>
           <nav className='header__nav'>
             <div className='header__clock pc-only'>
-              Los Angeles, CA 4<span className='header__clock-spliter'>:</span>
-              45 PM
+              Seoul, Korea {time.hour}
+              <span className='header__clock-spliter'>:</span>
+              {time.min} PM
             </div>
             <ul className='header__nav-list pc-only' role='menu'>
               <li className='header__nav-item'>

@@ -35,6 +35,7 @@ const Introduce = () => {
             tl.play();
           } else {
             tl.progress(0);
+            tl.pause();
           }
         },
       });
@@ -72,7 +73,7 @@ const Introduce = () => {
         }
       );
       tl.to('.introduce__icon-item svg', {
-        yPercent: () => -150,
+        y: () => 0,
         stagger: 0.1,
       });
     },

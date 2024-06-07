@@ -230,12 +230,19 @@
 
       &::after {
         @include util__pseudo;
-        background: rgba(255, 255, 255, 0.1);
-        transition: background 0.3s;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.1) 80%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
       }
 
       &:hover {
-        #{$sub-project}::after {
+        &::after {
+          opacity: 1;
         }
 
         // padding-left: 2.4vw;
@@ -272,8 +279,10 @@
       }
     }
     &-desc {
+      width: 70%;
       @include tb-lg {
         margin-top: 0.8rem;
+        width: 100%;
       }
     }
   }

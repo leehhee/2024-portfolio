@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
 import { DownArrow } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
@@ -76,7 +76,7 @@ const Video = () => {
         ></video>
       </div>
       <div className='video__title-container' ref={titleRef}>
-        <p className='video__title'>Experience Worlds Unseen</p>
+        <p className='video__title'>Park Ye rim, UI Developer</p>
         <div className='video__info pc-only'>
           <p>Featured Reel ‘24</p>
           <button className='video__timer'>00:00</button>
