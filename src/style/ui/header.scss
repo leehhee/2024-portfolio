@@ -115,6 +115,9 @@
   &__clock {
     @include util__flex(stretch, center);
     padding: 0 1rem;
+    &-spliter {
+      animation: animation__color-spliter 2s infinite both;
+    }
   }
 }
 

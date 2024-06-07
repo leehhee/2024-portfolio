@@ -34,7 +34,10 @@ const Header = () => {
             </a>
           </div>
           <nav className='header__nav'>
-            <div className='header__clock pc-only'>Los Angeles, CA 4:45 PM</div>
+            <div className='header__clock pc-only'>
+              Los Angeles, CA 4<span className='header__clock-spliter'>:</span>
+              45 PM
+            </div>
             <ul className='header__nav-list pc-only' role='menu'>
               <li className='header__nav-item'>
                 <a role='menuitem' className='header__nav-item-link' href='#'>

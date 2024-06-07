@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { Section } from '@/components/ui/section';
+import { getTimeForDay } from '@/utils';
 
 const Posts = (props: IPostsProps) => {
   return (
@@ -26,7 +27,9 @@ const PostItem = (props: TPostsItemProps) => {
         <div className='post__item-thumb'>
           <Image src={props.thumbnail} fill alt='' />
         </div>
-        <div className='post__item-date'>{props.released_at}</div>
+        <div className='post__item-date'>
+          {getTimeForDay(props.released_at)}
+        </div>
         <h3 className='post__item-title'>{props.title}</h3>
       </a>
     </li>
