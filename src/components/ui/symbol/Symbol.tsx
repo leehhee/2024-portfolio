@@ -8,6 +8,7 @@ const Symbol = () => {
 
   // // FUNCTION motion
   useGSAP(() => {
+    const svg = symbolRef.current?.querySelector('svg') || null;
     const tl = gsap.timeline({
       yoyo: true,
       paused: true,
@@ -33,7 +34,6 @@ const Symbol = () => {
         }
       },
     });
-
     ScrollTrigger.create({
       trigger: 'footer',
       start: () => `top bottom`,
@@ -43,15 +43,24 @@ const Symbol = () => {
       onToggle: (self) => {
         if (self.isActive) {
           gsap.to(symbolRef.current, {
-            scale: () => 3,
             xPercent: () => 100,
             yPercent: () => -100,
           });
+          gsap.to(svg, {
+            scale: 3,
+
+            yPercent: () => -200,
+            y: () => -16,
+          });
         } else {
           gsap.to(symbolRef.current, {
-            scale: () => 1,
             xPercent: () => 0,
             yPercent: () => 0,
+          });
+          gsap.to(svg, {
+            scale: 1,
+            yPercent: () => -100,
+            y: () => 0,
           });
         }
       },

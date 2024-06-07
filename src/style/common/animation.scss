@@ -7,17 +7,8 @@
   }
 }
 
-@keyframes animation__color-spliter {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    opacity: 1;
-  }
+@keyframes animation__blink {
   50% {
-    opacity: 1;
-  }
-  51% {
     opacity: 0;
   }
 }
