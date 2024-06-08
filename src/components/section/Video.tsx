@@ -63,8 +63,16 @@ const Video = () => {
     { scope: videoRef }
   );
 
-  const scrollToVisual = () => {
-    const visual = document;
+  const scrollToVisual = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const visual = document.querySelector('.visual');
+
+    if (!visual) return;
+
+    visual.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   return (
@@ -86,7 +94,7 @@ const Video = () => {
           <button className='video__timer'>00:00</button>
         </div>
       </div>
-      <button className='video__more' ref={moreRef}>
+      <button className='video__more' ref={moreRef} onClick={scrollToVisual}>
         Scroll for more <DownArrow />
       </button>
     </Section>

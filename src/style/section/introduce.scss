@@ -7,7 +7,7 @@
   }
   &__inner {
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-columns: 2fr 3fr 1fr;
     max-width: 83.33vw;
     margin: 0 auto;
     min-height: unset;
@@ -57,9 +57,10 @@
     @include util__flex(stretch, stretch, 0, column);
   }
   &__desc {
-    font-size: clamp(2rem, 1.77vw, 3.4rem);
+    // font-size: clamp(2rem, 1.77vw, 3.4rem);
+    font-size: clamp(1.8rem, 1.77vw, 2.4rem);
     opacity: 0.4;
-    line-height: 1.25;
+    line-height: 1.6;
 
     @include tb-lg {
       margin-top: 2.4rem;

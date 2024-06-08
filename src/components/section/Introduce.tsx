@@ -33,9 +33,6 @@ const Introduce = () => {
         onUpdate: (self) => {
           if (self.isActive) {
             tl.play();
-          } else {
-            tl.progress(0);
-            tl.pause();
           }
         },
       });
@@ -44,10 +41,10 @@ const Introduce = () => {
         yoyo: true,
         repeatRefresh: true,
         paused: true,
+        repeat: 0,
       });
 
       tl.to('.introduce__title-changer-item', {
-        // text: 'Flexible',
         yPercent: () => -100,
         duration: 1.2,
         ease: 'power4.inOut',
@@ -97,11 +94,14 @@ const Introduce = () => {
       </h2>
       <div className='introduce__contents'>
         <p className='introduce__desc'>
-          {/* Studio Kanda is a digital-first design studio—mixing brand and digital
-          to help bring your business to life in new and unexpected ways. */}
-          By implementing impressive UI and interactions based on solid markup,{' '}
+          {/* By implementing impressive UI and interactions based on solid markup,{' '}
           <br className='pc-only' />I enhance the value of the service and
-          provide a better user experience.
+          provide a better user experience. */}
+          저는 견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고
+          문제를 해결하여 사용자의 니즈를 충족시키는 것에서 보람을 느낍니다.
+          <br />
+          기억에 남아 오래 사용하고 싶은 플랫폼을 만드는 것, 그리고 개발을 통해
+          더 많은 사람들의 문제를 해결하는 것이 목표입니다.
         </p>
         <h3 className='sound-only'>사용 기술스택</h3>
         <ul className='introduce__icon-list'>
