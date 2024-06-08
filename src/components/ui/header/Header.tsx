@@ -4,27 +4,29 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import LOGO from '/public/icon/logo.svg';
 import { LinkArrow, common } from '@/components/ui/icon';
-import { link } from '@/data';
+import { link, menu } from '@/data';
 import { useResize } from '@/hooks/useResize';
 import useTime, { getFormattedTime } from '@/hooks/useTime';
-
-const menu = [
-  { text: 'Project', href: '#project' },
-  { text: 'About', href: '#skill' },
-  { text: 'Contact', href: '#contact' },
-];
+import { scrollToSection } from '@/utils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const size = useResize();
   const time = useTime();
 
+  // FUNCTION window 사이즈가 pc 사이즈일 경우 메뉴 끄기
   useEffect(() => {
     if (!size.width) return;
     if (isMenuOpen && size.width > 990) {
       setIsMenuOpen(false);
     }
   }, [size.width, isMenuOpen]);
+
+  // FUNCTION menu link버튼 클릭 시 실행
+  const onClickMenuLink = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    scrollToSection(href);
+  };
 
   return (
     <>
@@ -43,16 +45,21 @@ const Header = () => {
               {getFormattedTime(time.min)} {time.amPm}
             </div>
             <ul className='header__nav-list pc-only' role='menu'>
-              <li className='header__nav-item'>
-                <a role='menuitem' className='header__nav-item-link' href='#'>
-                  Work
-                </a>
-              </li>
-              <li className='header__nav-item'>
-                <a role='menuitem' className='header__nav-item-link' href='#'>
-                  Info
-                </a>
-              </li>
+              {menu.map((el) => (
+                <li
+                  className='header__nav-item'
+                  key={`header-menu__${el.text}`}
+                >
+                  <a
+                    role='menuitem'
+                    className='header__nav-item-link'
+                    href={el.href}
+                    onClick={(e) => onClickMenuLink(e, el.href)}
+                  >
+                    {el.text}
+                  </a>
+                </li>
+              ))}
             </ul>
             <button
               className='header__nav-opener tb-only'

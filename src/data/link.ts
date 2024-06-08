@@ -5,3 +5,8 @@ export const link = {
   velog: 'https://velog.io/@kimbangul',
   github: 'https://github.com/Kimbangul',
 };
+
+export const menu = [
+  { text: 'Work', href: '#work' },
+  { text: 'Contact', href: '#contact' },
+];

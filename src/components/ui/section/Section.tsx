@@ -3,6 +3,7 @@ import { HTMLAttributes, RefObject } from 'react';
 const Section = (props: ISectionProps) => {
   return (
     <section
+      id={props.id ? props.id : ''}
       className={`sc ${props.className || ''}`}
       data-autoheight={props.autoheight}
       ref={props.dom}

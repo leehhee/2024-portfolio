@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className='footer' ref={footerRef}>
+      <footer className='footer' ref={footerRef} id='contact'>
         <div className='footer__inner'>
           <p className='footer__copy'>
             <span className='footer__copy-icon'>©</span>

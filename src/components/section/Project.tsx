@@ -10,7 +10,7 @@ import { springOption } from '@/utils';
 const Project = () => {
   return (
     <>
-      <Section className='project'>
+      <Section className='project' id='work'>
         <h2 className='sound-only'>대표 프로젝트</h2>
         <ul className='project__list'>
           {project.map((el) => (

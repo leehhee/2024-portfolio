@@ -1,20 +1,40 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { gsap, ScrollTrigger, useGSAP } from '@/components/register/gsap';
 import { DownArrow } from '@/components/ui/icon';
 import { Section } from '@/components/ui/section';
+import { scrollToSection } from '@/utils';
 
 const Video = () => {
   // PARAM dom
-  const videoRef = useRef<HTMLDivElement>(null);
+  const videoSectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLButtonElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const timer = useRef<NodeJS.Timeout>();
+
+  const [videoTime, setVideoTime] = useState(videoRef.current?.currentTime);
+
+  // FUNCTION 현재 비디오 시간 구하기
+  useEffect(() => {
+    timer.current = setInterval(() => {
+      setVideoTime(videoRef.current?.currentTime);
+    }, 1000);
+    return () => clearInterval(timer.current);
+  }, []);
+
+  const remainTime = useMemo(() => {
+    if (!videoRef.current || !videoTime) return '00';
+    const remainTime = parseInt(`${videoRef.current.duration - videoTime}`);
+    console.log(videoRef.current.duration - videoTime);
+    return remainTime < 10 ? `0${remainTime}` : `${remainTime}`;
+  }, [videoTime]);
 
   // FUNCTION motion
   useGSAP(
     () => {
       ScrollTrigger.create({
-        trigger: videoRef.current,
+        trigger: videoSectionRef.current,
         start: () => '0 0',
         end: () => '1px 0',
         invalidateOnRefresh: true,
@@ -53,30 +73,34 @@ const Video = () => {
       );
 
       tl.to(
-        videoRef.current,
+        videoSectionRef.current,
         {
           opacity: 0,
         },
         'fade-out+=0.2'
       );
     },
-    { scope: videoRef }
+    { scope: videoSectionRef }
   );
 
-  const scrollToVisual = (e: React.MouseEvent) => {
+  // FUNCTION scroll for more 버튼 클릭 시 실행
+  const onClickscrollToVisual = (e: React.MouseEvent) => {
     e.preventDefault();
-    const visual = document.querySelector('.visual');
+    scrollToSection('.visual');
+  };
 
-    if (!visual) return;
-
-    visual.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+  // FUNCTION video 재생/일시 정지
+  const onClickVideoControl = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
   };
 
   return (
-    <Section className='video' dom={videoRef}>
+    <Section className='video' dom={videoSectionRef}>
       <h2 className='sound-only'>상단 비디오 영역</h2>
       <div className='video__container'>
         <video
@@ -85,16 +109,23 @@ const Video = () => {
           autoPlay={true}
           muted
           playsInline
+          ref={videoRef}
         ></video>
       </div>
       <div className='video__title-container' ref={titleRef}>
         <p className='video__title'>Park Ye rim, UI Developer</p>
         <div className='video__info pc-only'>
           <p>Featured Reel ‘24</p>
-          <button className='video__timer'>00:00</button>
+          <button className='video__timer' onClick={onClickVideoControl}>
+            00:{remainTime}
+          </button>
         </div>
       </div>
-      <button className='video__more' ref={moreRef} onClick={scrollToVisual}>
+      <button
+        className='video__more'
+        ref={moreRef}
+        onClick={onClickscrollToVisual}
+      >
         Scroll for more <DownArrow />
       </button>
     </Section>
