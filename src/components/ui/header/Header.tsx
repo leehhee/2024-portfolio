@@ -38,7 +38,7 @@ const Header = () => {
           </div>
           <nav className='header__nav'>
             <div className='header__clock pc-only'>
-              Seoul, Korea {getFormattedTime(time.hour)}
+              Seoul, Korea {getFormattedTime(time.formattedHour)}
               <span className='header__clock-spliter'>:</span>
               {getFormattedTime(time.min)} {time.amPm}
             </div>

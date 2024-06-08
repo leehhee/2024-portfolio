@@ -27,6 +27,8 @@ const useTime = () => {
     else return 'AM';
   }, [hour]);
 
+  const formattedHour = useMemo(() => (hour <= 12 ? hour : hour - 12), [hour]);
+
   useEffect(() => {
     if (second >= 60) {
       setSecond(0);
@@ -39,16 +41,15 @@ const useTime = () => {
       setMin(0);
       setHour((prev) => prev + 1);
     }
-  }, [second]);
+  }, [min]);
 
   useEffect(() => {
     if (hour >= 24) {
-      setSecond(0);
-      setMin((prev) => prev + 1);
+      setHour(0);
     }
-  }, [second]);
+  }, [hour]);
 
-  return { hour, min, second, amPm };
+  return { hour, min, second, amPm, formattedHour };
 };
 
 export default useTime;

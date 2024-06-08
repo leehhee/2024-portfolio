@@ -63,6 +63,10 @@ const Video = () => {
     { scope: videoRef }
   );
 
+  const scrollToVisual = () => {
+    const visual = document;
+  };
+
   return (
     <Section className='video' dom={videoRef}>
       <h2 className='sound-only'>상단 비디오 영역</h2>
