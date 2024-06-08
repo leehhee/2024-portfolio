@@ -26,6 +26,7 @@ const Header = () => {
   const onClickMenuLink = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     scrollToSection(href);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -54,7 +55,9 @@ const Header = () => {
                     role='menuitem'
                     className='header__nav-item-link'
                     href={el.href}
-                    onClick={(e) => onClickMenuLink(e, el.href)}
+                    onClick={(e) => {
+                      onClickMenuLink(e, el.href);
+                    }}
                   >
                     {el.text}
                   </a>
@@ -75,7 +78,7 @@ const Header = () => {
             </button>
           </nav>
         </div>
-        <Menu isOpen={isMenuOpen} />
+        <Menu isOpen={isMenuOpen} onClickMenuLink={onClickMenuLink} />
       </header>
     </>
   );
@@ -140,6 +143,18 @@ const Menu = (props: IHeaderMenuProps) => {
     { scope: menuRef, dependencies: [props.isOpen] }
   );
 
+  useEffect(() => {
+    const body = document.querySelector('body');
+    if (!body) return;
+    if (props.isOpen) {
+      body.style.height = '100vh';
+      body.style.overflowY = 'hidden';
+    } else {
+      body.style.height = 'auto';
+      body.style.overflowY = 'auto';
+    }
+  }, [props.isOpen]);
+
   return (
     <>
       <AnimatePresence initial={false} mode='wait'>
@@ -161,22 +176,21 @@ const Menu = (props: IHeaderMenuProps) => {
             >
               <div className='menu__inner'>
                 <ul className='menu__list' role='menu'>
-                  <li className='menu__item'>
-                    <a className='menu__item-link' href='#' role='menuitem'>
-                      <span className='menu__item-link-text'>Info</span>
-                      <span className='menu__item-arrow'>
-                        {common.ARROW_RIGHT}
-                      </span>
-                    </a>
-                  </li>
-                  <li className='menu__item'>
-                    <a className='menu__item-link' href='#' role='menuitem'>
-                      <span className='menu__item-link-text'>Work</span>
-                      <span className='menu__item-arrow'>
-                        {common.ARROW_RIGHT}
-                      </span>
-                    </a>
-                  </li>
+                  {menu.map((el) => (
+                    <li className='menu__item' key={`mb-menu__${el.text}`}>
+                      <a
+                        className='menu__item-link'
+                        href={el.href}
+                        role='menuitem'
+                        onClick={(e) => props.onClickMenuLink(e, el.href)}
+                      >
+                        <span className='menu__item-link-text'>{el.text}</span>
+                        <span className='menu__item-arrow'>
+                          {common.ARROW_RIGHT}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
                 </ul>
                 <div className='menu__info'>
                   <div className='menu__info-left'>
@@ -222,6 +236,7 @@ const Menu = (props: IHeaderMenuProps) => {
 
 interface IHeaderMenuProps {
   isOpen: boolean;
+  onClickMenuLink: (e: React.MouseEvent, href: string) => void;
 }
 
 export default Header;

@@ -26,7 +26,6 @@ const Video = () => {
   const remainTime = useMemo(() => {
     if (!videoRef.current || !videoTime) return '00';
     const remainTime = parseInt(`${videoRef.current.duration - videoTime}`);
-    console.log(videoRef.current.duration - videoTime);
     return remainTime < 10 ? `0${remainTime}` : `${remainTime}`;
   }, [videoTime]);
 
