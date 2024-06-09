@@ -75,7 +75,7 @@ const OutroVisual = () => {
         <div className='visual__text-row'>
           <VisualVideo id={7} />
           <VisualText>if</VisualText>
-          <VisualText>you're</VisualText>
+          <VisualText>you{`'`}re</VisualText>
           <VisualText>looking</VisualText>
           <VisualText>for</VisualText>
           <VisualText>a</VisualText>
@@ -101,7 +101,7 @@ const OutroVisual = () => {
         <div className='visual__text-row'>
           <VisualVideo id={6} />
           <VisualText>if</VisualText>
-          <VisualText>you're</VisualText>
+          <VisualText>you{`'`}re</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualText>looking</VisualText>
