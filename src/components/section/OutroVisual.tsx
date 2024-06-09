@@ -86,7 +86,7 @@ const OutroVisual = () => {
           <VisualVideo id={8} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>&</VisualText>
+          <VisualText>{`&`}</VisualText>
           <VisualText>dedicated</VisualText>
           <VisualText>developer.</VisualText>
         </div>
@@ -115,7 +115,7 @@ const OutroVisual = () => {
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={7} />
-          <VisualText>&</VisualText>
+          <VisualText>{`&`}</VisualText>
           <VisualText>dedicated</VisualText>
         </div>
         <div className='visual__text-row'>

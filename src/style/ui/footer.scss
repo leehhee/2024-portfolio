@@ -4,7 +4,6 @@
   z-index: 5;
   &__inner {
     @include util__inner;
-    // position: relative;
     padding-top: 11.458vw;
     padding-bottom: 0.2vw;
     border-top: 0.1rem solid rgba(255, 255, 255, 0.2);

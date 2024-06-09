@@ -143,17 +143,17 @@ const Menu = (props: IHeaderMenuProps) => {
     { scope: menuRef, dependencies: [props.isOpen] }
   );
 
-  useEffect(() => {
-    const body = document.querySelector('body');
-    if (!body) return;
-    if (props.isOpen) {
-      body.style.height = '100vh';
-      body.style.overflowY = 'hidden';
-    } else {
-      body.style.height = 'auto';
-      body.style.overflowY = 'auto';
-    }
-  }, [props.isOpen]);
+  // useEffect(() => {
+  //   const body = document.querySelector('body');
+  //   if (!body) return;
+  //   if (props.isOpen) {
+  //     body.style.height = '100vh';
+  //     body.style.overflowY = 'hidden';
+  //   } else {
+  //     body.style.height = 'auto';
+  //     body.style.overflowY = 'auto';
+  //   }
+  // }, [props.isOpen]);
 
   return (
     <>
