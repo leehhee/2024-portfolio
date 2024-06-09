@@ -14,6 +14,7 @@
       font-weight: 500;
       vertical-align: baseline;
       letter-spacing: -0.02em;
+      overflow: hidden;
 
       @include tb-lg {
         font-size: 16.5vw;
@@ -30,6 +31,7 @@
       display: flex !important;
       justify-content: stretch;
       align-items: center;
+      overflow: hidden;
       gap: 0 1.66vw;
       @include tb-lg {
         gap: 0 3.87vw;
@@ -185,16 +187,20 @@
     }
   }
   [data-video='4'] {
-    width: 21.614vw;
+    // width: 21.614vw;
+    width: 26.614vw;
 
     @include tb-lg {
-      width: 46.4vw;
+      // width: 46.4vw;
+      width: 26.4vw;
     }
   }
   [data-video='5'] {
-    width: 41.77vw;
+    // width: 41.77vw;
+    width: 28.77vw;
     @include tb-lg {
-      width: 32vw;
+      // width: 32vw;
+      width: 50.5vw;
     }
   }
 
@@ -257,7 +263,8 @@
     &[data-line='2'] {
       width: 25.93vw;
       @include tb-lg {
-        width: 26vw;
+        // width: 49vw;
+        width: 30vw;
       }
     }
   }

@@ -80,9 +80,21 @@ const Visual = () => {
       tl.to(visualText, {
         overflow: 'visible',
       });
-
       gsap.fromTo(
-        "[data-icon='3'] svg, [data-icon='10'] svg",
+        "[data-icon='3'] svg",
+        {
+          rotate: 0,
+        },
+        {
+          rotate: 360,
+          duration: 1,
+          repeatDelay: 3,
+          repeat: Infinity,
+          stagger: 0.5,
+        }
+      );
+      gsap.fromTo(
+        "[data-icon='10'] svg",
         {
           rotate: 0,
         },
@@ -138,7 +150,7 @@ const Visual = () => {
       <h2 className='sound-only'>비주얼 영역</h2>
       <div className='visual__text-container pc-only'>
         <div className='visual__text-row'>
-          <VisualText>We</VisualText>
+          <VisualText>I</VisualText>
           <div className='visual__icon' data-icon='1'>
             <Lottie
               lottieRef={iconRef}
@@ -147,7 +159,7 @@ const Visual = () => {
               autoplay={false}
             />
           </div>
-          <VisualText>craft</VisualText>
+          <VisualText>create</VisualText>
           <VisualVideo id={1} />
           <VisualIcon id={2} />
           <VisualIcon id={3} />
@@ -156,11 +168,11 @@ const Visual = () => {
           {/* <VisualIcon id={4} /> */}
           <div className='visual__line' data-line='1'></div>
           <VisualVideo id={2} />
-          <VisualText>visual</VisualText>
-          <VisualText>stories</VisualText>
+          <VisualText>memorable</VisualText>
+          {/* <VisualText>and</VisualText> */}
         </div>
         <div className='visual__text-row'>
-          <VisualText>through</VisualText>
+          <VisualText>websites</VisualText>
           <div className='visual__icon' data-icon='5'>
             <Lottie
               lottieRef={icon2Ref}
@@ -177,9 +189,11 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualVideo id={4} />
           <VisualIcon id={7} />
-          <VisualText>authentic</VisualText>
-          {/* <VisualIcon id={8} /> */}
+          <VisualText>and</VisualText>
           <div className='visual__line' data-line='2'></div>
+          <VisualIcon id={2} />
+          <VisualIcon id={3} />
+          <VisualIcon id={2} />
         </div>
         <div className='visual__text-row'>
           <VisualIcon id={9} />
@@ -187,16 +201,17 @@ const Visual = () => {
           <VisualIcon id={10} />
           <VisualIcon id={2} />
           <VisualVideo id={5} />
-          <VisualText>design.</VisualText>
+          <VisualText>better</VisualText>
+          <VisualText>UX.</VisualText>
         </div>
       </div>
       <div className='visual__text-container tb-only'>
         <div className='visual__text-row'>
-          <VisualText>We</VisualText>
+          <VisualText>I</VisualText>
           <div className='visual__icon' data-icon='1'>
             <Lottie animationData={VISUAL_01} loop={false} />
           </div>
-          <VisualText>craft</VisualText>
+          <VisualText>create</VisualText>
           <VisualIcon id={2} />
           <VisualIcon id={3} />
         </div>
@@ -204,40 +219,47 @@ const Visual = () => {
           <VisualVideo id={1} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>visual</VisualText>
-          <VisualText>stories</VisualText>
+          <VisualText>memorable</VisualText>
+        </div>
+        <div className='visual__text-row'>
+          <VisualVideo id={4} />
+          <VisualText>websites</VisualText>
+          {/* <VisualIcon id={3} />
+          <VisualIcon id={2} /> */}
         </div>
         <div className='visual__text-row'>
           <div className='visual__line' data-line='1'></div>
           <VisualVideo id={2} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>through</VisualText>
           <div className='visual__icon' data-icon='5'>
             <Lottie animationData={VISUAL_05} loop={false} />
           </div>
           <VisualIcon id={6} />
           <VisualIcon id={6} />
           <VisualIcon id={6} />
+          <VisualText>and</VisualText>
+          <div className='visual__line' data-line='2'></div>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={3} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>authentic</VisualText>
-          <div className='visual__line' data-line='2'></div>
+          <VisualText>better</VisualText>
+          {/* <div className='visual__line' data-line='2'></div> */}
+          <VisualVideo id={5} />
         </div>
         <div className='visual__text-row'>
           <VisualIcon id={9} />
           <VisualIcon id={2} />
           <VisualIcon id={10} />
           <VisualIcon id={2} />
-          <VisualVideo id={4} />
+          <VisualText>UX.</VisualText>
         </div>
-        <div className='visual__text-row'>
+        {/* <div className='visual__text-row'>
           <VisualVideo id={5} />
-          <VisualText>design.</VisualText>
-        </div>
+          <VisualText>UX.</VisualText>
+        </div> */}
       </div>
     </Section>
   );

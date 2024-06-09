@@ -10,7 +10,6 @@ import {
 } from '@/components/fonts';
 import Footer from '@/components/ui/footer/Footer';
 import GSAPRegister from '@/components/register/gsap/GSAPRegister';
-import { Scrollbar } from '@/components/ui/scrollbar';
 import { Cursor } from '@/components/ui/cursor';
 
 export const metadata: Metadata = {
@@ -55,7 +54,6 @@ export default function RootLayout({
         <GSAPRegister>
           <Header />
           {children}
-          <Scrollbar />
           <Cursor />
           <Footer />
         </GSAPRegister>

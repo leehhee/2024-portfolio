@@ -13,11 +13,11 @@ const useTime = () => {
   const timer = useRef<NodeJS.Timeout>();
   const [hour, setHour] = useState(getKoreaTime().hour);
   const [min, setMin] = useState(getKoreaTime().min);
-  const [second, setSecond] = useState(getKoreaTime().second);
 
   useEffect(() => {
     timer.current = setInterval(() => {
-      setSecond((prev) => prev + 1);
+      setHour(getKoreaTime().hour);
+      setMin(getKoreaTime().min);
     }, 1000);
     return () => clearInterval(timer.current);
   });
@@ -29,27 +29,7 @@ const useTime = () => {
 
   const formattedHour = useMemo(() => (hour <= 12 ? hour : hour - 12), [hour]);
 
-  useEffect(() => {
-    if (second >= 60) {
-      setSecond(0);
-      setMin((prev) => prev + 1);
-    }
-  }, [second]);
-
-  useEffect(() => {
-    if (min >= 60) {
-      setMin(0);
-      setHour((prev) => prev + 1);
-    }
-  }, [min]);
-
-  useEffect(() => {
-    if (hour >= 24) {
-      setHour(0);
-    }
-  }, [hour]);
-
-  return { hour, min, second, amPm, formattedHour };
+  return { hour, min, amPm, formattedHour };
 };
 
 export default useTime;
