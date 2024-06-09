@@ -169,3 +169,26 @@ main {
     border-radius: 1rem;
   }
 }
+
+.cursor {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: -1.5rem;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  pointer-events: none;
+  display: none;
+  backdrop-filter: invert(1);
+  transform-origin: center;
+
+  @media (any-pointer: fine) {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+  }
+}
