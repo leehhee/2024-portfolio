@@ -31,7 +31,6 @@
       display: flex !important;
       justify-content: stretch;
       align-items: center;
-      overflow: hidden;
       gap: 0 1.66vw;
       @include tb-lg {
         gap: 0 3.87vw;
@@ -207,19 +206,22 @@
   [data-video='6'] {
     width: 30.67vw;
     @include tb-lg {
-      width: 39vw;
+      // width: 39vw;
+      width: 48vw;
     }
   }
   [data-video='7'] {
     width: 14.44vw;
     @include tb-lg {
-      width: 33.2vw;
+      // width: 33.2vw;
+      width: 25.2vw;
     }
   }
   [data-video='8'] {
     width: 19.85vw;
     @include tb-lg {
-      width: 31vw;
+      // width: 31vw;
+      width: 24vw;
     }
   }
   [data-video='9'] {

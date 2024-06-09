@@ -68,64 +68,61 @@ const OutroVisual = () => {
       <h2 className='sound-only'>비주얼 영역</h2>
       <div className='visual__text-container pc-only'>
         <div className='visual__text-row'>
-          <VisualText>A diverse</VisualText>
+          <VisualText>Work</VisualText>
           <VisualVideo id={6} />
-          <VisualText>studio</VisualText>
+          <VisualText>with me</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={7} />
-          <VisualText>fueled by boundless</VisualText>
-        </div>
-        <div className='visual__text-row'>
-          <VisualText>curiosity &</VisualText>
-          <VisualVideo id={8} />
-          <VisualText>passion</VisualText>
-        </div>
-        <div className='visual__text-row'>
+          <VisualText>if</VisualText>
+          <VisualText>you're</VisualText>
+          <VisualText>looking</VisualText>
           <VisualText>for</VisualText>
-          <VisualVideo id={9} />
-          <VisualText>narratives that</VisualText>
+          <VisualText>a</VisualText>
         </div>
         <div className='visual__text-row'>
-          <VisualText>transcend reality.</VisualText>
           <VisualVideo id={10} />
+          <VisualText>passionate</VisualText>
+          <VisualVideo id={8} />
         </div>
+        <div className='visual__text-row'>
+          <VisualText>&</VisualText>
+          <VisualText>dedicated</VisualText>
+          <VisualText>developer.</VisualText>
+        </div>
+        <div className='visual__text-row'></div>
       </div>
       <div className='visual__text-container tb-only'>
         <div className='visual__text-row'>
-          <VisualText>A</VisualText>
-          <VisualText>diverse</VisualText>
-          <VisualText>studio</VisualText>
+          <VisualText>Work</VisualText>
+          <VisualText>with</VisualText>
+          <VisualText>me</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={6} />
-          <VisualText>fueled</VisualText>
-          <VisualText>by</VisualText>
+          <VisualText>if</VisualText>
+          <VisualText>you're</VisualText>
         </div>
         <div className='visual__text-row'>
-          <VisualText>boundless</VisualText>
-          <VisualVideo id={7} />
-        </div>
-        <div className='visual__text-row'>
+          <VisualText>looking</VisualText>
           <VisualVideo id={8} />
-          <VisualText>curiosity</VisualText>
-          <VisualText>&</VisualText>
-        </div>
-        <div className='visual__text-row'>
-          <VisualText>passion</VisualText>
-          <VisualVideo id={9} />
           <VisualText>for</VisualText>
+          <VisualText>a</VisualText>
         </div>
         <div className='visual__text-row'>
-          <VisualText>narratives</VisualText>
-          <VisualText>that</VisualText>
+          <VisualText>passionate</VisualText>
+          <VisualVideo id={9} />
+        </div>
+        <div className='visual__text-row'>
+          <VisualVideo id={7} />
+          <VisualText>&</VisualText>
+          <VisualText>dedicated</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={10} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>transcend</VisualText>
-          <VisualText>reality.</VisualText>
+          <VisualText>developer.</VisualText>
         </div>
       </div>
     </Section>

@@ -165,11 +165,9 @@ const Visual = () => {
           <VisualIcon id={3} />
         </div>
         <div className='visual__text-row'>
-          {/* <VisualIcon id={4} /> */}
           <div className='visual__line' data-line='1'></div>
           <VisualVideo id={2} />
           <VisualText>memorable</VisualText>
-          {/* <VisualText>and</VisualText> */}
         </div>
         <div className='visual__text-row'>
           <VisualText>websites</VisualText>
@@ -224,8 +222,6 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualVideo id={4} />
           <VisualText>websites</VisualText>
-          {/* <VisualIcon id={3} />
-          <VisualIcon id={2} /> */}
         </div>
         <div className='visual__text-row'>
           <div className='visual__line' data-line='1'></div>
@@ -246,7 +242,6 @@ const Visual = () => {
         </div>
         <div className='visual__text-row'>
           <VisualText>better</VisualText>
-          {/* <div className='visual__line' data-line='2'></div> */}
           <VisualVideo id={5} />
         </div>
         <div className='visual__text-row'>
@@ -256,10 +251,6 @@ const Visual = () => {
           <VisualIcon id={2} />
           <VisualText>UX.</VisualText>
         </div>
-        {/* <div className='visual__text-row'>
-          <VisualVideo id={5} />
-          <VisualText>UX.</VisualText>
-        </div> */}
       </div>
     </Section>
   );
