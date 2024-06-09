@@ -26,7 +26,6 @@ const Symbol = () => {
       start: () => `${window.innerHeight} top`,
       end: () => `bottom top`,
       invalidateOnRefresh: true,
-      markers: true,
       onToggle: (self) => {
         if (self.isActive) {
           tl.play();
