@@ -49,10 +49,10 @@ const Header = () => {
               {menu.map((el) => (
                 <li
                   className='header__nav-item'
+                  role='menuitem'
                   key={`header-menu__${el.text}`}
                 >
                   <a
-                    role='menuitem'
                     className='header__nav-item-link'
                     href={el.href}
                     onClick={(e) => {
@@ -177,11 +177,14 @@ const Menu = (props: IHeaderMenuProps) => {
               <div className='menu__inner'>
                 <ul className='menu__list' role='menu'>
                   {menu.map((el) => (
-                    <li className='menu__item' key={`mb-menu__${el.text}`}>
+                    <li
+                      className='menu__item'
+                      key={`mb-menu__${el.text}`}
+                      role='menuitem'
+                    >
                       <a
                         className='menu__item-link'
                         href={el.href}
-                        role='menuitem'
                         onClick={(e) => props.onClickMenuLink(e, el.href)}
                       >
                         <span className='menu__item-link-text'>{el.text}</span>

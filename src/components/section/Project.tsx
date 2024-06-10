@@ -73,7 +73,13 @@ const ProjectItem = (props: IProjectItem) => {
     >
       <div className='project__item-text'>
         <div className='project__item-title-container'>
-          <a href={props.link} target='__blank' {...linkOption} tabIndex={-1}>
+          <a
+            href={props.link}
+            target='__blank'
+            {...linkOption}
+            tabIndex={-1}
+            title={props.title}
+          >
             <h3 className='project__item-title'>{props.title}</h3>
             <p className='project__item-sub'>{props.subtitle}</p>
           </a>
@@ -82,6 +88,7 @@ const ProjectItem = (props: IProjectItem) => {
               className='project__item-link-item tb-only'
               target='_blank'
               href={props.link}
+              title={props.title}
               {...linkOption}
             >
               View Project →
@@ -90,6 +97,7 @@ const ProjectItem = (props: IProjectItem) => {
               className='project__item-link-item project__item-link-info'
               target='_blank'
               href={props.notion || '#'}
+              title={`${props.title} 상세 보기`}
             >
               View Detail →
             </a>
@@ -106,6 +114,7 @@ const ProjectItem = (props: IProjectItem) => {
       </div>
       <div className='project__item-img'>
         <motion.a
+          title={props.title}
           href={props.link}
           target='__blank'
           {...linkOption}
@@ -132,7 +141,7 @@ const ProjectItem = (props: IProjectItem) => {
 const SubProjectItem = (props: ISubProjectItemProps) => {
   return (
     <li className='sub-project__item'>
-      <a href={props.link} target='__blank'>
+      <a href={props.link} target='__blank' title={props.title}>
         <div className='sub-project__item-num'>{`(0${props.idx + 1})`}</div>
         <h3 className='sub-project__item-title'>{props.title}</h3>
 
