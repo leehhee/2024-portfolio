@@ -64,7 +64,7 @@ const PostItem = (props: TPostsItemProps) => {
               alt=''
               placeholder='blur'
               blurDataURL={blurDataUrl}
-              sizes='32vw'
+              sizes='(max-width: 768px) 90vw, 32vw'
             />
           </motion.div>
         </div>
