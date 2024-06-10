@@ -5,6 +5,7 @@ export const VisualVideo = (props: VisualIconProps) => {
       <div className='visual__video-inner'>
         <video
           playsInline
+          poster={`image/poster_video${videoName}.webp`}
           src={`/video/visual_${videoName}.mp4`}
           loop
           autoPlay={true}

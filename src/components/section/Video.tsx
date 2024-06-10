@@ -95,6 +95,7 @@ const Video = () => {
       videoRef.current.play();
     } else {
       videoRef.current.pause();
+      setVideoTime(videoRef.current?.currentTime);
     }
   };
 
@@ -108,6 +109,7 @@ const Video = () => {
           autoPlay={true}
           muted
           playsInline
+          poster='/image/main_poster.webp'
           ref={videoRef}
         ></video>
       </div>
