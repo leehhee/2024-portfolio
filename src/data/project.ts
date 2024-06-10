@@ -12,6 +12,8 @@ export const project: TProject = [
     category: '사이트 클론코딩',
     link: 'https://kimbangul.github.io/enterpriseblockchain/',
     tags: ['퍼블리싱 100%', 'HTML', 'SCSS', 'JavaScript(ES6+)', 'GSAP'],
+    notion:
+      'https://meadow-touch-c48.notion.site/6f3bc970afc54f2c828d1af6ac3c27a4',
     desc: '인터랙티브 구현에 중점을 둔 클론 코딩',
     duration: '2024.06 ~ 2024.06',
     section: '엔터프라이즈블록체인 메인 페이지 클론코딩',
@@ -24,6 +26,8 @@ export const project: TProject = [
     thumb: PROJECT11.src,
     category: '사이트 클론코딩',
     link: 'https://craftcharter.vercel.app/',
+    notion:
+      'https://meadow-touch-c48.notion.site/CraftCharter-89bf85bbd0314c98954afffa437de978?pvs=74',
     tags: ['퍼블리싱 100%', 'React.js', 'SCSS', 'TypeScript', 'Lottie'],
     desc: 'React.js를 활용한 클론코딩 사이트',
     duration: '2023.01 ~ 2023.01',
