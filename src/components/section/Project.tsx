@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 import { Section } from '@/components/ui/section';
-import { project, IProjectItem } from '@/data';
+import { project, IProjectItem, blurDataUrl } from '@/data';
 import { springOption } from '@/utils';
 
 const baseProjectNum = 4;
@@ -89,7 +89,7 @@ const ProjectItem = (props: IProjectItem) => {
             <a
               className='project__item-link-item project__item-link-info'
               target='_blank'
-              href='#'
+              href={props.notion || '#'}
             >
               View Detail →
             </a>
@@ -114,7 +114,15 @@ const ProjectItem = (props: IProjectItem) => {
             scale: imgMotion.scale,
           }}
         >
-          {props.thumb && <Image src={props.thumb} fill alt='' />}
+          {props.thumb && (
+            <Image
+              src={props.thumb}
+              fill
+              alt=''
+              placeholder='blur'
+              blurDataURL={blurDataUrl}
+            />
+          )}
         </motion.a>
       </div>
     </motion.li>

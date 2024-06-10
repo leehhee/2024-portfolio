@@ -5,10 +5,11 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 import { Section } from '@/components/ui/section';
 import { getTimeForDay, springOption } from '@/utils';
+import { blurDataUrl } from '@/data';
 
 const Posts = (props: IPostsProps) => {
   return (
-    <Section className='post'>
+    <Section className='post' autoheight={true}>
       <h2 className='post__title'>Recent Posts</h2>
       <ul className='post__list'>
         {props.posts.map((el, idx) => (
@@ -57,7 +58,14 @@ const PostItem = (props: TPostsItemProps) => {
               filter: imgMotion.filter,
             }}
           >
-            <Image src={props.thumbnail} fill alt='' />
+            <Image
+              src={props.thumbnail}
+              fill
+              alt=''
+              placeholder='blur'
+              blurDataURL={blurDataUrl}
+              sizes='32vw'
+            />
           </motion.div>
         </div>
         <div className='post__item-date'>

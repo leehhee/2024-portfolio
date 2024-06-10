@@ -1,11 +1,7 @@
-import PROJECT12 from '/public/image/project12.png';
-import PROJECT11 from '/public/image/project11.png';
-import PROJECT10 from '/public/image/project10.png';
-import PROJECT09 from '/public/image/project09.png';
-import PROJECT08 from '/public/image/project08.png';
-import PROJECT07 from '/public/image/project07.png';
-import PROJECT06 from '/public/image/project06.png';
-import PROJECT05 from '/public/image/project05.png';
+import PROJECT12 from '/public/image/project12.webp';
+import PROJECT11 from '/public/image/project11.webp';
+import PROJECT07 from '/public/image/project07.webp';
+import PROJECT06 from '/public/image/project06.webp';
 
 export const project: TProject = [
   {
@@ -43,11 +39,17 @@ export const project: TProject = [
     link: 'https://rebitx.com/',
     notion:
       'https://meadow-touch-c48.notion.site/RebitX-2e919c1788d4452a94ddfd65c89dc1c0',
-    tags: ['디자인 100%', '프론트엔드 60%', 'Next.js', 'SCSS'],
+    tags: [
+      '디자인 100%',
+      '프론트엔드 60%',
+      'Next.js',
+      'JavaScript(ES6+)',
+      'SCSS',
+    ],
     desc: '상업용 부동산 조각투자 서비스의 웹 플랫폼 구축 프로젝트에 참여하여 사용자 및 관리자 사이트 전반 디자인 및 Front-end 개발 업무를 담당하였습니다.\n 프론트엔드 초기 개발환경 세팅과, 전역 상태관리 라이브러리 MobX를 도입하였으며 SCSS 스타일 가이드 명세화, 버튼이나 모달 등의 공통 컴포넌트 구축으로 커뮤니케이션 리소스를 줄여 빠르고 효율적인 작업에 기여하고자 하였습니다.',
     duration: '2022.10 ~ 2023.01',
     section: '사용자, 관리자 페이지 전반 디자인 및 Front-end 개발 담당',
-    tool: 'Figma, Next.js, SCSS, JavaScript(ES6+), Git',
+    tool: 'Figma, Next.js, SCSS, JavaScript(ES6+), MobX, Git',
   },
   {
     key: 6,
@@ -58,26 +60,17 @@ export const project: TProject = [
     // link: 'https://funchy.vercel.app/',
     notion:
       'https://meadow-touch-c48.notion.site/FUNCHY-P2P-00f2f5c02e5e403f831814c23bb2274b',
-    tags: ['디자인 40%', '프론트엔드 40%', 'Next.js', 'SCSS'],
+    tags: [
+      '디자인 40%',
+      '프론트엔드 40%',
+      'Next.js',
+      'JavaScript(ES6+)',
+      'SCSS',
+    ],
     desc: "핀테크 기반 온라인 P2P 플랫폼 'FUNCHY'의 사용자 및 관리자 사이트 디자인 및 Front-end 개발을 담당하였습니다. 페이지 간 통일성을 맞추는 것을 우선으로, 서비스 아이덴티티 구축을 위한 컬러 선정과 더 좋은 UX/UI적 표현 방식에 대해 팀원들과 논의하며 긴밀히 소통하였습니다.",
     duration: '2022.07 ~ 2022.10',
     section: '사이트 전반 디자인 및 Front-end 개발 담당',
     tool: 'Figma, Next.js, SCSS, JavaScript(ES6+), Git',
-  },
-  {
-    key: 8,
-    title: 'RebitX Mobile',
-    subtitle: '모바일 웹앱 구축',
-    thumb: PROJECT08.src,
-    category: '상업용 부동산 조각투자 플랫폼 웹앱 버전 구축',
-    link: 'https://rebit-x.vercel.app/mobile',
-    notion:
-      'https://meadow-touch-c48.notion.site/RebitX-2e919c1788d4452a94ddfd65c89dc1c0',
-    tags: ['프론트엔드 60%', 'Next.js', 'SCSS'],
-    desc: 'RebitX의 App 디자인을 토대로 모바일 Web 플랫폼을 제작하였습니다. 메인 페이지, 청약, 거래, 알림, 공지사항과 이벤트, 이용가이드 등의 게시판 페이지들의 프론트엔드 개발 작업을 주로 진행하였으며 그 외 마이페이지, 나의 정보 페이지들의 일부 데이터 바인딩 및 수정 작업을 진행하였습니다. 짧은 시간 내에 다양한 해상도의 모바일 디바이스를 대응할 수 있도록 rem 단위를 사용했습니다.',
-    duration: '2023.01 ~ 2023.02',
-    section: '주요 기능 및 게시판 페이지 Front-end 개발 담당',
-    tool: 'Next.js, SCSS, JavaScript, Git',
   },
   {
     key: 9,
@@ -86,11 +79,26 @@ export const project: TProject = [
     // thumb: PROJECT09.src,
     category: '기업 사이트 제작',
     link: 'http://daeainfosys.co.kr/',
-    tags: ['디자인 100%', '프론트엔드 100%', 'Next.js', '반응형', 'SCSS'],
-    desc: '기존 노코드 툴로 제작되었던 홈페이지를 자유롭게 커스텀 및 관리할 수 있도록 Next.js 프레임워크를 이용하여 제작하였습니다. 의료IT기업의 이미지에 맞게끔 기존 사이트를 더 현대적이고 깔끔하게 리디자인하고자 하였습니다.\nInterSection Observer API로 스크롤 애니메이션을 구현하였으며 모바일 환경에서도 이용이 용이하도록 반응형 웹을 구축하였습니다.\n리뉴얼 후 검색엔진 노출 순위의 증가로 페이지 방문수 증대에 기여하였습니다.',
+    tags: ['프론트엔드 100%', 'Next.js', 'JavaScript(ES6+)', '반응형', 'SCSS'],
+    desc: '기존 노코드 툴로 제작되었던 홈페이지를 자유롭게 커스텀 및 관리할 수 있도록 Next.js 프레임워크를 이용하여 제작하였습니다.\nInterSection Observer API로 스크롤 애니메이션을 구현하였으며 모바일 환경에서도 이용이 용이하도록 반응형 웹으로 구축하였습니다.',
     duration: '2023.11 ~ 2023.12',
     section: '사이트 전반 디자인 및 구현',
     tool: 'Next.js, SCSS, TypeScript, Recoil, Node.js, Git',
+  },
+  {
+    key: 8,
+    title: 'RebitX Mobile',
+    subtitle: '모바일 웹앱 구축',
+    //    thumb: PROJECT08.src,
+    category: '상업용 부동산 조각투자 플랫폼 웹앱 버전 구축',
+    link: 'https://rebit-x.vercel.app/mobile',
+    notion:
+      'https://meadow-touch-c48.notion.site/RebitX-2e919c1788d4452a94ddfd65c89dc1c0',
+    tags: ['프론트엔드 60%', 'Next.js', 'JavaScript(ES6+)', 'SCSS'],
+    desc: 'RebitX의 App 디자인을 토대로 모바일 Web 플랫폼을 제작하였습니다. 짧은 시간 내에 다양한 해상도의 모바일 디바이스를 대응할 수 있도록 rem 단위를 활용하였으며 Axios 라이브러리를 이용해 데이터 바인딩을 진행했습니다.',
+    duration: '2023.01 ~ 2023.02',
+    section: '주요 기능 및 게시판 페이지 Front-end 개발 담당',
+    tool: 'Next.js, SCSS, JavaScript(ES6+), Git',
   },
   // {
   //   key: 10,
@@ -121,7 +129,7 @@ export const project: TProject = [
     category: '기업 사이트 제작',
     link: 'http://xn--z69au0yv6quza.kr/',
     tags: ['퍼블리싱 100%', 'HTML', 'CSS', 'JQuery', '그누보드'],
-    desc: '그누보드 솔루션을 이용해 (주)건명테크의 회사 사이트를 제작하였습니다. 지나치게 무겁지 않으면서도 신뢰감을 줄 수 있는 회사의 이미지를 표현하기 위해 블루와 그린의 그라데이션 컬러를 사용하여 감각적으로 디자인하고자 하였습니다.',
+    desc: '그누보드 솔루션을 이용해 (주)건명테크의 기업 사이트를 제작하였습니다.',
     duration: '2022.01 ~ 2022.01',
     section: '기획, 디자인, 퍼블리싱 등 전반적인 사이트 제작 업무 담당',
     tool: 'HTML, CSS, JQuery, Photoshop, Illustrator, PHP, 그누보드5',
@@ -134,7 +142,7 @@ export const project: TProject = [
     category: '기업 사이트 리뉴얼',
     link: 'http://memoryan.com/',
     tags: ['퍼블리싱 100%', 'HTML', 'CSS', 'JQuery', '그누보드', '적응형'],
-    desc: '유골보석 및 성형업 관련 제품을 제작하는 기업의 사이트를 제작하였습니다. 판매 제품의 특성상, 방문 고객들이 두려움을 갖고 접근할 수 있기 때문에 무겁지 않으면서도 고급스러운 분위기가 느껴질 수 있도록 기획하였습니다.',
+    desc: '그누보드 솔루션을 이용해 (주)메모리안의 기업 사이트를 리뉴얼했습니다.',
     duration: '2022.03 ~ 2022.03',
     section: '기획, 디자인, 퍼블리싱 등 전반적인 사이트 제작 업무 담당',
     tool: 'HTML, CSS, JQuery, Photoshop, Illustrator, PHP, 그누보드5',
@@ -147,7 +155,7 @@ export const project: TProject = [
     category: '기업 사이트 제작',
     link: 'http://itechate.co.kr/',
     tags: ['퍼블리싱 100%', 'HTML', 'CSS', 'JQuery', '그누보드', 'PC'],
-    desc: "계측장비 판매 기업 '아이텍'의 웹 사이트를 제작하였습니다. 전반적으로 블랙과 화이트 톤, 그리고 로고에 사용된 레드 컬러를 강조색으로 차용하여 기업 이미지를 각인시키고자 하였습니다.",
+    desc: '그누보드 솔루션을 이용해 계측장비 판매 기업 아이텍의 웹 사이트를 제작하였습니다.',
     duration: '2022.03 ~ 2022.03',
     section: '기획, 디자인, 퍼블리싱 등 전반적인 사이트 제작 업무 담당',
     tool: 'HTML, CSS, JQuery, Photoshop, Illustrator, PHP, 그누보드5',
