@@ -207,7 +207,7 @@
     width: 30.67vw;
     @include tb-lg {
       // width: 39vw;
-      width: 48vw;
+      width: 46.5vw;
     }
   }
   [data-video='7'] {
@@ -277,7 +277,12 @@
       &__text-row {
         gap: 0 0.97vw;
         @include tb-lg {
+          justify-content: space-between;
           gap: 0 2.875vw;
+        }
+
+        @include mb-md {
+          gap: 0 1.6vw;
         }
       }
       &__text-container {

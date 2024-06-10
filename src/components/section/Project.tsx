@@ -45,7 +45,7 @@ const ProjectItem = (props: IProjectItem) => {
 
   const imgMotion = {
     scale: useSpring(
-      useTransform(scrollYProgress, [0, 1], [1.1, 1]),
+      useTransform(scrollYProgress, [0, 1], [1.15, 1]),
       springOption
     ),
 
