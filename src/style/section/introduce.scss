@@ -58,7 +58,7 @@
   }
   &__desc {
     // font-size: clamp(2rem, 1.77vw, 3.4rem);
-    font-size: clamp(1.8rem, 1.77vw, 2.4rem);
+    font-size: clamp(1.4rem, 1.77vw, 2.4rem);
     opacity: 0.4;
     line-height: 1.6;
 
@@ -71,6 +71,7 @@
       @include util__flex(stretch, center, clamp(0.4rem, 0.625vw, 0.83vw));
       line-height: 1;
       margin-top: max(2.4rem, 3.2vw);
+      flex-wrap: wrap;
 
       @include tb-md {
         gap: 1.2rem;

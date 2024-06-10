@@ -11,6 +11,7 @@ import {
 import Footer from '@/components/ui/footer/Footer';
 import GSAPRegister from '@/components/register/gsap/GSAPRegister';
 import { Cursor } from '@/components/ui/cursor';
+import RenisScroll from '@/components/register/renis/RenisScroll';
 
 export const metadata: Metadata = {
   title: 'YERIM.e',
@@ -57,6 +58,7 @@ export default function RootLayout({
           <Cursor />
           <Footer />
         </GSAPRegister>
+        <RenisScroll />
       </body>
     </html>
   );
