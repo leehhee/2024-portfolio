@@ -7,13 +7,17 @@ import { Section } from '@/components/ui/section';
 import { project, IProjectItem } from '@/data';
 import { springOption } from '@/utils';
 
+const baseProjectNum = 4;
+const flagshipProject = project.slice(0, baseProjectNum);
+const otherProject = project.slice(baseProjectNum, project.length);
+
 const Project = () => {
   return (
     <>
       <Section className='project' id='work'>
         <h2 className='sound-only'>대표 프로젝트</h2>
         <ul className='project__list'>
-          {project.map((el) => (
+          {flagshipProject.map((el) => (
             <ProjectItem {...el} key={el.key} />
           ))}
         </ul>
@@ -21,7 +25,7 @@ const Project = () => {
       <Section className='sub-project' autoheight={true}>
         <h2 className='sound-only'>그 외 프로젝트</h2>
         <ul className='sub-project__list'>
-          {project.map((el, idx) => (
+          {otherProject.map((el, idx) => (
             <SubProjectItem {...el} key={el.key} idx={idx} />
           ))}
         </ul>
@@ -41,7 +45,7 @@ const ProjectItem = (props: IProjectItem) => {
 
   const imgMotion = {
     scale: useSpring(
-      useTransform(scrollYProgress, [0, 1], [1.05, 1]),
+      useTransform(scrollYProgress, [0, 1], [1.1, 1]),
       springOption
     ),
 
@@ -110,7 +114,7 @@ const ProjectItem = (props: IProjectItem) => {
             scale: imgMotion.scale,
           }}
         >
-          <Image src={props.thumb} fill alt='' />
+          {props.thumb && <Image src={props.thumb} fill alt='' />}
         </motion.a>
       </div>
     </motion.li>
