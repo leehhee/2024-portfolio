@@ -7,7 +7,7 @@ export const project: TProject = [
   {
     key: 12,
     title: '엔터프라이즈블록체인',
-    subtitle: '인터랙티브 PC 웹',
+    subtitle: '인터랙티브 PC Web',
     thumb: PROJECT12.src,
     category: '사이트 클론코딩',
     link: 'https://kimbangul.github.io/enterpriseblockchain/',
@@ -21,7 +21,7 @@ export const project: TProject = [
   },
   {
     key: 11,
-    subtitle: '반응형 PC 웹사이트',
+    subtitle: '반응형 Web',
     title: 'CRAFT',
     thumb: PROJECT11.src,
     category: '사이트 클론코딩',
@@ -61,7 +61,7 @@ export const project: TProject = [
     thumb: PROJECT06.src,
     subtitle: '온라인 P2P 플랫폼',
     category: '온라인 P2P 플랫폼 서비스 구축',
-    // link: 'https://funchy.vercel.app/',
+    link: 'https://funchy.vercel.app/',
     notion:
       'https://meadow-touch-c48.notion.site/FUNCHY-P2P-00f2f5c02e5e403f831814c23bb2274b',
     tags: [
@@ -92,7 +92,7 @@ export const project: TProject = [
   {
     key: 8,
     title: 'RebitX Mobile',
-    subtitle: '모바일 웹앱 구축',
+    subtitle: '모바일 Web App',
     //    thumb: PROJECT08.src,
     category: '상업용 부동산 조각투자 플랫폼 웹앱 버전 구축',
     link: 'https://rebit-x.vercel.app/mobile',
@@ -129,7 +129,7 @@ export const project: TProject = [
     key: 5,
     title: '건명테크',
     // thumb: PROJECT05.src,
-    subtitle: 'PC 웹사이트',
+    subtitle: 'PC Web',
     category: '기업 사이트 제작',
     link: 'http://xn--z69au0yv6quza.kr/',
     tags: ['퍼블리싱 100%', 'HTML', 'CSS', 'JQuery', '그누보드'],
@@ -141,7 +141,7 @@ export const project: TProject = [
   {
     key: 3,
     title: '메모리안',
-    subtitle: '기업 사이트 제작',
+    subtitle: 'PC Web',
     //  thumb: `${process.env.NEXT_PUBLIC_CDN_LINK}/portfolio/image/work/work06.jpg`,
     category: '기업 사이트 리뉴얼',
     link: 'http://memoryan.com/',
@@ -154,7 +154,7 @@ export const project: TProject = [
   {
     key: 2,
     title: 'ITECH',
-    subtitle: '기업 사이트 제작',
+    subtitle: 'PC Web',
     // thumb: `${process.env.NEXT_PUBLIC_CDN_LINK}/portfolio/image/work/work12.jpg`,
     category: '기업 사이트 제작',
     link: 'http://itechate.co.kr/',
