@@ -99,7 +99,7 @@ const ProjectItem = (props: IProjectItem) => {
               href={props.notion || '#'}
               title={`${props.title} 상세 보기`}
             >
-              View Detail →
+              Code Review →
             </a>
           </div>
         </div>

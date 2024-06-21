@@ -1,9 +1,25 @@
+import PROJECT13 from '/public/image/project13.webp';
 import PROJECT12 from '/public/image/project12.webp';
 import PROJECT11 from '/public/image/project11.webp';
 import PROJECT07 from '/public/image/project07.webp';
 import PROJECT06 from '/public/image/project06.webp';
 
 export const project: TProject = [
+  {
+    key: 13,
+    title: 'PP Fragment',
+    subtitle: '인터랙티브 반응형 Web',
+    thumb: PROJECT13.src,
+    category: '사이트 클론코딩',
+    link: 'https://kimbangul.github.io/pp-fragment/',
+    tags: ['퍼블리싱 100%', 'HTML', 'SCSS', 'JavaScript(ES6+)', 'GSAP'],
+    notion:
+      'https://meadow-touch-c48.notion.site/PP-Fragment-d84fc55c51fd46a48b33eb58578aae47?pvs=74',
+    desc: '인터랙티브 구현에 중점을 둔 클론 코딩',
+    duration: '2024.06 ~ 2024.06',
+    section: 'PP Fragment 메인 페이지 클론코딩',
+    tool: 'HTML, SCSS, JavaScript(ES6+), GSAP',
+  },
   {
     key: 12,
     title: '엔터프라이즈블록체인',
@@ -164,18 +180,6 @@ export const project: TProject = [
     section: '기획, 디자인, 퍼블리싱 등 전반적인 사이트 제작 업무 담당',
     tool: 'HTML, CSS, JQuery, Photoshop, Illustrator, PHP, 그누보드5',
   },
-  // {
-  //   key: 1,
-  //   title: '강민이벤트',
-  //   thumb: `${process.env.NEXT_PUBLIC_CDN_LINK}/portfolio/image/work/work13.jpg`,
-  //   category: '업체 사이트 제작',
-  //   link: 'http://kmevent.kr/',
-  //   tags: ['기획 100%', '디자인 100%', 'HTML', 'CSS', 'JQuery', '그누보드', 'PC'],
-  //   desc: '개업 및 오픈 이벤트 전문 업체의 웹 사이트를 제작하였습니다. 이벤트를 통한 즐거움을 시각적으로 전달하기 위해 아이콘과 모션을 적극적으로 사용하고, 그라데이션 컬러를 사용하여 업체의 이미지를 구축하고자 하였습니다.',
-  //   duration: '2021.12 ~ 2021.12',
-  //   section: '기획, 디자인, 퍼블리싱 등 전반적인 사이트 제작 업무 담당',
-  //   tool: 'HTML, CSS, JQuery, Photoshop, Illustrator, PHP, 그누보드5',
-  // },
 ];
 
 export type TProject = IProjectItem[];
