@@ -1,6 +1,6 @@
 import '@/style/style.scss';
 
-import Favicon from '/public/favicon.ico';
+import Favicon from '/public/favicon.png';
 import type { Metadata, Viewport } from 'next';
 import { Header } from '@/components/ui/header';
 import {
@@ -14,7 +14,7 @@ import { Cursor } from '@/components/ui/cursor';
 import RenisScroll from '@/components/register/renis/RenisScroll';
 
 export const metadata: Metadata = {
-  title: 'YERIM.e',
+  title: 'FlowKat',
   description:
     '프론트엔드 개발자, 웹 퍼블리셔, 웹 개발자, UX/UI 개발자 박예림 포트폴리오입니다.',
   keywords: [
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   verification: {
     google: 'YxlqZ71uNOrnU5b6IEnjMCb7CYtdr-LeWdgBl6WlY5o',
   },
-  applicationName: 'YERIM.e',
+  applicationName: 'FlowKat',
   openGraph: {
     images: '/og-image.png',
-    title: 'YERIM.e :: 박예림 - 프론트엔드 개발자 포트폴리오',
+    title: 'FlowKat',
     type: 'website',
     description:
       '프론트엔드 개발자, 웹 퍼블리셔, 웹 개발자, UI 개발자 박예림 포트폴리오입니다.',

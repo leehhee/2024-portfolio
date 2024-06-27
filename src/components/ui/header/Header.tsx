@@ -2,7 +2,7 @@
 import { gsap, useGSAP } from '@/components/register/gsap';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import LOGO from '/public/icon/logo.svg';
+import LOGO from '/public/icon/flowkat logo.svg';
 import { LinkArrow, common } from '@/components/ui/icon';
 import { link, menu } from '@/data';
 import { useResize } from '@/hooks/useResize';
@@ -35,7 +35,7 @@ const Header = () => {
         <div className='header__inner'>
           <div className='header__logo'>
             <a href='/' title='홈으로'>
-              <h1 className='sound-only'>YERIM.e</h1>
+              <h1 className='sound-only'>FlowKat</h1>
               <LOGO className='logo' />
             </a>
           </div>
