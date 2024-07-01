@@ -14,7 +14,7 @@ const getPostList = async (
   limit: number
 ): Promise<IPostsProps> => {
   const param = { name: name, limit: limit };
-  const res = await fetch(
+  const res = await fetch (
     `${process.env.NEXT_PUBLIC_BACK_API_URL}/api/post/list`,
     {
       method: 'post',

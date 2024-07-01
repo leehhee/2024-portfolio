@@ -150,7 +150,7 @@ const Visual = () => {
       <h2 className='sound-only'>비주얼 영역</h2>
       <div className='visual__text-container pc-only'>
         <div className='visual__text-row'>
-          <VisualText>I</VisualText>
+          <VisualText>EASY</VisualText>
           <div className='visual__icon' data-icon='1'>
             <Lottie
               lottieRef={iconRef}
@@ -159,7 +159,7 @@ const Visual = () => {
               autoplay={false}
             />
           </div>
-          <VisualText>create</VisualText>
+          <VisualText></VisualText>
           <VisualVideo id={1} />
           <VisualIcon id={2} />
           <VisualIcon id={3} />
@@ -167,10 +167,10 @@ const Visual = () => {
         <div className='visual__text-row'>
           <div className='visual__line' data-line='1'></div>
           <VisualVideo id={2} />
-          <VisualText>memorable</VisualText>
+          <VisualText>FREE</VisualText>
         </div>
         <div className='visual__text-row'>
-          <VisualText>websites</VisualText>
+          <VisualText>STANDARD</VisualText>
           <div className='visual__icon' data-icon='5'>
             <Lottie
               lottieRef={icon2Ref}
@@ -199,8 +199,8 @@ const Visual = () => {
           <VisualIcon id={10} />
           <VisualIcon id={2} />
           <VisualVideo id={5} />
-          <VisualText>better</VisualText>
-          <VisualText>UX.</VisualText>
+          <VisualText>With</VisualText>
+          <VisualText>FlowKat</VisualText>
         </div>
       </div>
       <div className='visual__text-container tb-only'>
