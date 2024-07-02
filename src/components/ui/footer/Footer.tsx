@@ -2,9 +2,19 @@
 
 import { useRef } from 'react';
 import { link } from '@/data';
-import Ticker from '@/components/ui/ticker/Ticker';
+import Ticker from '@/components/ui/ticker/ticker';
+import { ticker } from '@/components/ui/icon';
+
 
 const tickerData = ['Web Publisher', 'Front-end Developer', 'UI Developer'];
+/*const tickerData = [
+  { icon: ticker.DCCO, name: 'dcco' },
+  { icon: ticker.HANBAT, name: 'hanbat' },
+  { icon: ticker.IBM, name: 'IBM' },
+  { icon: ticker.IWORKS, name: 'iworks' },
+  { icon: ticker.PRO, name: 'pro' },
+  { icon: ticker.VERITAS, name: 'Veritas' },
+];*/
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement>(null);
@@ -55,9 +65,12 @@ const Footer = () => {
         </div>
         <Ticker>
           {tickerData.map((el, idx) => (
-            <li className='ticker__item' key={`ticker__${idx}`}>
-              {el}
+         <li className='ticker__item' key={`ticker__${idx}`}>
+              {el.icon}
             </li>
+              /*  <li key={`ticker__${idx}`} className='ticker__item'>
+                          {el.icon}
+            </li> */
           ))}
         </Ticker>
       </footer>

@@ -5,18 +5,12 @@ import { skill } from '@/components/ui/icon';
 import { useRef } from 'react';
 
 const skillData = [
-  { icon: skill.HTML, name: 'HTML' },
-  { icon: skill.CSS, name: 'CSS' },
-  { icon: skill.SASS, name: 'SASS/SCSS' },
-  { icon: skill.SC, name: 'Styled-components' },
-  { icon: skill.JAVASCRIPT, name: 'Javascript(ES6+)' },
-  { icon: skill.TYPESCRIPT, name: 'Typescript' },
-  { icon: skill.JQUERY, name: 'JQuery' },
-  { icon: skill.REACT, name: 'React.js' },
-  { icon: skill.NEXT, name: 'Next.js' },
-  { icon: skill.GIT, name: 'Git' },
-  // { icon: skill.PHOTOSHOP, name: 'Photoshop' },
-  // { icon: skill.FIGMA, name: 'Figma' },
+  { icon: skill.DCCO, name: 'dcco' },
+  { icon: skill.HANBAT, name: 'hanbat' },
+  { icon: skill.IBM, name: 'IBM' },
+  { icon: skill.IWORKS, name: 'iworks' },
+  { icon: skill.PRO, name: 'pro' },
+  { icon: skill.VERITAS, name: 'Veritas' },
 ];
 
 const Introduce = () => {
@@ -86,22 +80,22 @@ const Introduce = () => {
             Adaptable
           </span>
           <span className='introduce__title-changer-item' aria-hidden='true'>
-            Versatile
+            APM
           </span>
         </span>
         <br />
-        Developer
+        FlowKat
       </h2>
       <div className='introduce__contents'>
         <p className='introduce__desc'>
           {/* By implementing impressive UI and interactions based on solid markup,{' '}
           <br className='pc-only' />I enhance the value of the service and
           provide a better user experience. */}
-          저는 견고한 마크업을 바탕으로, 서비스에 멋진 UI와 인터랙션을 구현하고
-          문제를 해결하여 사용자의 니즈를 충족시키는 것에서 보람을 느낍니다.
+          FlowKat은 오픈소스 APM의 대표격인 스카우터 기반의 Java 애플리케이션 성능 관리 솔루션입니다.
+          스카우터가 가진 강력한 기능들은 사용성이 높은 웹으로 이식하여 사용자 편의와 분석 기능을 더해 완성했습니다.
+
           <br />
-          기억에 남아 오래 사용하고 싶은 플랫폼을 만드는 것, 그리고 개발을 통해
-          더 많은 사람들의 문제를 해결하는 것이 목표입니다.
+          서비스 전반의 흐름을 수집하여 직관적이고 다양한 방법으로 사용자에게 새로운 모니터링 경험을 제공하려 노력하는 미어캣. 바로 플로우캣입니다.
         </p>
         <h3 className='sound-only'>사용 기술스택</h3>
         <ul className='introduce__icon-list'>
