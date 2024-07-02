@@ -1,5 +1,5 @@
 'use client';
-
+import LOGO from '/public/icon/flowkat logo.svg';
 import { useRef } from 'react';
 import { link } from '@/data';
 import Ticker from '@/components/ui/ticker/ticker';
@@ -24,8 +24,7 @@ const Footer = () => {
       <footer className='footer' ref={footerRef} id='contact'>
         <div className='footer__inner'>
           <p className='footer__copy'>
-            <span className='footer__copy-icon'>©</span>
-            Park Ye rim
+            <span className='footer__copy-icon'><LOGO className='logo' /></span>
           </p>
           <ul className='footer__info'>
             <li className='footer__info-item footer__year'>© 2024</li>
