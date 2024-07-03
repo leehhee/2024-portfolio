@@ -104,7 +104,7 @@ const Video = () => {
       <h2 className='sound-only'>상단 비디오 영역</h2>
       <div className='video__container'>
         <video
-          src='/video/main.mov'
+          src='/video/main.mp4'
           loop
           autoPlay={true}
           muted

@@ -65,7 +65,7 @@ const Footer = () => {
         <Ticker>
           {tickerData.map((el, idx) => (
          <li className='ticker__item' key={`ticker__${idx}`}>
-              {el.icon}
+              {el}
             </li>
               /*  <li key={`ticker__${idx}`} className='ticker__item'>
                           {el.icon}

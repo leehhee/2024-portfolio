@@ -27,7 +27,7 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     });
     config.module.rules.push({
-      test: /\.(mov)$/,
+      test: /\.(mp4|mov)$/,
       use: [
         {
           loader: 'file-loader',
