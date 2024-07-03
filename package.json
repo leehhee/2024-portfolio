@@ -13,6 +13,7 @@
     "@gsap/react": "^2.1.1",
     "@studio-freight/lenis": "^1.0.42",
     "@svgr/webpack": "^8.1.0",
+    "file-loader": "^6.2.0",
     "framer-motion": "^11.2.4",
     "lottie-react": "^2.4.0",
     "next": "^14.2.4",

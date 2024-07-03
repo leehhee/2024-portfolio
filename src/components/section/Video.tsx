@@ -104,12 +104,12 @@ const Video = () => {
       <h2 className='sound-only'>상단 비디오 영역</h2>
       <div className='video__container'>
         <video
-          src='/video/main_video.mp4'
+          src='/video/main.mov'
           loop
           autoPlay={true}
           muted
           playsInline
-          poster='/image/main_poster.webp'
+          poster='/image/main.png'
           ref={videoRef}
         ></video>
       </div>
