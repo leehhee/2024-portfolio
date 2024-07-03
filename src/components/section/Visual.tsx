@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/visual';
 
 const visualIcon = Object.entries(visual);
-const VISUAL_01 = require('/public/icon/visual/visual_01.json');
+const VISUAL_01 = require('/public/icon/visual/visual_012.json');
 const VISUAL_05 = require('/public/icon/visual/visual_05.json');
 
 const Visual = () => {
