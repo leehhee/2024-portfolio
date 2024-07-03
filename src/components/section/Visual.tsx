@@ -205,11 +205,11 @@ const Visual = () => {
       </div>
       <div className='visual__text-container tb-only'>
         <div className='visual__text-row'>
-          <VisualText>I</VisualText>
+          <VisualText>EASY</VisualText>
           <div className='visual__icon' data-icon='1'>
             <Lottie animationData={VISUAL_01} loop={false} />
           </div>
-          <VisualText>create</VisualText>
+          <VisualText></VisualText>
           <VisualIcon id={2} />
           <VisualIcon id={3} />
         </div>
@@ -217,11 +217,11 @@ const Visual = () => {
           <VisualVideo id={1} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>memorable</VisualText>
+          <VisualText>FREE</VisualText>
         </div>
         <div className='visual__text-row'>
           <VisualVideo id={4} />
-          <VisualText>websites</VisualText>
+          <VisualText>STANDARD</VisualText>
         </div>
         <div className='visual__text-row'>
           <div className='visual__line' data-line='1'></div>
@@ -241,7 +241,7 @@ const Visual = () => {
           <VisualVideo id={3} />
         </div>
         <div className='visual__text-row'>
-          <VisualText>better</VisualText>
+          <VisualText>With</VisualText>
           <VisualVideo id={5} />
         </div>
         <div className='visual__text-row'>
@@ -249,7 +249,7 @@ const Visual = () => {
           <VisualIcon id={2} />
           <VisualIcon id={10} />
           <VisualIcon id={2} />
-          <VisualText>UX.</VisualText>
+          <VisualText>FlowKat</VisualText>
         </div>
       </div>
     </Section>
