@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
-import { ticker } from '@/components/ui/icon';
+import { ticker } from '@/components/ui/ticker';
+//import { ticker } from '@/public/icon';
 
 const Ticker: React.FC<PropsWithChildren> = (props) => {
   return (
