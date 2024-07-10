@@ -16,9 +16,9 @@ import RenisScroll from '@/components/register/renis/RenisScroll';
 export const metadata: Metadata = {
   title: 'FlowKat',
   description:
-    '프론트엔드 개발자, 웹 퍼블리셔, 웹 개발자, UX/UI 개발자 박예림 포트폴리오입니다.',
+    '오픈소스 기반 Java 성능 관리 솔루션',
   keywords: [
-    '프론트엔드 개발자, 프론트엔드 포트폴리오, 웹 퍼블리셔 포트폴리오, UX 엔지니어, UI 개발자, 웹 퍼블리셔',
+    'APM, Java 성능 관리 솔루션',
   ],
   icons: [{ rel: 'icon', url: Favicon.src }],
   verification: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'FlowKat',
     type: 'website',
     description:
-      '프론트엔드 개발자, 웹 퍼블리셔, 웹 개발자, UI 개발자 박예림 포트폴리오입니다.',
+      '오픈소스 기반 Java 성능 관리 솔루션',
   },
 };
 export const viewport: Viewport = {

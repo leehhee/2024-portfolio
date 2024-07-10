@@ -4,15 +4,17 @@ import { Section } from '@/components/ui/section';
 import { skill } from '@/components/ui/icon';
 import { useRef } from 'react';
 
-const skillData = [
-  { icon: skill.DCCO, name: 'dcco' },
-  { icon: skill.HANBAT, name: 'hanbat' },
-  { icon: skill.IBM, name: 'IBM' },
-  { icon: skill.IWORKS, name: 'iworks' },
-  { icon: skill.PRO, name: 'pro' },
-  { icon: skill.VERITAS, name: 'Veritas' },
-];
+import Ticker from '@/components/ui/ticker/ticker';
 
+
+const tickerData = [
+  "/icon/ticker/dcco.png",
+  "/icon/ticker/hanbat.png",
+  "/icon/ticker/IBM.png",
+  "/icon/ticker/iworks.png",
+  "/icon/ticker/pro.png",
+  "/icon/ticker/Veritas.png"
+];
 const Introduce = () => {
   const introduceRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -73,6 +75,8 @@ const Introduce = () => {
 
   return (
     <Section className='introduce' dom={introduceRef}>
+
+
       <h2 className='introduce__title'>
         <span className='introduce__title-changer' ref={textRef}>
           <span className='introduce__title-changer-item'>Flexible</span>
@@ -86,6 +90,8 @@ const Introduce = () => {
         <br />
         FlowKat
       </h2>
+
+
       <div className='introduce__contents'>
         <p className='introduce__desc'>
           {/* By implementing impressive UI and interactions based on solid markup,{' '}
@@ -98,15 +104,24 @@ const Introduce = () => {
           서비스 전반의 흐름을 수집하여 직관적이고 다양한 방법으로 사용자에게 새로운 모니터링 경험을 제공하려 노력하는 미어캣. 바로 플로우캣입니다.
         </p>
         <h3 className='sound-only'>사용 기술스택</h3>
-        <ul className='introduce__icon-list'>
-          {skillData.map((el) => (
-            <li key={el.name} className='introduce__icon-item'>
-              {el.icon}
-              <span className='sound-only'>{el.name}</span>
-            </li>
-          ))}
-        </ul>
       </div>
+
+
+
+
+            <Ticker>
+
+             {tickerData.map((imgSrc, idx) => (
+               <li className='ticker__item' key={`ticker__${idx}`}>
+                 <img src={imgSrc} alt={`ticker-item-${idx}`} />
+               </li>
+             ))}
+
+           </Ticker>
+
+
+
+
     </Section>
   );
 };
