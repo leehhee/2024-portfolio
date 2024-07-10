@@ -187,7 +187,7 @@ const Visual = () => {
         <div className='visual__text-row'>
           <VisualVideo id={4} />
           <VisualIcon id={7} />
-          <VisualText>and</VisualText>
+          <VisualText>With</VisualText>
           <div className='visual__line' data-line='2'></div>
           <VisualIcon id={2} />
           <VisualIcon id={3} />
@@ -199,7 +199,6 @@ const Visual = () => {
           <VisualIcon id={10} />
           <VisualIcon id={2} />
           <VisualVideo id={5} />
-          <VisualText>With</VisualText>
           <VisualText>FlowKat</VisualText>
         </div>
       </div>

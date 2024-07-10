@@ -12,4 +12,5 @@ export const blurDataUrl =
 export const menu = [
   { text: 'Work', href: '#work' },
   { text: 'Contact', href: '#contact' },
+  { text: 'Manual', href: 'https://flowkat.papercraft.dev/' },
 ];

@@ -27,7 +27,7 @@ const Footer = () => {
       <footer className='footer' ref={footerRef} id='contact'>
         <div className='footer__inner'>
           <p className='footer__copy'>
-            <span className='footer__copy-icon'><LOGO className='logo' /></span>
+            <span className='footer__copy-icon'><LOGO className='footer__logo' /></span>
           </p>
           <ul className='footer__info'>
             <li className='footer__info-item footer__year'>© 2024</li>
