@@ -14,17 +14,22 @@
     }
   }
   &__copy {
+    width: 500px;
+    margin: 0 auto;
     font-size: min(6.25vw, 12rem);
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
     line-height: 0.8;
 
+
+
     @include tb-lg {
       font-size: min(5rem, 11.2vw);
     }
 
     &-icon {
+    width: 300px;
       font-family: var(--font-script), #{$font__pretendard};
     }
   }
