@@ -1,5 +1,7 @@
 export const link = {
+
   manual: 'https://flowkat.papercraft.dev/',
+  mail: 'flowkat@papercraft.dev',
   instgram:
     'https://www.instagram.com/flowkat_official/',
   techblog: 'https://velog.io/@kimbangul',

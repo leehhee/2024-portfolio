@@ -70,8 +70,7 @@ const Introduce = () => {
         stagger: 0.1,
       });
     },
-    { scope: introduceRef }
-  );
+    { scope: introduceRef }  );
 
   return (
     <Section className='introduce' dom={introduceRef}>
@@ -94,23 +93,21 @@ const Introduce = () => {
 
       <div className='introduce__contents'>
         <p className='introduce__desc'>
-          {/* By implementing impressive UI and interactions based on solid markup,{' '}
-          <br className='pc-only' />I enhance the value of the service and
-          provide a better user experience. */}
+
           FlowKat은 오픈소스 APM의 대표격인 스카우터 기반의 Java 애플리케이션 성능 관리 솔루션입니다.
           스카우터가 가진 강력한 기능들은 사용성이 높은 웹으로 이식하여 사용자 편의와 분석 기능을 더해 완성했습니다.
 
           <br />
           서비스 전반의 흐름을 수집하여 직관적이고 다양한 방법으로 사용자에게 새로운 모니터링 경험을 제공하려 노력하는 미어캣. 바로 플로우캣입니다.
         </p>
-        <h3 className='sound-only'>사용 기술스택</h3>
+
       </div>
 
 
 
 
-            <Ticker>
-
+            <Ticker >
+            <h3 className='sound-only'>사용 기술스택</h3>
              {tickerData.map((imgSrc, idx) => (
                <li className='ticker__item' key={`ticker__${idx}`}>
                  <img src={imgSrc} alt={`ticker-item-${idx}`} />

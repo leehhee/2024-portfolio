@@ -2,7 +2,7 @@
 import LOGO from '/public/icon/flowkat logo.svg';
 import { useRef } from 'react';
 import { link } from '@/data';
-import { Reference, IReference } from '@/data';
+//import { Reference, IReference } from '@/data';
 
 import Ticker from '@/components/ui/ticker/ticker';
 
@@ -48,7 +48,7 @@ const Footer = () => {
             <li className='footer__info-item'>
               <a
                 className='footer__info-link'
-                href={link.velog}
+                href={link.techblog}
                 target='_blank'
               >
                 techblog
@@ -66,7 +66,7 @@ const Footer = () => {
           </ul>
         </div>
 
-
+{/*
 
        <Ticker>
          {tickerData.map((imgSrc, idx) => (
@@ -74,7 +74,7 @@ const Footer = () => {
              <img src={imgSrc} alt={`ticker-item-${idx}`} />
            </li>
          ))}
-       </Ticker>
+       </Ticker> */}
 
       </footer>
     </>
