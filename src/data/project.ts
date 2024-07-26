@@ -1,4 +1,4 @@
-import PROJECT13 from '/public/image/project13.mp4';
+import PROJECT13 from '/public/image/project13.gif';
 import PROJECT12 from '/public/image/project12.webp';
 import PROJECT11 from '/public/image/project11.webp';
 import PROJECT07 from '/public/image/project07.webp';
@@ -21,7 +21,7 @@ export const project: TProject = [
   },
   {
     key: 12,
-    title: '엔터프라이즈블록체인',
+    title: 'XLOG',
     subtitle: '인터랙티브 PC Web',
     thumb: PROJECT12.src,
     category: '사이트 클론코딩',
@@ -36,8 +36,8 @@ export const project: TProject = [
   },
   {
     key: 11,
-    subtitle: '반응형 Web',
-    title: 'CRAFT',
+    subtitle: '트랜잭션 분석',
+    title: '트랜잭션 분석',
     thumb: PROJECT11.src,
     category: '사이트 클론코딩',
     link: 'https://craftcharter.vercel.app/',
@@ -51,7 +51,7 @@ export const project: TProject = [
   },
   {
     key: 7,
-    title: 'RebitX',
+    title: '비동기 모니터링',
     subtitle: '상업용 부동산 조각투자 플랫폼',
     thumb: PROJECT07.src,
     category: '상업용 부동산 조각투자 플랫폼 구축',
