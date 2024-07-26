@@ -1,4 +1,4 @@
-import PROJECT13 from '/public/image/project13.gif';
+import PROJECT13 from '/public/image/project13.mp4';
 import PROJECT12 from '/public/image/project12.webp';
 import PROJECT11 from '/public/image/project11.webp';
 import PROJECT07 from '/public/image/project07.webp';
@@ -7,14 +7,13 @@ import PROJECT06 from '/public/image/project06.webp';
 export const project: TProject = [
   {
     key: 13,
-    title: 'PP Fragment',
-    subtitle: '인터랙티브 반응형 Web',
+    title: '트랜잭션 분석',
+    subtitle: '드래그 앤 드롭으로 XLOG 범위를 지정하여 조회할 수 있습니다.',
     thumb: PROJECT13.src,
     category: '사이트 클론코딩',
-    link: 'https://kimbangul.github.io/pp-fragment/',
-    tags: ['퍼블리싱 100%', 'HTML', 'SCSS', 'JavaScript(ES6+)', 'GSAP'],
-    notion:
-      'https://meadow-touch-c48.notion.site/PP-Fragment-d84fc55c51fd46a48b33eb58578aae47?pvs=74',
+    //link: 'https://kimbangul.github.io/pp-fragment/',
+    tags: ['XLOG', 'Drag and Drop', 'Transaction'],
+    //notion:      'https://meadow-touch-c48.notion.site/PP-Fragment-d84fc55c51fd46a48b33eb58578aae47?pvs=74',
     desc: '인터랙티브 구현에 중점을 둔 클론 코딩',
     duration: '2024.06 ~ 2024.06',
     section: 'PP Fragment 메인 페이지 클론코딩',

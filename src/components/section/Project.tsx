@@ -83,25 +83,7 @@ const ProjectItem = (props: IProjectItem) => {
             <h3 className='project__item-title'>{props.title}</h3>
             <p className='project__item-sub'>{props.subtitle}</p>
           </a>
-          <div className='project__item-link'>
-            <a
-              className='project__item-link-item tb-only'
-              target='_blank'
-              href={props.link}
-              title={props.title}
-              {...linkOption}
-            >
-              View Project →
-            </a>
-            <a
-              className='project__item-link-item project__item-link-info'
-              target='_blank'
-              href={props.notion || '#'}
-              title={`${props.title} 상세 보기`}
-            >
-              Code Review →
-            </a>
-          </div>
+
         </div>
         <ul className='project__tag pc-only'>
           {props.tags?.map((el, idx) => (
